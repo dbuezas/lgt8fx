@@ -1,173 +1,99 @@
-##############################################################
-lardu_328p48.name= LGT8F328P-LQFP48 MiniEVB (16MHz)
-lardu_328p48.upload.tool=avrdude
-lardu_328p48.upload.protocol=arduino
-lardu_328p48.upload.maximum_size=29696
-lardu_328p48.upload.speed=57600
-lardu_328p48.bootloader.tool=avrdude
-lardu_328p48.bootloader.high_fuses=0xff
-lardu_328p48.bootloader.low_fuses=0xff
-lardu_328p48.bootloader.extended_fuses=0x07
-lardu_328p48.bootloader.path=lgt8fx8p
-lardu_328p48.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
-lardu_328p48.bootloader.unlock_bits=0x3f
-lardu_328p48.bootloader.lock_bits=0x3f
-lardu_328p48.build.mcu=atmega328p
-#lardu_328p48.build.f_cpu=32000000L
-lardu_328p48.build.f_cpu=16000000L
-lardu_328p48.build.core=lgt8f
-lardu_328p48.build.variant=lgt8fx8p48
-lardu_328p48.build.board=AVR_LARDU_328E
+# See: http://code.google.com/p/arduino/wiki/Platforms
+# Based on https://github.com/LGTMCU/Larduino_HSP
 
-lardu_328p48_32MHz.name= LGT8F328P-LQFP48 MiniEVB (32MHz)
-lardu_328p48_32MHz.upload.tool=avrdude
-lardu_328p48_32MHz.upload.protocol=arduino
-lardu_328p48_32MHz.upload.maximum_size=29696
-lardu_328p48_32MHz.upload.speed=57600
-lardu_328p48_32MHz.bootloader.tool=avrdude
-lardu_328p48_32MHz.bootloader.high_fuses=0xff
-lardu_328p48_32MHz.bootloader.low_fuses=0xff
-lardu_328p48_32MHz.bootloader.extended_fuses=0x07
-lardu_328p48_32MHz.bootloader.path=lgt8fx8p
-lardu_328p48_32MHz.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
-lardu_328p48_32MHz.bootloader.unlock_bits=0x3f
-lardu_328p48_32MHz.bootloader.lock_bits=0x3f
-lardu_328p48_32MHz.build.mcu=atmega328p
-lardu_328p48_32MHz.build.f_cpu=32000000L
-#lardu_328p48_32MHz.build.f_cpu=16000000L
-lardu_328p48_32MHz.build.core=lgt8f
-lardu_328p48_32MHz.build.variant=lgt8fx8p48
-lardu_328p48_32MHz.build.board=AVR_LARDU_328E
+# Menu options
+menu.clock=Clock
+menu.variant=Variant
 
-lardu_328p.name= LGT8F328P-LQFP32 MiniEVB (16MHz)
-lardu_328p.upload.tool=avrdude
-lardu_328p.upload.protocol=arduino
-lardu_328p.upload.maximum_size=29696
-lardu_328p.upload.speed=57600
-lardu_328p.bootloader.tool=avrdude
-lardu_328p.bootloader.high_fuses=0xff
-lardu_328p.bootloader.low_fuses=0xff
-lardu_328p.bootloader.extended_fuses=0x07
-lardu_328p.bootloader.path=lgt8fx8p
-lardu_328p.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
-lardu_328p.bootloader.unlock_bits=0x3f
-lardu_328p.bootloader.lock_bits=0x3f
-lardu_328p.build.mcu=atmega328p
-lardu_328p.build.f_cpu=16000000L
-lardu_328p.build.core=lgt8f
-lardu_328p.build.variant=lgt8fx8p
-lardu_328p.build.board=AVR_LARDU_328E
+#############################
+#### LGT8F328 P/E/S      ####
+#############################
 
-lardu_328p_32MHz.name= LGT8F328P-LQFP32 MiniEVB (32MHz)
-lardu_328p_32MHz.upload.tool=avrdude
-lardu_328p_32MHz.upload.protocol=arduino
-lardu_328p_32MHz.upload.maximum_size=29696
-lardu_328p_32MHz.upload.speed=57600
-lardu_328p_32MHz.bootloader.tool=avrdude
-lardu_328p_32MHz.bootloader.high_fuses=0xff
-lardu_328p_32MHz.bootloader.low_fuses=0xff
-lardu_328p_32MHz.bootloader.extended_fuses=0x07
-lardu_328p_32MHz.bootloader.path=lgt8fx8p
-lardu_328p_32MHz.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
-lardu_328p_32MHz.bootloader.unlock_bits=0x3f
-lardu_328p_32MHz.bootloader.lock_bits=0x3f
-lardu_328p_32MHz.build.mcu=atmega328p
-lardu_328p_32MHz.build.f_cpu=32000000L
-lardu_328p_32MHz.build.core=lgt8f
-lardu_328p_32MHz.build.variant=lgt8fx8p
-lardu_328p_32MHz.build.board=AVR_LARDU_328E
+328.name=LGT8F328
+328.upload.tool=avrdude
+328.upload.protocol=arduino
+328.upload.maximum_size=29696
+328.upload.speed=57600
+328.bootloader.tool=avrdude
+328.bootloader.high_fuses=0xff
+328.bootloader.low_fuses=0xff
+328.bootloader.extended_fuses=0x07
+328.bootloader.unlock_bits=0x3f
+328.bootloader.lock_bits=0x3f
+328.build.core=lgt8f
+328.build.mcu=atmega328p
+328.build.board=AVR_LARDU_328E
 
-lardu_328e.name= Larduino w/ LGT8F328D
-lardu_328e.upload.tool=avrdude
-lardu_328e.upload.protocol=arduino
-lardu_328e.upload.maximum_size=29696
-lardu_328e.upload.speed=57600
-lardu_328e.bootloader.tool=avrdude
-lardu_328e.bootloader.high_fuses=0xff
-lardu_328e.bootloader.low_fuses=0xff
-lardu_328e.bootloader.extended_fuses=0x07
-lardu_328e.bootloader.path=lgt8fx8e
-lardu_328e.bootloader.file=lgt8fx8e/optiboot_lgt8f328d.hex
-lardu_328e.bootloader.unlock_bits=0x3f
-lardu_328e.bootloader.lock_bits=0x3f
-lardu_328e.build.mcu=atmega328p
-lardu_328e.build.f_cpu=16000000L
-lardu_328e.build.core=lgt8f
-lardu_328e.build.variant=lgt8fx8e
-lardu_328e.build.board=AVR_LARDU_328E
+# Clock frequencies
+328.menu.clock.32MHz_internal=32 MHz internal
+328.menu.clock.32MHz_internal.build.f_cpu=32000000L
+328.menu.clock.16MHz_internal=16 MHz internal
+328.menu.clock.16MHz_internal.build.f_cpu=16000000L
+328.menu.clock.8MHz_internal=8 MHz internal
+328.menu.clock.8MHz_internal.build.f_cpu=8000000L
+328.menu.clock.4MHz_internal=4 MHz internal
+328.menu.clock.4MHz_internal.build.f_cpu=4000000L
+328.menu.clock.2MHz_internal=2 MHz internal
+328.menu.clock.2MHz_internal.build.f_cpu=2000000L
+328.menu.clock.1MHz_internal=1 MHz internal
+328.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
-lardu_328e_32MHz.name= Larduino w/ LGT8F328D (32MHz)
-lardu_328e_32MHz.upload.tool=avrdude
-lardu_328e_32MHz.upload.protocol=arduino
-lardu_328e_32MHz.upload.maximum_size=29696
-lardu_328e_32MHz.upload.speed=57600
-lardu_328e_32MHz.bootloader.tool=avrdude
-lardu_328e_32MHz.bootloader.high_fuses=0xff
-lardu_328e_32MHz.bootloader.low_fuses=0xff
-lardu_328e_32MHz.bootloader.extended_fuses=0x07
-lardu_328e_32MHz.bootloader.path=lgt8fx8e
-lardu_328e_32MHz.bootloader.file=lgt8fx8e/optiboot_lgt8f328d.hex
-lardu_328e_32MHz.bootloader.unlock_bits=0x3f
-lardu_328e_32MHz.bootloader.lock_bits=0x3f
-lardu_328e_32MHz.build.mcu=atmega328p
-lardu_328e_32MHz.build.f_cpu=32000000L
-lardu_328e_32MHz.build.core=lgt8f
-lardu_328e_32MHz.build.variant=lgt8fx8e
-lardu_328e_32MHz.build.board=AVR_LARDU_328E
+# Variants
+328.menu.variant.modelP48=328P-LQFP48 MiniEVB
+328.menu.variant.modelP48.bootloader.path=lgt8fx8p
+328.menu.variant.modelP48.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
+328.menu.variant.modelP48.build.variant=lgt8fx8p48
 
-lardu_328s.name= Larduino w/ LGT8F328D-SSOP20
-lardu_328s.upload.tool=avrdude
-lardu_328s.upload.protocol=arduino
-lardu_328s.upload.maximum_size=29696
-lardu_328s.upload.speed=57600
-lardu_328s.bootloader.tool=avrdude
-lardu_328s.bootloader.high_fuses=0xff
-lardu_328s.bootloader.low_fuses=0xff
-lardu_328s.bootloader.extended_fuses=0x07
-lardu_328s.bootloader.path=lgt8fx8e
-lardu_328s.bootloader.file=lgt8fx8e/optiboot_lgt8f328d.hex
-lardu_328s.bootloader.unlock_bits=0x3f
-lardu_328s.bootloader.lock_bits=0x3f
-lardu_328s.build.mcu=atmega328p
-lardu_328s.build.f_cpu=16000000L
-lardu_328s.build.core=lgt8f
-lardu_328s.build.variant=lgt8fx8ds20
-lardu_328s.build.board=AVR_LARDU_328E
+328.menu.variant.modelP=328P-LQFP32 (e.g. MiniEVB nano-style)
+328.menu.variant.modelP.bootloader.path=lgt8fx8p
+328.menu.variant.modelP.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
+328.menu.variant.modelP.build.variant=lgt8fx8p
 
-lardu_328s_32MHz.name= Larduino w/ LGT8F328D-SSOP20 (32MHz)
-lardu_328s_32MHz.upload.tool=avrdude
-lardu_328s_32MHz.upload.protocol=arduino
-lardu_328s_32MHz.upload.maximum_size=29696
-lardu_328s_32MHz.upload.speed=57600
-lardu_328s_32MHz.bootloader.tool=avrdude
-lardu_328s_32MHz.bootloader.high_fuses=0xff
-lardu_328s_32MHz.bootloader.low_fuses=0xff
-lardu_328s_32MHz.bootloader.extended_fuses=0x07
-lardu_328s_32MHz.bootloader.path=lgt8fx8e
-lardu_328s_32MHz.bootloader.file=lgt8fx8e/optiboot_lgt8f328d.hex
-lardu_328s_32MHz.bootloader.unlock_bits=0x3f
-lardu_328s_32MHz.bootloader.lock_bits=0x3f
-lardu_328s_32MHz.build.mcu=atmega328p
-lardu_328s_32MHz.build.f_cpu=32000000L
-lardu_328s_32MHz.build.core=lgt8f
-lardu_328s_32MHz.build.variant=lgt8fx8ds20
-lardu_328s_32MHz.build.board=AVR_LARDU_328E
+328.menu.variant.modelD=328D (e.g. WAVGAT AVG328D)
+328.menu.variant.modelD.bootloader.path=lgt8fx8e
+328.menu.variant.modelD.bootloader.file=lgt8fx8e/optiboot_lgt8f328d.hex
+328.menu.variant.modelD.build.variant=lgt8fx8e
 
-lardu_88ds20.name= Larduino w/ LGT8F88D-SSOP20
-lardu_88ds20.upload.tool=avrdude
-lardu_88ds20.upload.protocol=arduino
-lardu_88ds20.upload.maximum_size=7168
-lardu_88ds20.upload.speed=57600
-lardu_88ds20.bootloader.tool=avrdude
-lardu_88ds20.bootloader.high_fuses=0xff
-lardu_88ds20.bootloader.low_fuses=0xff
-lardu_88ds20.bootloader.extended_fuses=0x07
-lardu_88ds20.bootloader.path=lgt8fx8ds20
-lardu_88ds20.bootloader.file=lgt8fx8ds20/optiboot_lgt8f88ds20.hex
-lardu_88ds20.bootloader.unlock_bits=0x3f
-lardu_88ds20.bootloader.lock_bits=0x3f
-lardu_88ds20.build.mcu=atmega88
-lardu_88ds20.build.f_cpu=16000000L
-lardu_88ds20.build.core=lgt8f
-lardu_88ds20.build.variant=lgt8fx8ds20
-lardu_88ds20.build.board=AVR_LARDU_88DS20
+328.menu.variant.modelD_SSOP20=328D-SSOP20 (e.g. green pro mini alternative)
+328.menu.variant.modelD_SSOP20.bootloader.path=lgt8fx8e
+328.menu.variant.modelD_SSOP20.bootloader.file=lgt8fx8e/optiboot_lgt8f328d.hex
+328.menu.variant.modelD_SSOP20.build.variant=lgt8fx8ds20
+
+############################
+#### LGT8F88            ####
+############################
+
+88.name=LGT8F88
+88.upload.tool=avrdude
+88.upload.protocol=arduino
+88.upload.maximum_size=7168
+88.upload.speed=57600
+88.bootloader.tool=avrdude
+88.bootloader.high_fuses=0xff
+88.bootloader.low_fuses=0xff
+88.bootloader.extended_fuses=0x07
+88.bootloader.unlock_bits=0x3f
+88.bootloader.lock_bits=0x3f
+88.build.mcu=atmega88
+88.build.core=lgt8f
+88.build.board=AVR_LARDU_88DS20
+
+# Clock frequencies
+88.menu.clock.32MHz_internal=32 MHz internal
+88.menu.clock.32MHz_internal.build.f_cpu=32000000L
+88.menu.clock.16MHz_internal=16 MHz internal
+88.menu.clock.16MHz_internal.build.f_cpu=16000000L
+88.menu.clock.8MHz_internal=8 MHz internal
+88.menu.clock.8MHz_internal.build.f_cpu=8000000L
+88.menu.clock.4MHz_internal=4 MHz internal
+88.menu.clock.4MHz_internal.build.f_cpu=4000000L
+88.menu.clock.2MHz_internal=2 MHz internal
+88.menu.clock.2MHz_internal.build.f_cpu=2000000L
+88.menu.clock.1MHz_internal=1 MHz internal
+88.menu.clock.1MHz_internal.build.f_cpu=1000000L
+
+# Variants
+88.menu.variant.modelD=LGT8F88D-SSOP20
+88.menu.variant.modelD.bootloader.path=lgt8fx8ds20
+88.menu.variant.modelD.bootloader.file=lgt8fx8ds20/optiboot_lgt8f88ds20.hex
+88.menu.variant.modelD.build.variant=lgt8fx8ds20
