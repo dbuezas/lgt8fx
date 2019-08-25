@@ -28,6 +28,7 @@ Now the boards appear in the IDE and you can also select the clock speed.
 - [x] Fast_IO update (from larduino package)
 - [x] Automatic prescaler setup
 - [x] In Menu support of 1, 2, 4, 8, 16 and 32 Mhz
+- [x] Digital Analog Converter works
 - [ ] Analog Comparator
 - [ ] Differential Amplifier update
 - [ ] Computation Accelerator
