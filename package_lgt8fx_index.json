@@ -13,12 +13,12 @@
           "architecture": "avr",
           "version": "1.0.0",
           "category": "lgt8fx",
-          "url": "http://127.0.0.1:8000/lgt8f-1.0.0.zip",
+          "url": "https://raw.githubusercontent.com/dbuezas/lgt8fx/master/lgt8f-1.0.0.zip",
           "archiveFileName": "lgt8f-1.0.0.zip",
-          "checksum": "SHA-256:482c8e356494f53d145d96bd4fb94874e4c6857220270991ca8fd404a5097e3a",
-          "size": "584175",
+          "checksum": "SHA-256:c0645f7bf8a2b8169cbb5ed70195fe703db9f63890b880c337630f3c2b3a916f",
+          "size": "586752",
           "help": {
-            "online": "https://github.com/LGTMCU/Larduino_HSP/isues"
+            "online": "https://github.com/dbuezas/LGT8fx/isues"
           },
           "boards": [
             {

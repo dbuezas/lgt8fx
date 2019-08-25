@@ -37,12 +37,14 @@ platforms.unshift({
   architecture: "avr",
   version: newVersion,
   category: "lgt8fx",
-  url: "http://127.0.0.1:8000/" + archiveFileName,
+  url:
+    "https://raw.githubusercontent.com/dbuezas/lgt8fx/master/" +
+    archiveFileName,
   archiveFileName,
   checksum,
   size,
   help: {
-    online: "https://github.com/LGTMCU/Larduino_HSP/isues"
+    online: "https://github.com/dbuezas/LGT8fx/isues"
   },
   boards: [
     { name: "LGT8F328P-LQFP48 MiniEVB" },
