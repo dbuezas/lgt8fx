@@ -1,0 +1,66 @@
+#######################################
+# Syntax Coloring Map For Rtc_Pcf8563
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Rtc_Pcf8563     KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+zeroClock       KEYWORD2
+initClock       KEYWORD2
+clearStatus     KEYWORD2
+getDateTime     KEYWORD2
+getDate         KEYWORD2
+setDateTime     KEYWORD2
+setDate         KEYWORD2
+getTime         KEYWORD2
+setTime         KEYWORD2
+setAlarm        KEYWORD2
+clearAlarm      KEYWORD2
+getStatus1      KEYWORD2
+getStatus2      KEYWORD2
+getVoltLow      KEYWORD2
+getSecond       KEYWORD2
+getMinute       KEYWORD2
+getHour         KEYWORD2
+getDay          KEYWORD2
+getWeekDay      KEYWORD2
+getMonth        KEYWORD2
+getYear         KEYWORD2
+getCentury      KEYWORD2
+formatTime      KEYWORD2
+formatDate      KEYWORD2
+timerEnabled    KEYWORD2
+timerActive     KEYWORD2
+enableTImer     KEYWORD2
+setTimer        KEYWORD2
+clearTimer      KEYWORD2
+resetTimer      KEYWORD2
+getTimerControl KEYWORD2
+getTimerValue   KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+RTCC_DATE_WORLD LITERAL1
+RTCC_DATE_ASIA  LITERAL1
+RTCC_DATE_US    LITERAL1
+RTCC_TIME_HMS   LITERAL1
+RTCC_TIME_HM    LITERAL1
+
+SQW_DISABLE     LITERAL1
+SQW_32KHZ       LITERAL1
+SQW_1024HZ      LITERAL1
+SQW_32HZ        LITERAL1
+SQW_1HZ         LITERAL1
+
+TMR_4096HZ      LITERAL1
+TMR_64Hz        LITERAL1
+TMR_1Hz         LITERAL1
+TMR_1MIN        LITERAL1

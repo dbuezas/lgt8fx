@@ -1,0 +1,40 @@
+#######################################
+# Syntax Coloring Map For Ultrasound
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+digitalToggle		KEYWORD2
+sysClock		KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+E0		LITERAL1
+E1		LITERAL1
+E2		LITERAL1
+E3		LITERAL1
+E4		LITERAL1
+E5		LITERAL1
+E6		LITERAL1
+E7		LITERAL1
+B6		LITERAL1
+B7		LITERAL1
+C7		LITERAL1
+F0		LITERAL1
+F1		LITERAL1
+F2		LITERAL1
+F3		LITERAL1
+F4		LITERAL1
+F5		LITERAL1
+F6		LITERAL1
+F7		LITERAL1
+EXT_OSC		LITERAL1
+INT_OSC		LITERAL1
+
+

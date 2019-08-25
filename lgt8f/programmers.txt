@@ -1,0 +1,8 @@
+# See: http://code.google.com/p/arduino/wiki/Platforms
+
+lgtmkii.name=LGTSWD mkII as ISP
+lgtmkii.communication=usb
+lgtmkii.protocol=jtag2isp
+lgtmkii.program.protocol=jtag2isp
+lgtmkii.program.tool=avrdude
+lgtmkii.program.extra_params=-Pusb

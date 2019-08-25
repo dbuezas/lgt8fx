@@ -1,0 +1,28 @@
+#######################################
+# Syntax Coloring Map For Ultrasound
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+WTO_1MS		KEYWORD1
+WTO_2MS		KEYWORD1
+WTO_4MS		KEYWORD1
+WTO_8MS		KEYWORD1
+WTO_16MS	KEYWORD1
+WTO_32MS	KEYWORD1
+WTO_64MS	KEYWORD1
+WTO_128MS	KEYWORD1
+WTO_256MS	KEYWORD1
+WTO_512MS	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+wdt_enable	KEYWORD2
+wdt_reset	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+

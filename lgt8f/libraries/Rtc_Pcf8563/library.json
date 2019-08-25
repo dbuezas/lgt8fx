@@ -1,0 +1,16 @@
+{
+  "name": "Rtc_Pcf8563",
+  "keywords": "rtc, clock, time, calendar",
+  "description": "Real-Time Clock (RTC) and calendar optimized for low power consumption",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/elpaso/Rtc_Pcf8563.git"
+  },
+  "authors": {
+    "name": "Joe Robertson",
+    "url": "http://orbitalair.wikispaces.com/Arduino"
+  },
+  "frameworks": "arduino",
+  "platforms": "atmelavr"
+}
