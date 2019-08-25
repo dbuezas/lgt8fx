@@ -120,6 +120,22 @@ int main(void)
 #if defined(USBCON)
 	USBDevice.attach();
 #endif
+
+  // set clock prescaler
+	CLKPR = 0x80;
+#if F_CPU == 32000000L
+  CLKPR = 0x00;
+#elif F_CPU == 16000000L
+  CLKPR = 0x01;
+#elif F_CPU == 8000000L
+  CLKPR = 0x02;
+#elif F_CPU == 4000000L
+  CLKPR = 0x03;
+#elif F_CPU == 2000000L
+  CLKPR = 0x04;
+#elif F_CPU == 1000000L
+  CLKPR = 0x05;
+#endif
 	setup();
     
 	for (;;) {
