@@ -1,6 +1,6 @@
 //============================================
 // Larduino w/ 328D
-// DAC0 output demo 
+// DAC0 output demo
 // DACO output ==> D4 on board
 //============================================
 
@@ -16,8 +16,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  //analogWrite(4, value);
+  analogWrite(4, value);
   delay(10);
   value += 10;
 }
-
