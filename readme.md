@@ -1,4 +1,5 @@
 Based on https://github.com/LGTMCU/Larduino_HSP. Go there for more info.
+Also there is a ton of information here: https://github.com/RalphBacon/LGT8F328P-Arduino-Clone-Chip-ATMega328P
 
 # Board Package for Logic Green Atmel ATMEGA 328 derivates
 
