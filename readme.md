@@ -1,11 +1,5 @@
 Based on https://github.com/LGTMCU/Larduino_HSP and https://github.com/RalphBacon/LGT8F328P-Arduino-Clone-Chip-ATMega328P
 
-- LGT8F328P-LQFP48
-- LGT8F328P-LQFP32
-- LGT8F328D
-- LGT8F328D-SSOP20
-- LGT8F88D-SSOP20
-
 # How to install
 
 Add the package to the arduino Boards Manager Urls:
