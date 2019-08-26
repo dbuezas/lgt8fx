@@ -1,7 +1,4 @@
-Based on https://github.com/LGTMCU/Larduino_HSP. Go there for more info.
-Also there is a ton of information here: https://github.com/RalphBacon/LGT8F328P-Arduino-Clone-Chip-ATMega328P
-
-# Board Package for Logic Green Atmel ATMEGA 328 derivates
+Based on https://github.com/LGTMCU/Larduino_HSP and https://github.com/RalphBacon/LGT8F328P-Arduino-Clone-Chip-ATMega328P
 
 - LGT8F328P-LQFP48
 - LGT8F328P-LQFP32
@@ -25,18 +22,19 @@ Now the boards appear in the IDE and you can also select the clock speed.
 
 # Features
 
-- [x] PWM & Timers update (from larduino package)
-- [x] Fast_IO update (from larduino package)
+- [x] PWM & Timers update
+- [x] Fast_IO update
 - [x] Automatic prescaler setup
 - [x] In Menu support of 1, 2, 4, 8, 16 and 32 Mhz
-- [x] Digital Analog Converter works
+- [x] Digital Analog Converter
+- [x] Voltage References INTERNAL1V024/INTERNAL2V048/INTERNAL4V096/DEFAULT/EXTERNAL (useful for example for analogRead or DAC analogWrite via analogReference(xxx));
 - [ ] Analog Comparator
 - [ ] Differential Amplifier update
 - [ ] Computation Accelerator
 
-![](./boards_manager.png)
-![](./clock.png)
-![](./variants.png)
+<img src="./boards_manager.png" alt="Boards Manager" />
+<img src="./clock.png" alt="Clock" />
+<img src="./variants.png" alt="Variants" />
 
 # Power consumption
 
@@ -47,26 +45,23 @@ Now the boards appear in the IDE and you can also select the clock speed.
 - 2Mhz 23.4mA
 - 1Mhz 22.8mA
 
-# Tested in these Boards:
+# Example boards:
 
-## Wavgat Pro Mini clone
+## LGT8F328P-LQFP32
 
-![](./wavgat_pro_mini.png)
+<img src="./wavgat_pro_mini.png" alt="Wavgat Pro Mini pseudo-clone" width="200"/>
+<img src="./pro_mini_LQFP32.png" alt="Pro Mini style" width="200"/>
+<img src="./nano_LQFP32.png" alt="Nano style" width="200"/>
+<img src="./uno_LQFP32.jpeg" alt="Uno style" width="200"/>
 
-## LGT8F328p SSOP20
+## LGT8F328P-SSOP20
 
-![](./ssop20.png)
+<img src="./ssop20.png" alt="Pro Mini simil" width="200"/>
 
-## Pro Mini style LQF32
+## LGT8F328P-LQFP48
 
-![](./pro_mini_LQFP32.png)
-
-## Nano style LQF32
-
-![](./nano_LQFP32.png)
-
-## It also works fine from VSCode
+<img src="./uno_LQFP48.png" alt="Uno style" width="200"/>
 
 # Disclamer
 
-I have no association with Arduino, Logic Green, Atmel or anything. I just wanted to have a convenient way to use these boards and get them to work without hacks at 32Mhz
+I have no association with Arduino, Logic Green, Atmel or anything. I just wanted to have a convenient way to use these boards and get them to work without hacks at max speed
