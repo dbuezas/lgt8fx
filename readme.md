@@ -52,6 +52,7 @@ Now the boards appear in the IDE and you can also select the clock speed.
 <img src="./docs/boards/pro_mini_LQFP32.png" alt="Pro Mini style" width="200"/>
 <img src="./docs/boards/nano_LQFP32.png" alt="Nano style" width="200"/>
 <img src="./docs/boards/uno_LQFP32.jpeg" alt="Uno style" width="200"/>
+<img src="./docs/boards/TTGO_XI_8F328P-U_nano_V3.0_LQFP32.png" alt="Wemos Nano style" width="200"/>
 
 ## LGT8F328P-SSOP20
 
@@ -64,6 +65,7 @@ Now the boards appear in the IDE and you can also select the clock speed.
 # Docs & links
 
 - Core is based on: https://github.com/LGTMCU/Larduino_HSP
+- And inspired from Ralph Bacon's video: https://youtu.be/Myfeqrl3QP0 (Check his channel, he's uploaded a lot of great videos)
 - Great place to gather data about this boards: https://github.com/RalphBacon/LGT8F328P-Arduino-Clone-Chip-ATMega328P
 - [(Chinese) LGT8FX8P_databook_V1.04](./docs/LGT8FX8P_databook_v1.0.4.ch.pdf)
 - [(English) LGT8FX8P_databook_V1.04](./docs/LGT8FX8P_databook_v1.0.4.en.pdf)
