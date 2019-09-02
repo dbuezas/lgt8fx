@@ -7,7 +7,6 @@ const folder = "lgt8f";
 
 const toNum = str => parseInt(str.split(".").join(""), 10);
 const jsonStr = fs.readFileSync(package);
-fs.writeFileSync(package + ".bak", jsonStr);
 
 const json = JSON.parse(jsonStr);
 const { platforms } = json.packages[0];
@@ -38,7 +37,9 @@ platforms.unshift({
   version: newVersion,
   category: "lgt8fx",
   url:
-    "https://raw.githubusercontent.com/dbuezas/lgt8fx/master/" +
+    "https://github.com/dbuezas/lgt8fx/releases/download/v" +
+    newVersion +
+    "/" +
     archiveFileName,
   archiveFileName,
   checksum,
