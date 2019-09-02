@@ -25,10 +25,17 @@ Now the boards appear in the IDE and you can also select the clock speed.
 - [x] Digital Analog Converter
 - [x] Voltage References INTERNAL1V024/INTERNAL2V048/INTERNAL4V096/DEFAULT/EXTERNAL (useful for example for analogRead or DAC analogWrite via analogReference(xxx));
 - [ ] Analog Comparator
-- [ ] [Differential Amplifier](./docs/differential-amplifier/readme.md)
+- [x] [Differential Amplifier](./docs/differential-amplifier/readme.md)
 - [ ] Computation Accelerator
 
-# Power consumption
+# Differences to original core (https://github.com/LGTMCU/Larduino_HSP)
+
+- Support 32 Mhz and other clock speeds
+- Differential Amplifier API
+- Better Boards Menu
+- Installation via Board Manager Urls
+
+# Power consumption @ 5v
 
 - 32Mhz 32.6mA
 - 16Mhz 27.8mA
