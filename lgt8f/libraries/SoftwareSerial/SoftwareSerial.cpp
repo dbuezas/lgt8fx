@@ -54,16 +54,37 @@ typedef struct _DELAY_TABLE
   unsigned short tx_delay;
 } DELAY_TABLE;
 
+//Edit by dbuezas
 
-//Edit by Joinj
-//LGT MCU is faster than mega
-#if F_CPU == 16000000
+#if F_CPU == 32000000
 static const DELAY_TABLE PROGMEM table[] = 
 {
   //  baud    rxcenter   rxintra    rxstop    tx
-  { 115200,   2,         21,        21,       16,    },
-  { 57600,    12,        43,        43,       38,    },
-  { 38400,    29,        66,        66,       62,    },
+  	{ 230400,	1,	18,	18,	14	},
+  { 115200,	3,	43,	43,	32	},
+  { 57600,	24,	88,	88,	66	},
+  { 38400,	58,	134,	134,	100	},
+  { 19200,	124,	275,	275,	210	},
+};
+const int XMIT_START_ADJUSTMENT = 5;
+
+#elif F_CPU == 16000000
+//Edit by Joinj
+//LGT MCU is faster than mega
+
+static const DELAY_TABLE PROGMEM table[] = 
+{
+  //  baud    rxcenter   rxintra    rxstop    tx
+  { 230400,	1,	7,	7,	6	},
+  // { 115200,   2,         21,        21,       16,    },
+ 	 { 115200,	2,	18,	18,	17	},
+
+  // { 57600,    12,        43,        43,       38,    },
+  	{ 57600,	12,	42,	42,	39	},
+
+  // { 38400,    29,        66,        66,       62,    },
+  	{ 38400,	29,	66,	66,	64	},
+
   { 31250,    36,        81,        81,       79,    },
   { 28800,    39,        89,        89,       86,    },
   { 19200,    62,        135,       135,      132,   },
@@ -76,6 +97,7 @@ static const DELAY_TABLE PROGMEM table[] =
   { 300,      4392,      8806,      8806,     8810,  },
 };
 //end Edit by Joinj
+//end Edit by dbuezas
 
 /*
 #if F_CPU == 16000000
@@ -400,6 +422,30 @@ void SoftwareSerial::setRX(uint8_t rx)
 // Public methods
 //
 
+void SoftwareSerial::begin2(unsigned short rxcenter, unsigned short  rxintra, unsigned short  rxstop, unsigned short  tx)
+{
+  // Set up RX interrupts, but only if we have a valid RX baud rate
+  _rx_delay_centering = rxcenter;
+  _rx_delay_intrabit = rxintra;
+  _rx_delay_stopbit = rxstop;
+  _tx_delay = tx;
+  if (_rx_delay_stopbit)
+  {
+    if (digitalPinToPCICR(_receivePin))
+    {
+      *digitalPinToPCICR(_receivePin) |= _BV(digitalPinToPCICRbit(_receivePin));
+      *digitalPinToPCMSK(_receivePin) |= _BV(digitalPinToPCMSKbit(_receivePin));
+    }
+    tunedDelay(_tx_delay); // if we were low this establishes the end
+  }
+
+#if _DEBUG
+  pinMode(_DEBUG_PIN1, OUTPUT);
+  pinMode(_DEBUG_PIN2, OUTPUT);
+#endif
+
+  listen();
+}
 void SoftwareSerial::begin(long speed)
 {
   _rx_delay_centering = _rx_delay_intrabit = _rx_delay_stopbit = _tx_delay = 0;

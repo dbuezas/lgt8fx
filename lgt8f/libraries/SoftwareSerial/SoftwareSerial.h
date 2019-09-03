@@ -83,6 +83,7 @@ public:
   SoftwareSerial(uint8_t receivePin, uint8_t transmitPin, bool inverse_logic = false);
   ~SoftwareSerial();
   void begin(long speed);
+  void begin2(unsigned short rxcenter, unsigned short  rxintra, unsigned short  rxstop, unsigned short  tx);
   bool listen();
   void end();
   bool isListening() { return this == active_object; }
