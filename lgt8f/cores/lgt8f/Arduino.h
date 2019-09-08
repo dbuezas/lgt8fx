@@ -267,6 +267,8 @@ long map(long, long, long, long, long);
 #include "pins_arduino.h"
 
 #if defined(__LGT8FX8E__) || defined(__LGT8FX8P__)
+#include "fastio_digital.h"
+
 #define	INT_OSC	0
 #define	EXT_OSC	1
 void sysClock(uint8_t);
