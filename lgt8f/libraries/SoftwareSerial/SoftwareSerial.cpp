@@ -55,22 +55,40 @@ typedef struct _DELAY_TABLE
 } DELAY_TABLE;
 
 
-//Edit by Joinj
-//LGT MCU is faster than mega
-#if F_CPU == 16000000
-static const DELAY_TABLE PROGMEM table[] = 
-{
+
+// Edit by dbuezas
+#if F_CPU == 32000000
+static const DELAY_TABLE PROGMEM table[] = {
   //  baud    rxcenter   rxintra    rxstop    tx
-  { 115200,   2,         21,        21,       16,    },
-  { 57600,    12,        43,        43,       38,    },
-  { 38400,    29,        66,        66,       62,    },
-  { 31250,    36,        81,        81,       79,    },
-  { 28800,    39,        89,        89,       86,    },
-  { 19200,    62,        135,       135,      132,   },
-  { 14400,    85,        180,       180,      177,   },
-  { 9600,     132,       273,       273,      270,   },
-  { 4800,     269,       548,       548,      545,   },
-  { 2400,     544,       1098,      1098,     1096,   },
+  { 250000,   6,         16,        16,       15,    },  // unreliable
+  { 230400,   6,         18,        18,       17,    },
+  { 115200,   18,        42,        42,       41,    },
+  { 57600,    41,        90,        90,       88,    },
+  { 38400,    66,        139,       139,      136,   },
+  { 19200,    140,       285,       285,      278,   },
+  { 9600,     250,       580,       580,      564,   },
+  { 4800,     530,       1166,      1166,     1134,  },
+  { 2400,     1157,      2339,      2339,     2279,  },    // untested
+  { 1200,     2213,      4697,      4697,     4556,  },    // untested
+  { 600,      4556,      9389,      9389,     8966,  },     // untested
+  { 300,      9112,      18778,     18778,    17932, },  // untested
+};
+const int XMIT_START_ADJUSTMENT = 7;
+
+#elif F_CPU == 16000000
+// Edit by Joinj
+// LGT MCU is faster than mega
+
+static const DELAY_TABLE PROGMEM table[] = {
+  //  baud    rxcenter   rxintra    rxstop    tx
+  { 115200,   7,         18,        18,       17,    },
+  { 57600,    28,        40,        40,       40,    },
+  { 38400,    42,        65,        65,       65,    },
+  { 19200,    68,        139,       139,      136,   },
+  { 9600,     137,       285,       285,      278,   },
+  { 4800,     283,       579,       579,      565,   },
+  { 2400,     554,       1167,      1167,     1135,  },
+// end Edit by dbuezas
   { 1200,     1093,      2199,      2199,     2197,  },
   { 600,      2196,      4398,      4398,     4397,  },
   { 300,      4392,      8806,      8806,     8810,  },
@@ -400,6 +418,30 @@ void SoftwareSerial::setRX(uint8_t rx)
 // Public methods
 //
 
+void SoftwareSerial::begin(uint16_t rxcenter, uint16_t  rxintra, uint16_t  rxstop, uint16_t  tx)
+{
+  // Set up RX interrupts, but only if we have a valid RX baud rate
+  _rx_delay_centering = rxcenter;
+  _rx_delay_intrabit = rxintra;
+  _rx_delay_stopbit = rxstop;
+  _tx_delay = tx;
+  if (_rx_delay_stopbit)
+  {
+    if (digitalPinToPCICR(_receivePin))
+    {
+      *digitalPinToPCICR(_receivePin) |= _BV(digitalPinToPCICRbit(_receivePin));
+      *digitalPinToPCMSK(_receivePin) |= _BV(digitalPinToPCMSKbit(_receivePin));
+    }
+    tunedDelay(_tx_delay); // if we were low this establishes the end
+  }
+
+#if _DEBUG
+  pinMode(_DEBUG_PIN1, OUTPUT);
+  pinMode(_DEBUG_PIN2, OUTPUT);
+#endif
+
+  listen();
+}
 void SoftwareSerial::begin(long speed)
 {
   _rx_delay_centering = _rx_delay_intrabit = _rx_delay_stopbit = _tx_delay = 0;
