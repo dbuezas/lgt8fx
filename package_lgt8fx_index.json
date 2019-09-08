@@ -11,6 +11,36 @@
         {
           "name": "LGT8fx Boards",
           "architecture": "avr",
+          "version": "1.0.3",
+          "category": "lgt8fx",
+          "url": "https://github.com/dbuezas/lgt8fx/releases/download/v1.0.3/lgt8f-1.0.3.zip",
+          "archiveFileName": "lgt8f-1.0.3.zip",
+          "checksum": "SHA-256:59b4890596a987410e5b5aabf18ce5cdb032f7acf1258f2634dc000a94729f21",
+          "size": "597452",
+          "help": {
+            "online": "https://github.com/dbuezas/LGT8fx/isues"
+          },
+          "boards": [
+            {
+              "name": "LGT8F328P-LQFP48 MiniEVB"
+            },
+            {
+              "name": "LGT8F328P-LQFP32 MiniEVB"
+            },
+            {
+              "name": "LGT8F328D"
+            },
+            {
+              "name": "LGT8F328D-SSOP20"
+            },
+            {
+              "name": "LGT8F88D-SSOP20"
+            }
+          ]
+        },
+        {
+          "name": "LGT8fx Boards",
+          "architecture": "avr",
           "version": "1.0.2",
           "category": "lgt8fx",
           "url": "https://github.com/dbuezas/lgt8fx/releases/download/v1.0.2/lgt8f-1.0.2.zip",
