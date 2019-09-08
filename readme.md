@@ -18,16 +18,16 @@ Now the boards appear in the IDE and you can also select the clock speed.
 
 # Features
 
-- [ ] PWM & Timers update (less arduino compatible, see https://github.com/LGTMCU/Larduino_HSP/issues/4)
-- [x] [Fast_IO update](./blob/master/lgt8f/libraries/lgt328p/examples/lgt8fx8p_fastio/lgt8fx8p_fastio.ino)
-- [x] [Automatic prescaler setup](./blob/master/lgt8f/cores/lgt8f/main.cpp#L126)
-- [x] [In Menu support of 1, 2, 4, 8, 16 and 32 Mhz](./blob/master/lgt8f/boards.txt)
-- [x] [Digital Analog Converter](./blob/master/lgt8f/libraries/lgt328p/examples/dac0_sinus/dac0_sinus.ino)
-- [x] Voltage References INTERNAL1V024/INTERNAL2V048/INTERNAL4V096/DEFAULT/EXTERNAL (useful for example for analogRead or DAC analogWrite via analogReference(xxx));
+- [ ] PWM & Timers update (less arduino compatible, see [this issue](https://github.com/LGTMCU/Larduino_HSP/issues/4))
+- [x] [Fast_IO update](./lgt8f/libraries/lgt328p/examples/lgt8fx8p_fastio/lgt8fx8p_fastio.ino)
+- [x] [Automatic prescaler setup](./lgt8f/cores/lgt8f/main.cpp#L126)
+- [x] [In Menu support of 1, 2, 4, 8, 16 and 32 Mhz](./lgt8f/boards.txt)
+- [x] [Digital Analog Converter](./lgt8f/libraries/lgt328p/examples/dac0_sinus/dac0_sinus.ino)
+- [x] [Voltage References](./lgt8f/libraries/lgt328p/examples/adc_i2v56/adc_i2v56.ino) INTERNAL1V024/INTERNAL2V048/INTERNAL4V096/DEFAULT/EXTERNAL (useful for example for analogRead or DAC analogWrite via analogReference(xxx));
 - [ ] Analog Comparator
-- [x] [Differential Amplifier](./docs/differential-amplifier/readme.md) [Example](./blob/master/lgt8f/libraries/differential_amplifier/examples/all_vs_all/all_vs_all.ino)
+- [x] [Differential Amplifier](./docs/differential-amplifier/readme.md). See this [Example](./lgt8f/libraries/differential_amplifier/examples/all_vs_all/all_vs_all.ino).
 - [ ] Computation Accelerator
-- [x] [SoftwareSerial @32Mhz](./blob/master/lgt8f/libraries/SoftwareSerial/SoftwareSerial.cpp#L60) (stable up to 230400 bauds)
+- [x] [SoftwareSerial @32Mhz](./lgt8f/libraries/SoftwareSerial/SoftwareSerial.cpp#L60) (stable up to 230400 bauds)
 
 # Differences to original core (https://github.com/LGTMCU/Larduino_HSP)
 
@@ -71,7 +71,7 @@ Now the boards appear in the IDE and you can also select the clock speed.
 - And inspired from Ralph Bacon's video: https://youtu.be/Myfeqrl3QP0 (Check his channel, he's uploaded a lot of great videos)
 - Great place to gather data about this boards: https://github.com/RalphBacon/LGT8F328P-Arduino-Clone-Chip-ATMega328P
 - [(Chinese) LGT8FX8P_databook_V1.04](./docs/LGT8FX8P_databook_v1.0.4.ch.pdf)
-- [(English) LGT8FX8P_databook_V1.04](./docs/LGT8FX8P_databook_v1.0.4.en.pdf)
+- [(English) LGT8FX8P_databook_V1.04](./docs/LGT8FX8P_databook_v1.0.4.en.pdf) thanks to [#metallurge](https://github.com/RalphBacon/LGT8F328P-Arduino-Clone-Chip-ATMega328P/issues/2#issuecomment-517952757)
 - [Work on the differential amplifier](./docs/differential-amplifier/readme.md)
 
 # Disclamer
