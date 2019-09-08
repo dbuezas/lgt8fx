@@ -19,15 +19,15 @@ Now the boards appear in the IDE and you can also select the clock speed.
 # Features
 
 - [ ] PWM & Timers update (less arduino compatible, see https://github.com/LGTMCU/Larduino_HSP/issues/4)
-- [x] Fast_IO update
-- [x] Automatic prescaler setup
-- [x] In Menu support of 1, 2, 4, 8, 16 and 32 Mhz
-- [x] Digital Analog Converter
+- [x] [Fast_IO update](./blob/master/lgt8f/libraries/lgt328p/examples/lgt8fx8p_fastio/lgt8fx8p_fastio.ino)
+- [x] [Automatic prescaler setup](./blob/master/lgt8f/cores/lgt8f/main.cpp#L126)
+- [x] [In Menu support of 1, 2, 4, 8, 16 and 32 Mhz](./blob/master/lgt8f/boards.txt)
+- [x] [Digital Analog Converter](./blob/master/lgt8f/libraries/lgt328p/examples/dac0_sinus/dac0_sinus.ino)
 - [x] Voltage References INTERNAL1V024/INTERNAL2V048/INTERNAL4V096/DEFAULT/EXTERNAL (useful for example for analogRead or DAC analogWrite via analogReference(xxx));
 - [ ] Analog Comparator
-- [x] [Differential Amplifier](./docs/differential-amplifier/readme.md)
+- [x] [Differential Amplifier](./docs/differential-amplifier/readme.md) [Example](./blob/master/lgt8f/libraries/differential_amplifier/examples/all_vs_all/all_vs_all.ino)
 - [ ] Computation Accelerator
-- [x] SoftwareSerial @32Mhz (stable up to 230400 bauds)
+- [x] [SoftwareSerial @32Mhz](./blob/master/lgt8f/libraries/SoftwareSerial/SoftwareSerial.cpp#L60) (stable up to 230400 bauds)
 
 # Differences to original core (https://github.com/LGTMCU/Larduino_HSP)
 
@@ -35,6 +35,8 @@ Now the boards appear in the IDE and you can also select the clock speed.
 - Differential Amplifier API
 - Better Boards Menu
 - Installation via Board Manager Urls
+- SoftwareSerial @32Mhz
+- This is based on their "old" more compatible version [v3.6c](https://github.com/LGTMCU/Larduino_HSP/issues/4#issuecomment-506194745))
 
 # Power consumption @ 5v
 
@@ -65,7 +67,7 @@ Now the boards appear in the IDE and you can also select the clock speed.
 
 # Docs & links
 
-- Core is based on Larduino_HSP v3.6c: https://github.com/LGTMCU/Larduino_HSP/issues/4#issuecomment-506194745
+- Core is based on Larduino_HSP v3.6c: https://github.com/LGTMCU/Larduino_HSP/issues/4#issuecomment-506194745 with fastIO backported
 - And inspired from Ralph Bacon's video: https://youtu.be/Myfeqrl3QP0 (Check his channel, he's uploaded a lot of great videos)
 - Great place to gather data about this boards: https://github.com/RalphBacon/LGT8F328P-Arduino-Clone-Chip-ATMega328P
 - [(Chinese) LGT8FX8P_databook_V1.04](./docs/LGT8FX8P_databook_v1.0.4.ch.pdf)
@@ -75,3 +77,10 @@ Now the boards appear in the IDE and you can also select the clock speed.
 # Disclamer
 
 I have no association with Arduino, Logic Green, Atmel or anything. I just wanted to have a convenient way to use these boards and get them to work without hacks at max speed
+
+# Thanks
+
+- [#Larduino_HSP](https://github.com/LGTMCU/Larduino_HSP) for doing 99.9999% of the work
+- [#RalphBacon](https://github.com/RalphBacon) introducing most of us to the board
+- [#dcfusor](https://github.com/dcfusor) for help with fast io backporting
+- [#HI-SEBA](https://github.com/HI-SEBA) for help with software serial
