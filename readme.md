@@ -84,3 +84,4 @@ I have no association with Arduino, Logic Green, Atmel or anything. I just wante
 - [#RalphBacon](https://github.com/RalphBacon) introducing most of us to the board
 - [#dcfusor](https://github.com/dcfusor) for help with fast io backporting
 - [#HI-SEBA](https://github.com/HI-SEBA) for help with software serial
+- [#dwillmore](https://github.com/dwillmore) for creating the wiki, serial adapter troubleshooting and more examples of boards
