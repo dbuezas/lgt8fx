@@ -28,14 +28,14 @@ Now the boards appear in the IDE and you can also select the clock speed.
 - [ ] Computation Accelerator
 - [x] [SoftwareSerial @32Mhz](./lgt8f/libraries/SoftwareSerial/SoftwareSerial.cpp#L60) (stable up to 230400 baud)
 
-# Differences to original core (https://github.com/LGTMCU/Larduino_HSP)
+# Differences to original core [Larduino_HSP v3.6c](https://github.com/Edragon/LGT/tree/master/HSP%20Patch%20File/Larduino_HSP_3.6c/Larduino_HSP_v3.6c)
 
 - Support 32 Mhz and other clock speeds
 - Differential Amplifier API
 - Better Boards Menu
 - Installation via Board Manager Urls
 - SoftwareSerial @32Mhz
-- This is based on their "old" more compatible version [v3.6c](https://github.com/LGTMCU/Larduino_HSP/issues/4#issuecomment-506194745))
+- FastIO ported from https://github.com/LGTMCU/Larduino_HSP
 
 # Power consumption @ 5v
 
