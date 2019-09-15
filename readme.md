@@ -27,7 +27,7 @@ Now the boards appear in the IDE and you can also select the clock speed.
 - [ ] Analog Comparator
 - [x] [Differential Amplifier](./docs/differential-amplifier/readme.md). See this [Example](./lgt8f/libraries/differential_amplifier/examples/all_vs_all/all_vs_all.ino).
 - [ ] Computation Accelerator
-- [x] [SoftwareSerial @32Mhz](./lgt8f/libraries/SoftwareSerial/SoftwareSerial.cpp#L60) (stable up to 230400 bauds)
+- [x] [SoftwareSerial @32Mhz](./lgt8f/libraries/SoftwareSerial/SoftwareSerial.cpp#L60) (stable up to 230400 baud)
 
 # Differences to original core (https://github.com/LGTMCU/Larduino_HSP)
 
