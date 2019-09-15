@@ -18,7 +18,6 @@ Now the boards appear in the IDE and you can also select the clock speed.
 
 # Features
 
-- [ ] PWM & Timers update (less arduino compatible, see [this issue](https://github.com/LGTMCU/Larduino_HSP/issues/4))
 - [x] [Fast_IO update](./lgt8f/libraries/lgt328p/examples/lgt8fx8p_fastio/lgt8fx8p_fastio.ino)
 - [x] [Automatic prescaler setup](./lgt8f/cores/lgt8f/main.cpp#L126)
 - [x] [In Menu support of 1, 2, 4, 8, 16 and 32 Mhz](./lgt8f/boards.txt)
@@ -67,16 +66,21 @@ Now the boards appear in the IDE and you can also select the clock speed.
 
 # Docs & links
 
-- Core is based on Larduino_HSP v3.6c: https://github.com/LGTMCU/Larduino_HSP/issues/4#issuecomment-506194745 with fastIO backported
+- Core is based on [Larduino_HSP v3.6c](https://github.com/Edragon/LGT/tree/master/HSP%20Patch%20File/Larduino_HSP_3.6c/Larduino_HSP_v3.6c) with fastIO backported from https://github.com/LGTMCU/Larduino_HSP
 - And inspired from Ralph Bacon's video: https://youtu.be/Myfeqrl3QP0 (Check his channel, he's uploaded a lot of great videos)
 - Great place to gather data about this boards: https://github.com/RalphBacon/LGT8F328P-Arduino-Clone-Chip-ATMega328P
 - [(Chinese) LGT8FX8P_databook_V1.04](./docs/LGT8FX8P_databook_v1.0.4.ch.pdf)
 - [(English) LGT8FX8P_databook_V1.04](./docs/LGT8FX8P_databook_v1.0.4.en.pdf) thanks to [#metallurge](https://github.com/RalphBacon/LGT8F328P-Arduino-Clone-Chip-ATMega328P/issues/2#issuecomment-517952757)
 - [Work on the differential amplifier](./docs/differential-amplifier/readme.md)
+- "Forbiden tech from China has arrived" https://www.avrfreaks.net/forum/forbiden-tech-china-has-arrived?page=all
+- Larduino ISP https://github.com/Edragon/LGT/tree/master/Toolchain/ISP/LarduinoISP-master
 
 # Disclamer
 
 I have no association with Arduino, Logic Green, Atmel or anything. I just wanted to have a convenient way to use these boards and get them to work without hacks at max speed
+
+# Download stats
+http://www.somsubhra.com/github-release-stats/?username=dbuezas&repository=lgt8fx
 
 # Thanks
 
