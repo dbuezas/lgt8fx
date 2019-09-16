@@ -49,6 +49,7 @@ platforms.unshift({
   },
   boards: [
     { name: "LGT8F328P-LQFP48 MiniEVB" },
+    { name: "LGT8F328P-LQFP32 wemos-TTGO-XI" },
     { name: "LGT8F328P-LQFP32 MiniEVB" },
     { name: "LGT8F328D" },
     { name: "LGT8F328D-SSOP20" },

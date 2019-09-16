@@ -49,6 +49,11 @@ menu.variant=Variant
 328.menu.variant.modelP.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
 328.menu.variant.modelP.build.variant=lgt8fx8p
 
+328.menu.variant.modelP-wemos-TTGO-XI=328P-LQFP32 wemos-TTGO-XI
+328.menu.variant.modelP-wemos-TTGO-XI.bootloader.path=lgt8fx8p
+328.menu.variant.modelP-wemos-TTGO-XI.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
+328.menu.variant.modelP-wemos-TTGO-XI.build.variant=lgt8fx8p-wemos-TTGO-XI
+
 328.menu.variant.modelD=328D (e.g. WAVGAT AVG328D)
 328.menu.variant.modelD.bootloader.path=lgt8fx8e
 328.menu.variant.modelD.bootloader.file=lgt8fx8e/optiboot_lgt8f328d.hex
