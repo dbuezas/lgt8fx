@@ -73,7 +73,7 @@ Now the boards appear in the IDE and you can also select the clock speed.
 - Datasheet [(English) LGT8FX8P_databook_V1.04](./docs/LGT8FX8P_databook_v1.0.4.en.pdf) thanks to [#metallurge](https://github.com/RalphBacon/LGT8F328P-Arduino-Clone-Chip-ATMega328P/issues/2#issuecomment-517952757)
 - [Work on the differential amplifier](./docs/differential-amplifier/readme.md)
 - "Forbiden tech from China has arrived" https://www.avrfreaks.net/forum/forbiden-tech-china-has-arrived?page=all
-- Larduino ISP https://github.com/Edragon/LGT/tree/master/Toolchain/ISP/LarduinoISP-master
+- Larduino ISP for 328d https://github.com/Edragon/LGT/tree/master/Toolchain/ISP/LarduinoISP-master
 - https://www.eevblog.com/forum/projects/anyone-here-interested-in-the-logic-green-avrs-lgt8f328p/
 - http://coultersmithing.com/forums/viewtopic.php?f=6&t=1149
 # Disclamer
