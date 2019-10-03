@@ -75,7 +75,7 @@ Now the boards appear in the IDE and you can also select the clock speed.
 - "Forbiden tech from China has arrived" https://www.avrfreaks.net/forum/forbiden-tech-china-has-arrived?page=all
 - Larduino ISP https://github.com/Edragon/LGT/tree/master/Toolchain/ISP/LarduinoISP-master
 - https://www.eevblog.com/forum/projects/anyone-here-interested-in-the-logic-green-avrs-lgt8f328p/
-
+- http://coultersmithing.com/forums/viewtopic.php?f=6&t=1149
 # Disclamer
 
 I have no association with Arduino, Logic Green, Atmel or anything. I just wanted to have a convenient way to use these boards and get them to work without hacks at max speed
