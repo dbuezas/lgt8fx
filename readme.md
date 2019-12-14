@@ -39,12 +39,14 @@ Now the boards appear in the IDE and you can also select the clock speed.
 
 # Power consumption @ 5v
 
-- 32Mhz 32.6mA
-- 16Mhz 27.8mA
-- 8Mhz 25.4mA
-- 4Mhz 24.3mA
-- 2Mhz 23.4mA
-- 1Mhz 22.8mA
+| Clock 	| Pro mini style 	| Pro mini w/o power LED 	| Nano style 	|
+|-------	|----------------	|------------------------	|------------	|
+| 32MHz 	| 12.7mA         	| 15.0mA                 	| 32.6mA     	|
+| 16MHz 	| 9.2mA          	| 11.5mA                 	| 27.8mA     	|
+| 8MHz  	| 7.1mA          	| 9.4mA                  	| 25.4mA     	|
+| 4MHz  	| 5.9mA          	| 8.2mA                  	| 23.3mA     	|
+| 2MHz  	| 5.3mA          	| 7.6mA                  	| 23.4mA     	|
+| 1MHz  	| 5.0mA          	| 7.3mA                  	| 22.8mA     	|
 
 # Example boards:
 
