@@ -45,7 +45,7 @@ platforms.unshift({
   checksum,
   size,
   help: {
-    online: "https://github.com/dbuezas/LGT8fx/isues"
+    online: "https://github.com/dbuezas/LGT8fx/issues"
   },
   boards: [
     { name: "LGT8F328P-LQFP48 MiniEVB" },
