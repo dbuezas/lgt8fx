@@ -2,6 +2,7 @@
 # Based on https://github.com/LGTMCU/Larduino_HSP
 
 # Menu options
+menu.clock_source=Clock Source
 menu.clock=Clock
 menu.variant=Variant
 
@@ -24,19 +25,25 @@ menu.variant=Variant
 328.build.mcu=atmega328p
 328.build.board=AVR_LARDU_328E
 
+# Clock source
+328.menu.clock_source.internal=Internal
+328.menu.clock_source.internal.build.clock_source=1
+328.menu.clock_source.external=External (assumes 32MHz crystal)
+328.menu.clock_source.external.build.clock_source=2
+
 # Clock frequencies
-328.menu.clock.32MHz_internal=32 MHz internal
-328.menu.clock.32MHz_internal.build.f_cpu=32000000L
-328.menu.clock.16MHz_internal=16 MHz internal
-328.menu.clock.16MHz_internal.build.f_cpu=16000000L
-328.menu.clock.8MHz_internal=8 MHz internal
-328.menu.clock.8MHz_internal.build.f_cpu=8000000L
-328.menu.clock.4MHz_internal=4 MHz internal
-328.menu.clock.4MHz_internal.build.f_cpu=4000000L
-328.menu.clock.2MHz_internal=2 MHz internal
-328.menu.clock.2MHz_internal.build.f_cpu=2000000L
-328.menu.clock.1MHz_internal=1 MHz internal
-328.menu.clock.1MHz_internal.build.f_cpu=1000000L
+328.menu.clock.32MHz=32 MHz
+328.menu.clock.32MHz.build.f_cpu=32000000L
+328.menu.clock.16MHz=16 MHz
+328.menu.clock.16MHz.build.f_cpu=16000000L
+328.menu.clock.8MHz=8 MHz
+328.menu.clock.8MHz.build.f_cpu=8000000L
+328.menu.clock.4MHz=4 MHz
+328.menu.clock.4MHz.build.f_cpu=4000000L
+328.menu.clock.2MHz=2 MHz
+328.menu.clock.2MHz.build.f_cpu=2000000L
+328.menu.clock.1MHz=1 MHz
+328.menu.clock.1MHz.build.f_cpu=1000000L
 
 # Variants
 328.menu.variant.modelP48=328P-LQFP48 MiniEVB
@@ -83,19 +90,25 @@ menu.variant=Variant
 88.build.core=lgt8f
 88.build.board=AVR_LARDU_88DS20
 
+# Clock source
+88.menu.clock_source.internal=Internal
+88.menu.clock_source.internal.build.clock_source=1
+88.menu.clock_source.external=External (assumes 32MHz crystal)
+88.menu.clock_source.external.build.clock_source=2
+
 # Clock frequencies
-88.menu.clock.32MHz_internal=32 MHz internal
-88.menu.clock.32MHz_internal.build.f_cpu=32000000L
-88.menu.clock.16MHz_internal=16 MHz internal
-88.menu.clock.16MHz_internal.build.f_cpu=16000000L
-88.menu.clock.8MHz_internal=8 MHz internal
-88.menu.clock.8MHz_internal.build.f_cpu=8000000L
-88.menu.clock.4MHz_internal=4 MHz internal
-88.menu.clock.4MHz_internal.build.f_cpu=4000000L
-88.menu.clock.2MHz_internal=2 MHz internal
-88.menu.clock.2MHz_internal.build.f_cpu=2000000L
-88.menu.clock.1MHz_internal=1 MHz internal
-88.menu.clock.1MHz_internal.build.f_cpu=1000000L
+88.menu.clock.32MHz=32 MHz
+88.menu.clock.32MHz.build.f_cpu=32000000L
+88.menu.clock.16MHz=16 MHz
+88.menu.clock.16MHz.build.f_cpu=16000000L
+88.menu.clock.8MHz=8 MHz
+88.menu.clock.8MHz.build.f_cpu=8000000L
+88.menu.clock.4MHz=4 MHz
+88.menu.clock.4MHz.build.f_cpu=4000000L
+88.menu.clock.2MHz=2 MHz
+88.menu.clock.2MHz.build.f_cpu=2000000L
+88.menu.clock.1MHz=1 MHz
+88.menu.clock.1MHz.build.f_cpu=1000000L
 
 # Variants
 88.menu.variant.modelD=LGT8F88D-SSOP20
