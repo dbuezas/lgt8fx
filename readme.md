@@ -13,6 +13,7 @@ Now the boards appear in the IDE and you can also select the clock speed.
 <img src="./docs/arduino/boards_manager.png" alt="Boards Manager" width="400"/>
 <img src="./docs/arduino/variants.png" alt="Variants" width="400"/>
 <img src="./docs/arduino/clock.png" alt="Clock" width="400"/>
+<img src="./docs/external-clock/clock-source.png" alt="External Clock" width="400"/>
 
 32Mhz is twice as fast as a conventional arduino nano!
 
@@ -27,6 +28,7 @@ Now the boards appear in the IDE and you can also select the clock speed.
 - [x] [Differential Amplifier](./docs/differential-amplifier/readme.md). See this [Example](./lgt8f/libraries/differential_amplifier/examples/all_vs_all/all_vs_all.ino).
 - [ ] Computation Accelerator (page 52 of datasheet v1.0.4) [Work by others](https://www.avrfreaks.net/comment/2272366#comment-2272366)
 - [x] [SoftwareSerial @32Mhz](./lgt8f/libraries/SoftwareSerial/SoftwareSerial.cpp#L60) (stable up to 230400 baud)
+- [x] [In-menu external clock support](./docs/external-clock/readme.md) (by [#seisfeld](https://github.com/seisfeld))
 
 # Differences to original core [Larduino_HSP v3.6c](https://github.com/Edragon/LGT/tree/master/HSP%20Patch%20File/Larduino_HSP_3.6c/Larduino_HSP_v3.6c)
 
@@ -39,14 +41,14 @@ Now the boards appear in the IDE and you can also select the clock speed.
 
 # Power consumption @ 5v
 
-| Clock 	| Pro mini style w/o power LED  	| Pro mini      	| Nano style 	|
-|-------	|----------------	|------------------------	|------------	|
-| 32MHz 	| 12.7mA         	| 15.0mA                 	| 32.6mA     	|
-| 16MHz 	| 9.2mA          	| 11.5mA                 	| 27.8mA     	|
-| 8MHz  	| 7.1mA          	| 9.4mA                  	| 25.4mA     	|
-| 4MHz  	| 5.9mA          	| 8.2mA                  	| 23.3mA     	|
-| 2MHz  	| 5.3mA          	| 7.6mA                  	| 23.4mA     	|
-| 1MHz  	| 5.0mA          	| 7.3mA                  	| 22.8mA     	|
+| Clock | Pro mini style w/o power LED | Pro mini | Nano style |
+| ----- | ---------------------------- | -------- | ---------- |
+| 32MHz | 12.7mA                       | 15.0mA   | 32.6mA     |
+| 16MHz | 9.2mA                        | 11.5mA   | 27.8mA     |
+| 8MHz  | 7.1mA                        | 9.4mA    | 25.4mA     |
+| 4MHz  | 5.9mA                        | 8.2mA    | 23.3mA     |
+| 2MHz  | 5.3mA                        | 7.6mA    | 23.4mA     |
+| 1MHz  | 5.0mA                        | 7.3mA    | 22.8mA     |
 
 # Example boards:
 
@@ -79,11 +81,13 @@ Now the boards appear in the IDE and you can also select the clock speed.
 - Larduino ISP for 328d https://github.com/Edragon/LGT/tree/master/Toolchain/ISP/LarduinoISP-master
 - https://www.eevblog.com/forum/projects/anyone-here-interested-in-the-logic-green-avrs-lgt8f328p/
 - http://coultersmithing.com/forums/viewtopic.php?f=6&t=1149
+
 # Disclamer
 
 I have no association with Arduino, Logic Green, Atmel or anything. I just wanted to have a convenient way to use these boards and get them to work without hacks at max speed
 
 # Download stats
+
 http://www.somsubhra.com/github-release-stats/?username=dbuezas&repository=lgt8fx
 
 # Thanks
@@ -93,3 +97,4 @@ http://www.somsubhra.com/github-release-stats/?username=dbuezas&repository=lgt8f
 - [#dcfusor](https://github.com/dcfusor) for help with fast io backporting
 - [#HI-SEBA](https://github.com/HI-SEBA) for help with software serial
 - [#dwillmore](https://github.com/dwillmore) for creating the wiki, serial adapter troubleshooting, more examples of boards and wemos-TTGO-XI board support
+- [#seisfeld](https://github.com/seisfeld) for adding in-menu support for an external clock
