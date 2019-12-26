@@ -97,4 +97,4 @@ http://www.somsubhra.com/github-release-stats/?username=dbuezas&repository=lgt8f
 - [#dcfusor](https://github.com/dcfusor) for help with fast io backporting
 - [#HI-SEBA](https://github.com/HI-SEBA) for help with software serial
 - [#dwillmore](https://github.com/dwillmore) for creating the wiki, serial adapter troubleshooting, more examples of boards and wemos-TTGO-XI board support
-- [#seisfeld](https://github.com/seisfeld) for adding in-menu support for an external clock
+- [#seisfeld](https://github.com/seisfeld) for adding in-menu support for an external oscillator
