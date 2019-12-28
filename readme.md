@@ -54,17 +54,21 @@ Now the boards appear in the IDE and you can also select the clock speed.
 
 ## LGT8F328P-LQFP32
 
-<img src="./docs/boards/wavgat_pro_mini.png" alt="Wavgat Pro Mini pseudo-clone" width="200"/>
 <img src="./docs/boards/WAVGAT_Pro_Mini_Clone.jpg" alt="Wavgat Pro Mini pseudo-clone" width="200"/>
+<img src="./docs/boards/wavgat_back.jpg" alt="Wavgat Pro Mini pseudo-clone" width="200"/>
 <img src="./docs/boards/pro_mini_LQFP32.png" alt="Pro Mini style" width="200"/>
 <img src="./docs/boards/nano_LQFP32.png" alt="Nano style" width="200"/>
-<img src="./docs/boards/Nano_style.jpg" alt="Nano style" width="200"/>
+<img src="./docs/boards/nano.jpg" alt="Nano style" width="200"/>
+<img src="./docs/boards/nano_back.jpg" alt="Nano style" width="200"/>
 <img src="./docs/boards/uno_LQFP32.jpeg" alt="Uno style" width="200"/>
 <img src="./docs/boards/TTGO_XI_8F328P-U_nano_V3.0_LQFP32.png" alt="Wemos Nano style" width="200"/>
+<img src="./docs/boards/wemos back.jpg" alt="Wemos Nano style" width="200"/>
 
 ## LGT8F328P-SSOP20
 
 <img src="./docs/boards/ssop20.png" alt="Pro Mini simil" width="200"/>
+<img src="./docs/boards/ssop20.jpg" alt="Pro Mini simil" width="200"/>
+<img src="./docs/boards/ssop20_back.jpg" alt="Pro Mini simil" width="200"/>
 
 ## LGT8F328P-LQFP48
 
