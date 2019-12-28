@@ -62,6 +62,7 @@ Now the boards appear in the IDE and you can also select the clock speed.
 <img src="./docs/boards/nano_back.jpg" alt="Nano style" width="200"/>
 <img src="./docs/boards/uno_LQFP32.jpeg" alt="Uno style" width="200"/>
 <img src="./docs/boards/TTGO_XI_8F328P-U_nano_V3.0_LQFP32.png" alt="Wemos Nano style" width="200"/>
+<img src="./docs/boards/wemos.jpg" alt="Wemos Nano style" width="200"/>
 <img src="./docs/boards/wemos back.jpg" alt="Wemos Nano style" width="200"/>
 
 ## LGT8F328P-SSOP20
