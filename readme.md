@@ -53,7 +53,7 @@ Now the boards appear in the IDE and you can also select the clock speed.
 # Example boards:
 
 ## LGT8F328P-LQFP32
-
+[WAVGAT Pro Mini Pseudo Clone](./wiki/WAVGAT-Pro-Mini-Pseudo-Clone)
 <img src="./docs/boards/WAVGAT_Pro_Mini_Clone.jpg" alt="Wavgat Pro Mini pseudo-clone" width="200"/>
 <img src="./docs/boards/wavgat_back.jpg" alt="Wavgat Pro Mini pseudo-clone" width="200"/>
 <img src="./docs/boards/pro_mini_LQFP32.png" alt="Pro Mini style" width="200"/>
