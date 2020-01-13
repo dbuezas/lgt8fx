@@ -87,6 +87,8 @@ Now the boards appear in the IDE and you can also select the clock speed.
 
 # Docs & links
 
+- Check the [Wiki](https://github.com/dbuezas/lgt8fx/wiki) for more content by contribuitors
+- And you may also find something in the closed [Issues](https://github.com/dbuezas/lgt8fx/issues?utf8=%E2%9C%93&q=is%3Aissue)
 - Core is based on [Larduino_HSP v3.6c](https://github.com/Edragon/LGT/tree/master/HSP%20Patch%20File/Larduino_HSP_3.6c/Larduino_HSP_v3.6c) with fastIO backported from https://github.com/LGTMCU/Larduino_HSP
 - And inspired from Ralph Bacon's video: https://youtu.be/Myfeqrl3QP0 (Check his channel, he's uploaded a lot of great videos)
 - Great place to gather data about this boards: https://github.com/RalphBacon/LGT8F328P-Arduino-Clone-Chip-ATMega328P
