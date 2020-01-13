@@ -60,6 +60,7 @@ Now the boards appear in the IDE and you can also select the clock speed.
 <img src="./docs/boards/wavgat_back.jpg" alt="Wavgat Pro Mini pseudo-clone" width="200"/>
 
 Pro Mini style LQFP32
+
 <img src="./docs/boards/pro_mini_LQFP32.png" alt="Pro Mini style" width="200"/>
 
 [Nano Style](../../wiki/Nano-Style)
@@ -69,6 +70,7 @@ Pro Mini style LQFP32
 <img src="./docs/boards/nano_back.jpg" alt="Nano style" width="200"/>
 
 Uno Style LQFP32
+
 <img src="./docs/boards/uno_LQFP32.jpeg" alt="Uno style" width="200"/>
 
 [Wemos TTGO XI](../../wiki/Wemos-TTGO-XI)
