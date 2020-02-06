@@ -66,10 +66,14 @@ menu.variant=Variant
 328.menu.variant.modelD.bootloader.file=lgt8fx8e/optiboot_lgt8f328d.hex
 328.menu.variant.modelD.build.variant=lgt8fx8e
 
-328.menu.variant.modelD_SSOP20=328D-SSOP20 (e.g. green pro mini alternative)
-328.menu.variant.modelD_SSOP20.bootloader.path=lgt8fx8e
-328.menu.variant.modelD_SSOP20.bootloader.file=lgt8fx8e/optiboot_lgt8f328d.hex
-328.menu.variant.modelD_SSOP20.build.variant=lgt8fx8ds20
+328.menu.variant.modelP_SSOP20=328P-SSOP20 (e.g. green pro mini alternative)
+328.menu.variant.modelP_SSOP20.bootloader.path=lgt8fx8ps20
+328.menu.variant.modelP_SSOP20.bootloader.file=lgt8fx8ps20/optiboot_lgt8f328ps20.hex
+328.menu.variant.modelP_SSOP20.build.variant=lgt8fx8ps20
+#328.menu.variant.modelD_SSOP20=328D-SSOP20 (e.g. green pro mini alternative)
+#328.menu.variant.modelD_SSOP20.bootloader.path=lgt8fx8e
+#328.menu.variant.modelD_SSOP20.bootloader.file=lgt8fx8e/optiboot_lgt8f328d.hex
+#328.menu.variant.modelD_SSOP20.build.variant=lgt8fx8ds20  <---- In this case SPI buffer will not work.
 
 ############################
 #### LGT8F88            ####
