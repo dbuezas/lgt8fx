@@ -52,7 +52,11 @@
 #define digitalPinHasPWM(p)         ((p) == 3 || (p) == 5 || (p) == 6 || (p) == 9 || (p) == 10 || (p) == 11)
 #endif
 
+#if defined(__LGT8F_SSOP20__)
+#define PIN_SPI_SS    (9)          // Redirected in main.cpp at line 77
+#else
 #define PIN_SPI_SS    (10)
+#endif
 #define PIN_SPI_MOSI  (11)
 #define PIN_SPI_MISO  (12)
 #define PIN_SPI_SCK   (13)
