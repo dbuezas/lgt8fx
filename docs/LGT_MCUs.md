@@ -18,3 +18,8 @@ LGT8F88A, LGT8Fx8D and LGT8Fx8P main differences
 | Max sysclk | MHz | 32 | 32 | 32 |
 | Extras |  | Capacitive touch button controller, <br> Thermal sensor | 2x Operational Amplifier <br> fixed gain = +12 or -11 | DSC (16 bit arithmetic), <br> SPI buffer, SPI 2 wire input mode |
 | Package |  | QFP32, SSOP28 | QFP32, SSOP28, SSOP24, SSOP20 | QFP48, QFP32, SSOP20 |
+
+More docs: <br>
+https://github.com/Edragon/LGT/tree/master/1-LGT8F328/DOCS <br>
+https://github.com/Upcycle-Electronics/LGT8Fx-Datasheet/tree/master/LGT-ArchivedStuffDredgedFromTheInternet <br>
+https://github.com/watterott/LGT8F328P-Testing/ <br>
