@@ -59,7 +59,7 @@ menu.arduino_isp=Arduino as ISP
 328.menu.variant.modelP48.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
 328.menu.variant.modelP48.build.variant=lgt8fx8p48
 
-328.menu.variant.modelP=328P-LQFP32 (e.g. MiniEVB nano-style)
+328.menu.variant.modelP=328P-LQFP32 (e.g. MiniEVB nano-style and WAVGAT)
 328.menu.variant.modelP.bootloader.path=lgt8fx8p
 328.menu.variant.modelP.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
 328.menu.variant.modelP.build.variant=lgt8fx8p
@@ -69,19 +69,19 @@ menu.arduino_isp=Arduino as ISP
 328.menu.variant.modelP-wemos-TTGO-XI.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
 328.menu.variant.modelP-wemos-TTGO-XI.build.variant=lgt8fx8p-wemos-TTGO-XI
 
-328.menu.variant.modelD=328D (e.g. WAVGAT AVG328D)
+328.menu.variant.modelD=328D (rare)
 328.menu.variant.modelD.bootloader.path=lgt8fx8e
 328.menu.variant.modelD.bootloader.file=lgt8fx8e/optiboot_lgt8f328d.hex
 328.menu.variant.modelD.build.variant=lgt8fx8e
 
-328.menu.variant.modelP_SSOP20=328P-SSOP20 (e.g. green pro mini alternative)
+328.menu.variant.modelP_SSOP20=328P-SSOP20 (e.g. green pseudo pro mini)
 328.menu.variant.modelP_SSOP20.bootloader.path=lgt8fx8ps20
 328.menu.variant.modelP_SSOP20.bootloader.file=lgt8fx8ps20/optiboot_lgt8f328ps20.hex
 328.menu.variant.modelP_SSOP20.build.variant=lgt8fx8ps20
-#328.menu.variant.modelD_SSOP20=328D-SSOP20 (e.g. green pro mini alternative)
+#328.menu.variant.modelD_SSOP20=328D-SSOP20 (rare)
 #328.menu.variant.modelD_SSOP20.bootloader.path=lgt8fx8e
 #328.menu.variant.modelD_SSOP20.bootloader.file=lgt8fx8e/optiboot_lgt8f328d.hex
-#328.menu.variant.modelD_SSOP20.build.variant=lgt8fx8ds20  <---- In this case SPI buffer will not work.
+#328.menu.variant.modelD_SSOP20.build.variant=lgt8fx8ds20
 
 ############################
 #### LGT8F88            ####
