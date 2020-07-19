@@ -5,7 +5,7 @@ const { execSync } = require("child_process");
 const package = "package_lgt8fx_index.json";
 const folder = "lgt8f";
 
-const toNum = str => parseInt(str.split(".").join(""), 10);
+const toNum = (str) => parseInt(str.split(".").join(""), 10);
 const jsonStr = fs.readFileSync(package);
 
 const json = JSON.parse(jsonStr);
@@ -26,9 +26,7 @@ const size = fs.statSync(archiveFileName).size.toString();
 console.log(`size ${size}`);
 const checksum =
   "SHA-256:" +
-  execSync(`shasum -a 256 ${archiveFileName}`)
-    .toString()
-    .split(" ")[0];
+  execSync(`shasum -a 256 ${archiveFileName}`).toString().split(" ")[0];
 console.log(`checksum ${checksum}`);
 
 platforms.unshift({
@@ -45,16 +43,17 @@ platforms.unshift({
   checksum,
   size,
   help: {
-    online: "https://github.com/dbuezas/LGT8fx/issues"
+    online: "https://github.com/dbuezas/LGT8fx/issues",
   },
   boards: [
     { name: "LGT8F328P-LQFP48 MiniEVB" },
     { name: "LGT8F328P-LQFP32 wemos-TTGO-XI" },
     { name: "LGT8F328P-LQFP32 MiniEVB" },
-    { name: "LGT8F328D" },
+    { name: "LGT8F328P-SSOP20" },
+    { name: "LGT8F328D-LQFP32" },
     { name: "LGT8F328D-SSOP20" },
-    { name: "LGT8F88D-SSOP20" }
-  ]
+    { name: "LGT8F88D-SSOP20" },
+  ],
 });
 
 fs.writeFileSync(package, JSON.stringify(json, 0, 2));
