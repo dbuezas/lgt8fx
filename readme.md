@@ -27,9 +27,11 @@ Now the boards appear in the IDE and you can also select the clock speed.
 - [ ] Analog Comparator (page 224 of datasheet v1.0.4)
 - [x] [Differential Amplifier](./docs/differential-amplifier/readme.md). See this [Example](./lgt8f/libraries/differential_amplifier/examples/all_vs_all/all_vs_all.ino).
 - [ ] Computation Accelerator (page 52 of datasheet v1.0.4) [Work by others](https://www.avrfreaks.net/comment/2272366#comment-2272366)
-- [x] [SoftwareSerial @32Mhz](./lgt8f/libraries/SoftwareSerial/SoftwareSerial.cpp#L60) (stable up to 230400 baud)
+- [x] [SoftwareSerial at any clock speed](https://github.com/dbuezas/lgt8fx/pull/26) (updated implementation without timing tables)
 - [x] [In-menu external clock support](./docs/external-clock/readme.md) (by [#seisfeld](https://github.com/seisfeld))
 - [x] [2 to 6 high current 80ma IO pins](https://github.com/dbuezas/lgt8fx/issues/21#issuecomment-657020605) (thanks [#rokweom](https://github.com/rokweom))
+- [x] [328p Arduino ISP](https://github.com/dbuezas/lgt8fx/blob/master/lgt8f/libraries/LarduinoISP/readme.md) (from [#brother-yan](https://github.com/brother-yan/LGTISP))
+- [x] [SSOP20 328p Support](https://github.com/dbuezas/lgt8fx/pull/16) (thanks [#LaZsolt](https://github.com/LaZsolt))
 
 # Differences to original core [Larduino_HSP v3.6c](https://github.com/Edragon/LGT/tree/master/HSP%20Patch%20File/Larduino_HSP_3.6c/Larduino_HSP_v3.6c)
 
@@ -43,13 +45,13 @@ Now the boards appear in the IDE and you can also select the clock speed.
 # Power consumption @ 5v
 
 | Clock | Pro mini style w/o power LED | Pro mini style | Nano style |
-| ----- | ---------------------------- | -------- | ---------- |
-| 32MHz | 12.7mA                       | 15.0mA   | 32.6mA     |
-| 16MHz | 9.2mA                        | 11.5mA   | 27.8mA     |
-| 8MHz  | 7.1mA                        | 9.4mA    | 25.4mA     |
-| 4MHz  | 5.9mA                        | 8.2mA    | 23.3mA     |
-| 2MHz  | 5.3mA                        | 7.6mA    | 23.4mA     |
-| 1MHz  | 5.0mA                        | 7.3mA    | 22.8mA     |
+| ----- | ---------------------------- | -------------- | ---------- |
+| 32MHz | 12.7mA                       | 15.0mA         | 32.6mA     |
+| 16MHz | 9.2mA                        | 11.5mA         | 27.8mA     |
+| 8MHz  | 7.1mA                        | 9.4mA          | 25.4mA     |
+| 4MHz  | 5.9mA                        | 8.2mA          | 23.3mA     |
+| 2MHz  | 5.3mA                        | 7.6mA          | 23.4mA     |
+| 1MHz  | 5.0mA                        | 7.3mA          | 22.8mA     |
 
 # Example boards:
 
