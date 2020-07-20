@@ -15,7 +15,7 @@ Now the boards appear in the IDE and you can also select the clock speed.
 <img src="./docs/arduino/clock.png" alt="Clock" width="400"/>
 <img src="./docs/external-clock/clock-source.png" alt="External Clock" width="400"/>
 
-32Mhz is twice as fast as a conventional arduino nano!
+32Mhz is twice as fast as a conventional arduino nano! Actually *even faster* as many operations take less clock cycles than in the atmega328p.
 
 # Features
 
