@@ -23,10 +23,8 @@ This is an implementation of LGT8Fx8P ISP download protocol. You can make arduin
       | D12 | -> | SWD |
       | D10 | -> | RST |
 2. Burn bootloader into LGT8Fx8P:
-   1. install Larduino.
-   2. change **Board** to LGT8Fx8P.
-   3. change **Programmer** to **AVR ISP**.
-   4. click **Burn Bootloader**!
+   1. change **Programmer** to **AVR ISP**.
+   2. click **Burn Bootloader** or upload sketches directly through the menu: **Sketch/Upload using programmer**
 
 ## advanced usage
 
