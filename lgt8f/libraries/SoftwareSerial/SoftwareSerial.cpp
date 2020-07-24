@@ -44,6 +44,8 @@ http://arduiniana.org.
 #include <SoftwareSerial.h>
 // #include <util/delay_basic.h>
 // replace modified _delay_loop_2() for LGT8F328P
+// (different from original AVR, LGT8F328P's RET takes 2 clocks.
+// To simplify calculate execution clocks, use inline.)
 /*
     Delay loop using a 16-bit counter \c __count, so up to 65536
     iterations are possible.  (The value 65536 would have to be
@@ -54,12 +56,15 @@ http://arduiniana.org.
     Thus, at a CPU speed of 1 MHz, delays of up to about 262.1
     milliseconds can be achieved.
  */
-static void SoftwareSerial::_delay_loop_2(uint16_t __count)
+__attribute__((always_inline)) static inline void SoftwareSerial::_delay_loop_2(uint16_t __count)
 {
 	__asm__ volatile (
 		"1: sbiw %0,1" "\n\t"
+#if defined(__LGT8F__)
 		"nop" "\n\t"	// LGT8F328P's SBIW takes 1 clock, adjust
+#endif
 		"brne 1b"
+		"\n\t" "nop"	// ensure delay when loop exits
 		: "=w" (__count)
 		: "0" (__count)
 	);
@@ -99,7 +104,7 @@ inline void DebugPulse(uint8_t, uint8_t) {}
 //
 
 /* static */ 
-inline void SoftwareSerial::tunedDelay(uint16_t delay) { 
+__attribute__((always_inline)) static inline void SoftwareSerial::tunedDelay(uint16_t delay) { 
   _delay_loop_2(delay);
 }
 
@@ -359,44 +364,37 @@ void SoftwareSerial::begin(long speed)
   // 12 (gcc 4.8.2) or 14 (gcc 4.3.2) cycles from last bit to stop bit
   // These are all close enough to just use 15 cycles, since the inter-bit
   // timings are the most critical (deviations stack 8 times)
-  _tx_delay = subtract_cap(bit_delay, 15 / 4);
+  _tx_delay = subtract_cap(bit_delay, 14 / 4);
 
   // Only setup rx when we have a valid PCINT for this pin
   if (digitalPinToPCICR((int8_t)_receivePin)) {
-    #if GCC_VERSION > 40800
-    // Timings counted from gcc 4.8.2 output. This works up to 115200 on
+    #if GCC_VERSION >= 70300
+    // Timings counted from gcc 7.3.0 output. This works up to 115200 on
     // 16Mhz and 57600 on 8Mhz.
     //
     // When the start bit occurs, there are 3 or 4 cycles before the
     // interrupt flag is set, 4 cycles before the PC is set to the right
     // interrupt vector address and the old PC is pushed on the stack,
-    // and then 75 cycles of instructions (including the RJMP in the
+    // and then 44 cycles of instructions (including the RJMP in the
     // ISR vector table) until the first delay. After the delay, there
-    // are 17 more cycles until the pin value is read (excluding the
+    // are 14 more cycles until the pin value is read (excluding the
     // delay in the loop).
     // We want to have a total delay of 1.5 bit time. Inside the loop,
-    // we already wait for 1 bit time - 23 cycles, so here we wait for
-    // 0.5 bit time - (71 + 18 - 22) cycles.
-    _rx_delay_centering = subtract_cap(bit_delay / 2, (4 + 4 + 75 + 17 - 23) / 4);
+    // we already wait for 1 bit time - 14 cycles, so here we wait for
+    // 0.5 bit time - (44 + 14 - 14) cycles.
+    _rx_delay_centering = subtract_cap(bit_delay / 2, (4 + 4 + 44 + 14 - 14) / 4);
 
-    // There are 23 cycles in each loop iteration (excluding the delay)
-    _rx_delay_intrabit = subtract_cap(bit_delay, 23 / 4);
+    // There are 14 cycles in each loop iteration (excluding the delay)
+    _rx_delay_intrabit = subtract_cap(bit_delay, 14 / 4);
 
-    // There are 37 cycles from the last bit read to the start of
-    // stopbit delay and 11 cycles from the delay until the interrupt
+    // There are 28 cycles from the last bit read to the start of
+    // stopbit delay and 6 cycles from the delay until the interrupt
     // mask is enabled again (which _must_ happen during the stopbit).
     // This delay aims at 3/4 of a bit time, meaning the end of the
     // delay will be at 1/4th of the stopbit. This allows some extra
     // time for ISR cleanup, which makes 115200 baud at 16Mhz work more
     // reliably
-    _rx_delay_stopbit = subtract_cap(bit_delay * 3 / 4, (37 + 11) / 4);
-    #else // Timings counted from gcc 4.3.2 output
-    // Note that this code is a _lot_ slower, mostly due to bad register
-    // allocation choices of gcc. This works up to 57600 on 16Mhz and
-    // 38400 on 8Mhz.
-    _rx_delay_centering = subtract_cap(bit_delay / 2, (4 + 4 + 97 + 29 - 11) / 4);
-    _rx_delay_intrabit = subtract_cap(bit_delay, 11 / 4);
-    _rx_delay_stopbit = subtract_cap(bit_delay * 3 / 4, (44 + 17) / 4);
+    _rx_delay_stopbit = subtract_cap(bit_delay * 3 / 4, (28 + 6) / 4);
     #endif
 
 
