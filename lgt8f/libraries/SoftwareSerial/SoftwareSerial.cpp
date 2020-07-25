@@ -56,7 +56,7 @@ http://arduiniana.org.
     Thus, at a CPU speed of 1 MHz, delays of up to about 262.1
     milliseconds can be achieved.
  */
-__attribute__((always_inline)) static inline void SoftwareSerial::_delay_loop_2(uint16_t __count)
+void SoftwareSerial::_delay_loop_2(uint16_t __count)
 {
 	__asm__ volatile (
 		"1: sbiw %0,1" "\n\t"
@@ -104,7 +104,7 @@ inline void DebugPulse(uint8_t, uint8_t) {}
 //
 
 /* static */ 
-__attribute__((always_inline)) static inline void SoftwareSerial::tunedDelay(uint16_t delay) { 
+void SoftwareSerial::tunedDelay(uint16_t delay) { 
   _delay_loop_2(delay);
 }
 
