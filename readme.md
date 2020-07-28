@@ -32,6 +32,7 @@ Now the boards appear in the IDE and you can also select the clock speed.
 - [x] [2 to 6 high current 80ma IO pins](https://github.com/dbuezas/lgt8fx/issues/21#issuecomment-657020605) (thanks [#rokweom](https://github.com/rokweom))
 - [x] [328p Arduino ISP](https://github.com/dbuezas/lgt8fx/blob/master/lgt8f/libraries/LarduinoISP/readme.md) (from [#brother-yan](https://github.com/brother-yan/LGTISP))
 - [x] [SSOP20 328p Support](https://github.com/dbuezas/lgt8fx/pull/16) (by [#LaZsolt](https://github.com/LaZsolt))
+- [x] [Faster Analog Read](https://github.com/dbuezas/lgt8fx/pull/32) (by [#jayzakk](https://github.com/jayzakk))
 
 # Differences to original core [Larduino_HSP v3.6c](https://github.com/Edragon/LGT/tree/master/HSP%20Patch%20File/Larduino_HSP_3.6c/Larduino_HSP_v3.6c)
 
@@ -126,3 +127,5 @@ http://www.somsubhra.com/github-release-stats/?username=dbuezas&repository=lgt8f
 - [#HI-SEBA](https://github.com/HI-SEBA) for help with software serial
 - [#dwillmore](https://github.com/dwillmore) for creating the wiki, serial adapter troubleshooting, more examples of boards and wemos-TTGO-XI board support
 - [#seisfeld](https://github.com/seisfeld) for adding in-menu support for an external oscillator
+- [#LaZsolt](https://github.com/LaZsolt) for adding SSOP20 lgt8f328p support
+- [#jayzakk](https://github.com/jayzakk) for fixing the ADC prescaler for faster analog reads
