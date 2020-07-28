@@ -359,18 +359,25 @@ void SoftwareSerial::begin(long speed)
   // Precalculate the various delays, in number of 4-cycle delays
   uint16_t bit_delay = (F_CPU / speed) / 4;
 
-  // 12 (gcc 4.8.2) or 13 (gcc 4.3.2) cycles from start bit to first bit,
-  // 15 (gcc 4.8.2) or 16 (gcc 4.3.2) cycles between bits,
-  // 12 (gcc 4.8.2) or 14 (gcc 4.3.2) cycles from last bit to stop bit
-  // These are all close enough to just use 15 cycles, since the inter-bit
-  // timings are the most critical (deviations stack 8 times)
+  // from start bit to first bit:
+  //  9 or 10 (gcc 7.3.0),  7 or  8 (gcc 5.4.0),  7 or  8 (gcc 4.9.2) cycles
+  // between bits:
+  // 14 or 15 (gcc 7.3.0), 10 or 11 (gcc 5.4.0), 10 or 11 (gcc 4.9.2) cycles
+  // from last bit to stop bit:
+  // 11 or 12 (gcc 7.3.0),  9 or 10 (gcc 5.4.0),       10 (gcc 4.9.2) cycles
+  // These are all close enough to just use 14 or 10 cycles, since the
+  // inter-bit timings are the most critical (deviations stack 8 times)
+  #if GCC_VERSION >= 70000
   _tx_delay = subtract_cap(bit_delay, 14 / 4);
+  #else
+  _tx_delay = subtract_cap(bit_delay, 10 / 4);
+  #endif
 
   // Only setup rx when we have a valid PCINT for this pin
   if (digitalPinToPCICR((int8_t)_receivePin)) {
-    #if GCC_VERSION >= 70300
     // Timings counted from gcc 7.3.0 output. This works up to 115200 on
     // 16Mhz and 57600 on 8Mhz.
+    // (the result of gcc 5.4.0 and 4.9.2 is a bit different but almost same)
     //
     // When the start bit occurs, there are 3 or 4 cycles before the
     // interrupt flag is set, 4 cycles before the PC is set to the right
@@ -380,12 +387,12 @@ void SoftwareSerial::begin(long speed)
     // are 14 more cycles until the pin value is read (excluding the
     // delay in the loop).
     // We want to have a total delay of 1.5 bit time. Inside the loop,
-    // we already wait for 1 bit time - 14 cycles, so here we wait for
-    // 0.5 bit time - (44 + 14 - 14) cycles.
-    _rx_delay_centering = subtract_cap(bit_delay / 2, (4 + 4 + 44 + 14 - 14) / 4);
+    // we already wait for 1 bit time - 13 cycles, so here we wait for
+    // 0.5 bit time - (44 + 14 - 13) cycles.
+    _rx_delay_centering = subtract_cap(bit_delay / 2, (4 + 4 + 44 + 14 - 13) / 4);
 
-    // There are 14 cycles in each loop iteration (excluding the delay)
-    _rx_delay_intrabit = subtract_cap(bit_delay, 14 / 4);
+    // There are 13 cycles in each loop iteration (excluding the delay)
+    _rx_delay_intrabit = subtract_cap(bit_delay, 13 / 4);
 
     // There are 28 cycles from the last bit read to the start of
     // stopbit delay and 6 cycles from the delay until the interrupt
@@ -395,7 +402,6 @@ void SoftwareSerial::begin(long speed)
     // time for ISR cleanup, which makes 115200 baud at 16Mhz work more
     // reliably
     _rx_delay_stopbit = subtract_cap(bit_delay * 3 / 4, (28 + 6) / 4);
-    #endif
 
 
     // Enable the PCINT for the entire port here, but never disable it
