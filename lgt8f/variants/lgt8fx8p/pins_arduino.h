@@ -35,6 +35,6 @@ static const uint8_t DAC0 = 4;
 
 #include "../standard/pins_arduino.h"
 #undef NUM_ANALOG_INPUTS
-#define NUM_ANALOG_INPUTS           8
+#define NUM_ANALOG_INPUTS           10
 
 #endif
