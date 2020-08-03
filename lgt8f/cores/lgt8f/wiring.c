@@ -39,7 +39,7 @@ volatile unsigned long timer0_overflow_count = 0;
 volatile unsigned long timer0_millis = 0;
 static unsigned char timer0_fract = 0;
 
-#if defined(__AVR_ATtiny24__) || defined(__AVR_ATtiny44__) || defined(__AVR_ATtiny84__)
+#if defined(TIM0_OVF_vect)
 ISR(TIM0_OVF_vect)
 #else
 ISR(TIMER0_OVF_vect)
@@ -109,7 +109,7 @@ void delay(unsigned long ms)
 
 	while (ms > 0) {
 		yield();
-		while (ms > 0 && (micros() - start) >= 1000) {
+		while ( ms > 0 && (micros() - start) >= 1000) {
 			ms--;
 			start += 1000;
 		}
@@ -250,7 +250,7 @@ void init()
 #if defined(TCCR0A) && defined(WGM01)
 	sbi(TCCR0A, WGM01);
 	sbi(TCCR0A, WGM00);
-#endif  
+#endif
 
 	// set timer 0 prescale factor to 64
 #if defined(__AVR_ATmega128__)
@@ -368,7 +368,7 @@ void init()
 		cbi(ADCSRA, ADPS2);
 		cbi(ADCSRA, ADPS1);
 		sbi(ADCSRA, ADPS0);
-	#endif	
+	#endif
 	// enable a2d conversions
 	sbi(ADCSRA, ADEN);
 #endif

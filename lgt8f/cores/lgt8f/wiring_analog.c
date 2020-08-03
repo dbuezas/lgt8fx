@@ -20,8 +20,6 @@
   Boston, MA  02111-1307  USA
 
   Modified 28 September 2010 by Mark Sproul
-
-  $Id: wiring.c 248 2007-02-03 15:36:30Z mellis $
 */
 
 #include "wiring_private.h"
@@ -89,7 +87,7 @@ void analogReference(uint8_t mode)
 #endif
 }
 
-static uint16_t adcRead()
+static uint16_t adcRead(void)
 {
 	volatile uint8_t tmp = 0;
 
@@ -105,7 +103,7 @@ static uint16_t adcRead()
 	return (ADCH << 8) | tmp;
 }
 
-int __analogRead(uint8_t pin)
+static int __analogRead(uint8_t pin)
 {
 	uint16_t pVal;
 #if defined(__LGT8FX8P__)
@@ -118,22 +116,22 @@ int __analogRead(uint8_t pin)
 	}	
 #endif
 
-#if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
+#if defined(analogPinToChannel)
+#if defined(__AVR_ATmega32U4__)
+	if (pin >= 18) pin -= 18; // allow for channel or pin numbers
+#endif
+	pin = analogPinToChannel(pin);
+#elif defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
 	if (pin >= 54) pin -= 54; // allow for channel or pin numbers
 #elif defined(__AVR_ATmega32U4__)
 	if (pin >= 18) pin -= 18; // allow for channel or pin numbers
 #elif defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644__) || defined(__AVR_ATmega644A__) || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega644PA__)
 	if (pin >= 24) pin -= 24; // allow for channel or pin numbers
-#elif defined(analogPinToChannel) && (defined(__AVR_ATtiny25__) || defined(__AVR_ATtiny45__) || defined(__AVR_ATtiny85__))
-	pin = analogPinToChannel(pin);
 #else
 	if (pin >= 14) pin -= 14; // allow for channel or pin numbers
 #endif
 
-#if defined(__AVR_ATmega32U4__)
-	pin = analogPinToChannel(pin);
-	ADCSRB = (ADCSRB & ~(1 << MUX5)) | (((pin >> 3) & 0x01) << MUX5);
-#elif defined(ADCSRB) && defined(MUX5)
+#if defined(ADCSRB) && defined(MUX5)
 	// the MUX5 bit of ADCSRB selects whether we're reading from channels
 	// 0 to 7 (MUX5 low) or 8 to 15 (MUX5 high).
 	ADCSRB = (ADCSRB & ~(1 << MUX5)) | (((pin >> 3) & 0x01) << MUX5);
@@ -143,7 +141,11 @@ int __analogRead(uint8_t pin)
 	// channel (low 4 bits).  this also sets ADLAR (left-adjust result)
 	// to 0 (the default).
 #if defined(ADMUX)
-	ADMUX = (analog_reference << 6) | (pin & 0x1f);
+#if defined(__AVR_ATtiny25__) || defined(__AVR_ATtiny45__) || defined(__AVR_ATtiny85__)
+	ADMUX = (analog_reference << 4) | (pin & 0x07);
+#else
+	ADMUX = (analog_reference << 6) | (pin & 0x07);
+#endif
 #endif
 
 	// without a delay, we seem to read from the wrong channel
@@ -197,7 +199,6 @@ int analogRead(uint8_t pin)
 // hardware support.  These are defined in the appropriate
 // pins_*.c file.  For the rest of the pins, we default
 // to digital output.
-
 void analogWrite(uint8_t pin, int val)
 {
 	// We need to make sure the PWM output is enabled for those pins
@@ -205,17 +206,21 @@ void analogWrite(uint8_t pin, int val)
 	// writing with them.  Also, make sure the pin is in output mode
 	// for consistenty with Wiring, which doesn't require a pinMode
 	// call for the analog output pins.
-	
 	if(LGT_NOT_DACO(pin)) {
 		pinMode(pin, OUTPUT);
 	}
-
-	if (val == 0 && LGT_NOT_DACO(pin)) {
+	if (val == 0 && LGT_NOT_DACO(pin))
+	{
 		digitalWrite(pin, LOW);
-	} else if (val == 255 && LGT_NOT_DACO(pin)) {
+	}
+	else if (val == 255 && LGT_NOT_DACO(pin))
+	{
 		digitalWrite(pin, HIGH);
-	} else {
-		switch(digitalPinToTimer(pin)) {
+	}
+	else
+	{
+		switch(digitalPinToTimer(pin))
+		{
 			// XXX fix needed for atmega8
 			#if defined(TCCR0) && defined(COM00) && !defined(__AVR_ATmega8__)
 			case TIMER0A:
@@ -254,6 +259,14 @@ void analogWrite(uint8_t pin, int val)
 				// connect pwm to pin on timer 1, channel B
 				sbi(TCCR1A, COM1B1);
 				OCR1B = val; // set pwm duty
+				break;
+			#endif
+
+			#if defined(TCCR1A) && defined(COM1C1)
+			case TIMER1C:
+				// connect pwm to pin on timer 1, channel C
+				sbi(TCCR1A, COM1C1);
+				OCR1C = val; // set pwm duty
 				break;
 			#endif
 
@@ -377,6 +390,7 @@ void analogWrite(uint8_t pin, int val)
 				DAL1 = val;
 				break;
 			#endif
+
 			case NOT_ON_TIMER:
 			default:
 				if (val < 128) {
