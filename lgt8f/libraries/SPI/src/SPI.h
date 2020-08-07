@@ -221,13 +221,12 @@ public:
     rcvd = SPDR;
     SPFR = _BV(RDEMPT) | _BV(WREMPT);
 #else
-    while(!(SPSR & _BV(SPIF)));
+    while (!(SPSR & _BV(SPIF))) ; // wait
     rcvd = SPDR;
 #endif
 
     return rcvd;
   }
-
   inline static uint16_t transfer16(uint16_t data) {
     union { uint16_t val; struct { uint8_t lsb; uint8_t msb; }; } in, out;
     in.val = data;
@@ -239,8 +238,8 @@ public:
       out.msb = SPDR;
       SPFR = _BV(RDEMPT) | _BV(WREMPT);
 #else
-	while(!(SPSR & _BV(SPIF)));
-	out.msb = SPDR;
+      while (!(SPSR & _BV(SPIF))) ;
+      out.msb = SPDR;
 #endif
 
       SPDR = in.lsb;
@@ -250,8 +249,8 @@ public:
       out.lsb = SPDR;
       SPFR = _BV(RDEMPT) | _BV(WREMPT);
 #else
-	while(!(SPSR & _BV(SPIF)));
-	out.lsb = SPDR;
+      while (!(SPSR & _BV(SPIF))) ;
+      out.lsb = SPDR;
 #endif
     } else {
       SPDR = in.lsb;
@@ -261,8 +260,8 @@ public:
       out.lsb = SPDR;
       SPFR = _BV(RDEMPT) | _BV(WREMPT);
 #else
-	while(!(SPSR & _BV(SPIF)));
-	out.lsb = SPDR;
+      while (!(SPSR & _BV(SPIF))) ;
+      out.lsb = SPDR;
 #endif
 
       SPDR = in.msb;
@@ -272,17 +271,14 @@ public:
       out.msb = SPDR;
       SPFR = _BV(RDEMPT) | _BV(WREMPT);
 #else
-	while(!(SPSR & _BV(SPIF)));
-	out.msb = SPDR;
+      while (!(SPSR & _BV(SPIF))) ;
+      out.msb = SPDR;
 #endif
     }
-
     return out.val;
   }
-
   inline static void transfer(void *buf, size_t count) {
     if (count == 0) return;
-
     uint8_t *p = (uint8_t *)buf;
     SPDR = *p;
     while (--count > 0) {
@@ -291,11 +287,11 @@ public:
       while ((SPFR & _BV(RDEMPT))) ;
       uint8_t in = SPDR;
       SPFR = (1 << 6) | (1 << 2);
-#else
-	while(!(SPSR & _BV(SPIF)));
-	uint8_t in = SPDR;
-#endif
       asm volatile("nop");
+#else
+      while (!(SPSR & _BV(SPIF))) ;
+      uint8_t in = SPDR;
+#endif
       SPDR = out;
       *p++ = in;
     }
@@ -305,11 +301,10 @@ public:
     *p = SPDR;
     SPFR = (1 << 6) | (1 << 2);
 #else
-   while (!(SPSR & _BV(SPIF))) ;
+    while (!(SPSR & _BV(SPIF))) ;
     *p = SPDR;
 #endif
   }
-
   // After performing a group of transfers and releasing the chip select
   // signal, this function allows others to access the SPI bus
   inline static void endTransaction(void) {
@@ -347,20 +342,17 @@ public:
     if (bitOrder == LSBFIRST) SPCR |= _BV(DORD);
     else SPCR &= ~(_BV(DORD));
   }
-
   // This function is deprecated.  New applications should use
   // beginTransaction() to configure SPI settings.
   inline static void setDataMode(uint8_t dataMode) {
     SPCR = (SPCR & ~SPI_MODE_MASK) | dataMode;
   }
-
   // This function is deprecated.  New applications should use
   // beginTransaction() to configure SPI settings.
   inline static void setClockDivider(uint8_t clockDiv) {
     SPCR = (SPCR & ~SPI_CLOCK_MASK) | (clockDiv & SPI_CLOCK_MASK);
     SPSR = (SPSR & ~SPI_2XCLOCK_MASK) | ((clockDiv >> 2) & SPI_2XCLOCK_MASK);
   }
-
   // These undocumented functions should not be used.  SPI.transfer()
   // polls the hardware flag which is automatically cleared as the
   // AVR responds to SPI's interrupt
