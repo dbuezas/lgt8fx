@@ -206,11 +206,6 @@ static const uint8_t A10 = 25;
 #define	PGAO	32
 #endif
 
-#define digitalPinToPCICR(p)    (((p) >= 0 && (p) <= 21) ? (&PCICR) : ((uint8_t *)0))
-#define digitalPinToPCICRbit(p) (((p) <= 7) ? 2 : (((p) <= 13) ? 0 : 1))
-#define digitalPinToPCMSK(p)    (((p) <= 7) ? (&PCMSK2) : (((p) <= 13) ? (&PCMSK0) : (((p) <= 21) ? (&PCMSK1) : ((uint8_t *)0))))
-#define digitalPinToPCMSKbit(p) (((p) <= 7) ? (p) : (((p) <= 13) ? ((p) - 8) : ((p) - 14)))
-
 #define digitalPinToInterrupt(p)  ((p) == 2 ? 0 : ((p) == 3 ? 1 : NOT_AN_INTERRUPT))
 
 #ifdef ARDUINO_MAIN
@@ -394,6 +389,8 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] = {
 #endif
 };
 
+const uint8_t PROGMEM port_to_PCMSK_PGM[] = { (uint8_t *)0, (uint8_t *)0, &PCMSK0, &PCMSK1, &PCMSK2, &PCMSK3, &PCMSK4 };
+
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
 	NOT_ON_TIMER, /* 0 - port D */
 	NOT_ON_TIMER,
@@ -442,6 +439,11 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
 };
 
 #endif
+
+#define digitalPinToPCMSK(p) (uint8_t*)pgm_read_byte(port_to_PCMSK_PGM+pgm_read_byte(digital_pin_to_port_PGM+(p)))
+#define digitalPinToPCICRbit(p) (pgm_read_byte(digital_pin_to_port_PGM+(p))-2)
+#define digitalPinToPCMSKbit(n) pgm_read_byte(digital_pin_to_bit_mask_PGM+(n))==128?7:pgm_read_byte(digital_pin_to_bit_mask_PGM+(n))==64?6:pgm_read_byte(digital_pin_to_bit_mask_PGM+(n))==32?5:pgm_read_byte(digital_pin_to_bit_mask_PGM+(n))==16?4:pgm_read_byte(digital_pin_to_bit_mask_PGM+(n))==8?3:pgm_read_byte(digital_pin_to_bit_mask_PGM+(n))==4?2:pgm_read_byte(digital_pin_to_bit_mask_PGM+(n))==2?1:pgm_read_byte(digital_pin_to_bit_mask_PGM+(n))==1?0:-1
+#define digitalPinToPCICR(p)    (((p) >= 0 && (p) <= 39) ? (&PCICR) : ((uint8_t *)0))
 
 // These serial port names are intended to allow libraries and architecture-neutral
 // sketches to automatically default to the correct port name for a particular type
