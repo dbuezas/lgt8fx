@@ -593,8 +593,6 @@ Description : Original version.
 #define TIMER3_vect_num         29
 #define TIMER3_vect             _VECTOR(29)
 
-#undef SPM_READY_vect_num
-#undef SPM_READY_vect
 #undef _VECTORS_SIZE
 #define _VECTORS_SIZE (30 * 4)
 
