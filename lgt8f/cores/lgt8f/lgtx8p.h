@@ -584,8 +584,8 @@ Description : Original version.
 #undef SPM_Ready_vect_num
 #define ANALOG_COMP_0_vect_num  23
 #define ANALOG_COMP_0_vect      _VECTOR(23)
-#define ANALOG_COMP_1_vect_num  26
-#define ANALOG_COMP_1_vect      _VECTOR(26)
+#define ANALOG_COMP_1_vect_num  25
+#define ANALOG_COMP_1_vect      _VECTOR(25)
 #define PCINT3_vect_num         27
 #define PCINT3_vect             _VECTOR(27)
 #define PCINT4_vect_num         28
