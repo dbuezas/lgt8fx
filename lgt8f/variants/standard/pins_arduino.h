@@ -435,7 +435,7 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
 
 #define digitalPinToPCMSK(p) (uint8_t*)pgm_read_byte(port_to_PCMSK_PGM+pgm_read_byte(digital_pin_to_port_PGM+(p)))
 #define digitalPinToPCICRbit(p) (pgm_read_byte(digital_pin_to_port_PGM+(p))-2)
-#define digitalPinToPCMSKbit(n) pgm_read_byte(digital_pin_to_bit_mask_PGM+(n))==128?7:pgm_read_byte(digital_pin_to_bit_mask_PGM+(n))==64?6:pgm_read_byte(digital_pin_to_bit_mask_PGM+(n))==32?5:pgm_read_byte(digital_pin_to_bit_mask_PGM+(n))==16?4:pgm_read_byte(digital_pin_to_bit_mask_PGM+(n))==8?3:pgm_read_byte(digital_pin_to_bit_mask_PGM+(n))==4?2:pgm_read_byte(digital_pin_to_bit_mask_PGM+(n))==2?1:pgm_read_byte(digital_pin_to_bit_mask_PGM+(n))==1?0:-1
+#define digitalPinToPCMSKbit(n) __builtin_ctz(pgm_read_byte(digital_pin_to_bit_mask_PGM+(n)))
 #define digitalPinToPCICR(p)    (((p) >= 0 && (p) <= 39) ? (&PCICR) : ((uint8_t *)0))
 
 // These serial port names are intended to allow libraries and architecture-neutral
