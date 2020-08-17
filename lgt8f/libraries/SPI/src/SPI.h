@@ -320,12 +320,11 @@ public:
      size_t writecount = count;
   
      while(count>0||writecount>0) {
-       uint8_t spfr = SPFR;
-       if (writecount>0 && (!(spfr & _BV(WRFULL)))) {
+       if (writecount>0 && (!(SPFR & _BV(WRFULL)))) {
          SPDR = p ? *p++ : 0;
          writecount--;
          }
-       if (count>0 && (!(spfr & _BV(RDEMPT)))) {
+       if (count>0 && (!(SPFR & _BV(RDEMPT)))) {
          uint8_t in = SPDR;
          if (pret) *pret++ = in;
          count--;
