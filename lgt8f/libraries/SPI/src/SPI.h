@@ -312,53 +312,7 @@ public:
 
 #if defined(__LGT8F__)
 #define SPI_HAS_TRANSFER_BUF
-  inline static void transfer(void * buf, void * retbuf, size_t count) {
-    if (count == 0) return;
-
-    uint8_t *p = (uint8_t *)buf;
-    uint8_t *pret = (uint8_t *)retbuf;
-    size_t writecount = count;
-
-    if (buf && !retbuf) {
-      // optimized version: we only need to SEND
-      while(writecount-->0) {
-        while(SPFR & _BV(WRFULL));
-        SPDR = *p++;
-        if (!(SPFR & _BV(RDEMPT))) { uint8_t in = SPDR; count--; }
-        }
-      while (count-->0) {
-        while (SPFR & _BV(RDEMPT));
-        uint8_t in = SPDR;
-        }
-      }
-    else if (!buf && retbuf) {
-      // optimized version: we only need to RECEIVE
-      while(writecount-->0) {
-        while(SPFR & _BV(WRFULL));
-        SPDR = 0;
-        if (!(SPFR & _BV(RDEMPT))) { *pret++=SPDR; count--; }
-        }
-      while (count-->0) {
-        while (SPFR & _BV(RDEMPT));
-        *pret++=SPDR;
-        }
-      }
-    else {
-      while(count>0||writecount>0) {
-        if (writecount>0 && (!(SPFR & _BV(WRFULL)))) {
-          SPDR = p ? *p++ : 0;
-          writecount--;
-          }
-        if (count>0 && (!(SPFR & _BV(RDEMPT)))) {
-          uint8_t in = SPDR;
-          if (pret) *pret++ = in;
-          count--;
-          }
-        }
-      }
-    asm ( "nop;\n" );
-    asm ( "nop;\n" );
-    }
+  const static void SPIClass::transfer(void * buf, void * retbuf, size_t count);
 #endif
 
   // After performing a group of transfers and releasing the chip select

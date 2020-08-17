@@ -80,6 +80,57 @@ void SPIClass::end() {
   SREG = sreg;
 }
 
+#if defined(__LGT8F__)
+  const static void SPIClass::transfer(void * buf, void * retbuf, size_t count) {
+    if (count == 0) return;
+
+    uint8_t *p = (uint8_t *)buf;
+    uint8_t *pret = (uint8_t *)retbuf;
+    size_t writecount = count;
+
+    if (buf && !retbuf) {
+      // optimized version: we only need to SEND
+      while(writecount-->0) {
+        while(SPFR & _BV(WRFULL));
+        SPDR = *p++;
+        if (!(SPFR & _BV(RDEMPT))) { uint8_t in = SPDR; count--; }
+        }
+      while (count-->0) {
+        while (SPFR & _BV(RDEMPT));
+        uint8_t in = SPDR;
+        }
+      }
+   else if (!buf && retbuf) {
+      // optimized version: we only need to RECEIVE
+      while(writecount-->0) {
+        while(SPFR & _BV(WRFULL));
+        SPDR = 0;
+        if (!(SPFR & _BV(RDEMPT))) { *pret++=SPDR; count--; }
+        }
+      while (count-->0) {
+        while (SPFR & _BV(RDEMPT));
+        *pret++=SPDR;
+        }
+      }
+    else  {
+    // this last part does write+read at the same time
+    // doing so, we are too slow to get a constant SCK/clock at high SPI speed
+    // this combination will run much slower - but usually some does only read OR write
+      while(count>0||writecount>0) {
+        if (writecount>0 && (!(SPFR & _BV(WRFULL)))) {
+          SPDR = p ? *p++ : 0;
+          writecount--;
+          }
+        if (count>0 && (!(SPFR & _BV(RDEMPT)))) {
+          uint8_t in = SPDR;
+          if (pret) *pret++ = in;
+          count--;
+          }
+        }
+      }
+    }
+#endif
+
 // mapping of interrupt numbers to bits within SPI_AVR_EIMSK
 #if defined(__AVR_ATmega32U4__)
   #define SPI_INT0_MASK  (1<<INT0)
