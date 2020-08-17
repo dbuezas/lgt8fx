@@ -356,6 +356,8 @@ public:
           }
         }
       }
+    asm ( "nop;\n" );
+    asm ( "nop;\n" );
     }
 #endif
 
