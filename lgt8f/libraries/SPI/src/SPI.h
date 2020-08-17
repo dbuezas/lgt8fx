@@ -310,6 +310,30 @@ public:
 #endif
   }
 
+#if defined(__LGT8F__)
+#define SPI_HAS_TRANSFER_BUF
+  inline static void transfer(void * buf, void * retbuf, size_t count) {
+    if (count == 0) return;
+  
+     uint8_t *p = (uint8_t *)buf;
+     uint8_t *pret = (uint8_t *)retbuf;
+     size_t writecount = count;
+  
+     while(count>0||writecount>0) {
+       uint8_t spfr = SPFR;
+       if (writecount>0 && (!(spfr & _BV(WRFULL)))) {
+         SPDR = p ? *p++ : 0;
+         writecount--;
+         }
+       if (count>0 && (!(spfr & _BV(RDEMPT)))) {
+         uint8_t in = SPDR;
+         if (pret) *pret++ = in;
+         count--;
+         }
+     }
+}
+#endif
+
   // After performing a group of transfers and releasing the chip select
   // signal, this function allows others to access the SPI bus
   inline static void endTransaction(void) {
