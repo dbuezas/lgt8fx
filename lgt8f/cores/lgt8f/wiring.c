@@ -351,28 +351,20 @@ void init()
 #endif
 
 #if defined(ADCSRA)
-	// set a2d prescaler so we are inside the desired 50-200 KHz range.
-	#if F_CPU >= 16000000 // 16 MHz / 128 = 125 KHz
-		sbi(ADCSRA, ADPS2);
-		sbi(ADCSRA, ADPS1);
-		sbi(ADCSRA, ADPS0);
-	#elif F_CPU >= 8000000 // 8 MHz / 64 = 125 KHz
-		sbi(ADCSRA, ADPS2);
-		sbi(ADCSRA, ADPS1);
-		cbi(ADCSRA, ADPS0);
-	#elif F_CPU >= 4000000 // 4 MHz / 32 = 125 KHz
-		sbi(ADCSRA, ADPS2);
-		cbi(ADCSRA, ADPS1);
-		sbi(ADCSRA, ADPS0);
-	#elif F_CPU >= 2000000 // 2 MHz / 16 = 125 KHz
+	// set a2d prescaler so we are inside the desired 300-3000 kHz range.
+	#if F_CPU >= 32000000 // 32 MHz / 16 = 2000 kHz : prescaler = 4
 		sbi(ADCSRA, ADPS2);
 		cbi(ADCSRA, ADPS1);
 		cbi(ADCSRA, ADPS0);
-	#elif F_CPU >= 1000000 // 1 MHz / 8 = 125 KHz
+	#elif F_CPU >= 16000000 // 16 MHz / 8 = 2000 kHz : prescaler = 3
 		cbi(ADCSRA, ADPS2);
 		sbi(ADCSRA, ADPS1);
 		sbi(ADCSRA, ADPS0);
-	#else // 128 kHz / 2 = 64 KHz -> This is the closest you can get, the prescaler is 2
+	#elif F_CPU >= 8000000 // 8 MHz / 4 = 2000 kHz : prescaler = 2
+		cbi(ADCSRA, ADPS2);
+		sbi(ADCSRA, ADPS1);
+		cbi(ADCSRA, ADPS0);
+	#else // Smallest prescaler is 1 (/2) : 4MHz=2000kHz, 2MHz=1000kHz, 1MHz=500kHz
 		cbi(ADCSRA, ADPS2);
 		cbi(ADCSRA, ADPS1);
 		sbi(ADCSRA, ADPS0);

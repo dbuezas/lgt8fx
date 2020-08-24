@@ -1,0 +1,130 @@
+LABELS,DEFAULT,TYPE,GROUP,Name, Official Name, GPIO, Analog 1, Analog 2, RTC,  Func 1, Func 2, Func 3, Func 4, Func 5, Dunc 6
+BORDER COLOR, grey
+BORDER WIDTH, 2
+BORDER OPACITY, 1
+FILL COLOR, white, white, white, white, black, oldlace, yellow, lightgrey, lightsteelblue,lightsteelblue, lime,lime, red, green, purple
+OPACITY, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+FONT , Rubik, , , Work Sans, Work Sans
+FONT SIZE , 25, , , 25, 25
+FONT COLOR , black, , , , white, , ,  ,,  ,, , white, white, white
+FONT SLANT , normal , , , , , 
+FONT BOLD , 700 , , , , , 
+FONT STRETCH , normal 
+FONT OUTLINE , yellow , , , , blue
+FONT OUTLINE THICKNESS, 0.1
+BOXES, STD, , , PIN BOX, NAME BOX, SKEWED, SKEWED, SKEWED, SKEWED, SKEWED, SKEWED, SKEWED, SKEWED, PIN BOX, PIN BOX
+
+TYPE, IO, black, 1      
+TYPE, INPUT, black, 1   
+TYPE, OUTPUT, black, 1  
+
+WIRE, DIGITAL, black, 1, 5
+WIRE, DIGITAL-H, black, 1, 5
+WIRE, PWM, black, 1, 5
+WIRE, ANALOG, black, 1, 5
+WIRE, POWER, black, 1, 10
+
+GROUP, VSDIO, fuchsia, 0.5
+GROUP, RTC, chartreuse, 0.5
+GROUP, VIO, deepskyblue, 0.5
+GROUP, VDDANA, khaki, 0.5
+GROUP, VDDIO, khaki, 0.5
+GROUP, COMBINED, chocolate, 0.5
+GROUP, POWER, black, 0
+GROUP, NONE, grey, 0.1
+
+BOX, STD, black, 1, white, 0, 1, 100,55,2,2,0,0
+BOX, PIN BOX, black, 1, white, 0, 1, 80, 55, 5, 5, -10, 0
+BOX, NAME BOX, black, 1, white, 0, 1, 125, 55, 5, 5, -10, 0
+BOX, SKEWED, black, 1, white, 0, 1, 125,55,5,5,-10,0
+BOX, PAGE BORDER, black, 1, white, 1, 50, 100,100,0,0,0,0
+BOX, DETAIL BOX, darkblue, 1, white, 0, 3, 250, 200, 15,15,0,0
+
+
+TEXT FONT, PowerPin, Dejavu Sans, 25, , black, normal, bold, normal
+TEXT FONT, Heading, BenchNine, 50, , black, normal, 700, normal
+    
+PAGE, A4-L
+DPI, 300
+
+DRAW
+
+# Load up the fonts we use
+GOOGLEFONT,"https://fonts.googleapis.com/css?family=BenchNine:300,400,700|Pragati+Narrow:700|Rubik|Ruslan+Display|Work+Sans:700,800,900"
+
+# Draw Title
+MESSAGE, 2500, 275, 175, Heading, 250, CENTER, TOP
+TEXT, black,blue, LGT8F328P Nano, NL
+
+BOX, DETAIL BOX,2150, 510, 950, 500, , TOP, ISP Programmer/Debugger Interface
+
+# Place the board images at the required locations and sizes
+IMAGE,Resources/5lines.png, 1865, 905, 68% , 72%, , , , , 0
+IMAGE,Resources/lgtnano2.png, 1750, 1700, , , , , , , 0
+
+# Left Side Pins
+ANCHOR, 1470,1149
+PINSET, LEFT, PACKED, CENTER, CENTER, 73.50, 30, 45, 60, 10, 0
+PIN, PWM, IO, VIO,TX1,,PD1,TXD,PCINT17,OC3A,,,,80mA\\ndrive,,#1
+PIN, DIGITAL, IO, VIO,RX0,,PD0,RXD,PCINT16,,,,,,,#0
+PIN, DIGITAL, IO, VIO,RST,,PC6,/RESET,PCINT14,,,,,,,
+PIN, POWER, POWER, POWER,GND,GND
+PIN, PWM, IO, VIO,D2,,PD2,,PCINT18,INT0,OC3B,,,80mA\\ndrive,,#2
+PIN, PWM, IO, VIO,D3,,PD3,,PCINT19,INT1,OC2B,,,,,#3
+PIN, ANALOG, IO, RTC,D4,,PD4,XCK,PCINT20,,T0,DAC0,,,,#4
+PIN, PWM, IO, VIO,D5,,PD5,RXD\\n(altern),PCINT21,T1,OC0B,,,80mA\\ndrive,,#5
+PIN, PWM, IO, VIO,D6,,PD6,TXD\\n(altern),PCINT22,,OC0A,AC0P,,80mA\\ndrive,,#6
+PIN, ANALOG, IO, RTC,D7,,PD7,,PCINT23,,,AXCN,,,,#7
+PIN, PWM, IO, VIO,D8,,PB0,,PCINT0,CLK0,ICP1,,,,,#8
+PIN, PWM, IO, VIO,D9,,PB1,,PCINT1,OC1A,,,,,,#9
+PIN, PWM, IO, VIO,D10,,PB2,,PCINT2,OC1B,/SS,,,,,#10
+PIN, PWM, IO, VIO,D11,,PB3,,PCINT3,OC2A,MOSI,,,,,#11
+PIN, DIGITAL, IO, VIO,D12,,PB4,,PCINT4,,MISO,,,,,#12
+
+# Right Side Pins
+ANCHOR, 2035,1149
+PINSET, RIGHT, PACKED, CENTER, CENTER, 73.50, 30, 45, 60, 10, 0
+PIN, POWER, INPUT, POWER, VIN ,,,,,,,,,VIN
+PIN, POWER, INPUT, POWER,GND,GND
+PIN, DIGITAL, IO, VIO,RST,,PC6,/RESET,PCINT14,,,,,,,
+PIN, POWER, POWER, POWER,5V,,,,,,,,,5.0V
+PIN, ANALOG, IO, RTC,A7,,PE3,,PCINT27,,,ADC7,AC1N,,A7,#21
+PIN, ANALOG, IO, RTC,A6,,PE1,,PCINT25,,,ADC6,ACXP,,A6,#20
+PIN, ANALOG, IO, RTC,A5,,PC5,,PCINT13,SCL,,ADC5,,,A5,#19
+PIN, ANALOG, IO, RTC,A4,,PC4,,PCINT12,SDA,,ADC4,,,A4,#18
+PIN, ANALOG, IO, RTC,A3,,PC3,,PCINT11,,,ADC3,APN1,,A3,#17
+PIN, ANALOG, IO, RTC,A2,,PC2,,PCINT10,,,ADC2,APN0,,A2,#16
+PIN, ANALOG, IO, RTC,A1,,PC1,,PCINT9,,,ADC1,APP1,,A1,#15
+PIN, ANALOG, IO, RTC,A0,,PC0,,PCINT8,,,ADC0,APP0,,A0,#14
+PIN, ANALOG, IO, RTC,REF,,PE6,,PCINT30,,,ADC10,AREF,,A10,#25
+PIN, POWER, POWER, POWER,3V3,,,,,,,,,3.3V
+PIN, ANALOG, IO, RTC,D13,,PB5,,PCINT5,,SCK,AC1P,,LED,,#13
+
+# ISP Pins
+ANCHOR, 2215,600
+PINSET, RIGHT, PACKED, CENTER, CENTER, 73.50, 30, 45, 60, 10, 0
+PIN, DIGITAL, IO, VIO,SWC,,PE0,,PCINT24,,,,,,,#22
+PIN, DIGITAL, IO, VIO,RST,,PC6,/RESET,PCINT14,,,,,,,
+PIN, DIGITAL, IO, VIO,SWD,,PE2,,PCINT26,,,,,,,#23
+PIN, POWER, INPUT, POWER,VCC,,,,,,,,,5.0V
+PIN, POWER, INPUT, POWER,GND,GND
+
+# Key
+BOX, DETAIL BOX,150, 510, 1150, 500, , TOP, Legend
+ANCHOR, 500,600
+PINSET, LEFT, PACKED, CENTER, CENTER, 70, 30, 45, 60, 10, 0
+PINTEXT, POWER, OUTPUT, POWER, "...", PowerPin, Power
+PINTEXT, DIGITAL, IO, VIO, "...", PowerPin, GPIO
+PINTEXT, ANALOG, IO, RTC, "...", PowerPin, Analog
+PINTEXT, PWM, IO, VIO, "...", PowerPin, PWM
+
+ANCHOR, 550,600
+PINSET, RIGHT, PACKED, CENTER, CENTER, 70, 30, 45, 60, 10, 0
+PIN, POWER, IO, POWER,...,Ground,,,,,,,,Power,Ana-\\nlog#,Logic\\nPin#
+PIN, POWER, IO, POWER,...,,,,,PWM/\\nTimer,SPI/\\nI2C/TWI,Analog\\nIn/Out
+PIN, POWER, IO, POWER,...,,,,P-Change\\nInterrupt
+PIN, POWER, IO, POWER,...,,Group&\\nPort,Special\\nFunction
+
+
+
+
