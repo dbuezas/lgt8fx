@@ -232,7 +232,12 @@ void delayMicroseconds(unsigned int us)
 
 	// busy wait
 	__asm__ __volatile__ (
+#if defined(__LGT8F__)
+		"1: sbiw %0,1" "\n\t" // 1 cycle
+		"nop" "\n\t" // 1 cycle
+#else
 		"1: sbiw %0,1" "\n\t" // 2 cycles
+#endif
 		"brne 1b" : "=w" (us) : "0" (us) // 2 cycles
 	);
 	// return = 4 cycles
