@@ -139,6 +139,25 @@ void lgt8fx8x_clk_src()
 }
 // END CHANGE BY DBUEZAS & SEISFELD
 
+// START CHANGE BY JAYZAKK
+#if defined(__LGT8F__)
+__asm__ (
+  "#include <avr/io.h>                \n" \
+  ".section .vectors,\"ax\",@progbits \n" \
+  ".func  __vectors                   \n" \
+  ".weak __vector_26                  \n" \
+  "jmp   __vector_26                  \n" \
+  ".weak __vector_27                  \n" \
+  "jmp   __vector_27                  \n" \
+  ".weak __vector_28                  \n" \
+  "jmp   __vector_28                  \n" \
+  ".weak __vector_29                  \n" \
+  "jmp   __vector_29                  \n" \
+  ".endfunc                           \n" \
+  ".section .text                     \n" );
+#endif
+// END CHANGE BY JAYZAKK
+
 int main(void)
 {
 
