@@ -471,6 +471,16 @@ Description : Original version.
 #define VDREN	1
 #define VDTEN	0
 
+//  Power Reduce Register
+#define PRR	    (*((volatile unsigned char *)0x64))
+#define	PRADC	0	//  Writing a logic one to this bit ,shuts down ADC by stopping the clock to the module
+#define	RUART0	1	//  Writing a logic one to this bit shuts down the USART by stopping the clock to the module                                                                                            
+#define	PRSPI	2	//  PRSPI Writing a logic one to this bit, shuts down the Serial Peripheral Interface by stopping the clock to the module.		
+#define	PRTIM1	3	//  PRTIM1 Writing a logic one to this bit shuts down the clock to the Timer/Counter1 module.
+#define PRTW0   5	//  PRTW0 Writing a logic one to this bit shuts down the clock to the Timer/Counter0 module
+#define PRTW2   6   //  PRTW2 Writing a logic one to this bit shuts down the clock to the Timer/Counter2 module
+#define PRTWI   7   //  PRTWI Writing a logic one to this bit shuts down the TWI by stopping the clock to the module.
+
 #define PRR1	(*((volatile unsigned char *)0x65))
 #define	PRWDT	5
 #define	PRTC3	3
