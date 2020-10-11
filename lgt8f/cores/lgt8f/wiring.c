@@ -198,7 +198,7 @@ void delayMicroseconds(unsigned int us)
 	us -= 4; // = 2 cycles
 #endif
 
-#if F_CPU >= 24000000L
+#elif F_CPU >= 24000000L
 	// for the 24 MHz external clock if somebody is working with USB
 
 	// is there any reason for zero delay fix?
