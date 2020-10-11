@@ -13,10 +13,10 @@ This is an implementation of LGT8Fx8P ISP download protocol. You can make arduin
 
 1. Make a LGTISP:
    1. Select SERIAL_RX_BUFFER_SIZE to 250 in Menu: Tools/Arduino as ISP/SERIAL_RX_BUFFER_SIZE to 250
-   2. Burn LGTISP into arduino board.
+   2. Burn LGTISP into another LGT328p board.
    3. Select Default in Menu: Tools/Arduino as ISP/Default
-   4. Short `RESET` pin and `VCC` pin of arduino board to avoid bootloader executing.
-   5. The arduino board becomes a LGTISP now! Connect `SWD` and `SWC`. `RST` can be either connect or not.
+   4. Short `RESET` pin and `VCC` pin of ISP board to avoid bootloader executing.
+   5. The board becomes a LGTISP now! Connect `SWD` and `SWC`. `RST` can be either connect or not.
       | Arduino Nano || LGT |
       |:-:|:-:|:-:|
       | D13 | -> | SWC |
