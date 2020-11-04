@@ -38,7 +38,7 @@
 uint8_t EEPROMClass::read(uint16_t address)
 {
 	 EEARL = address & 0xff;
-	 EEARH = (address >> 8) & 0x3; // 1024 bytes EEPROM
+	 EEARH = (address >> 8); 
 	 
 	 EECR |= (1 << EERE);
 	 __asm__ __volatile__ ("nop" ::);
@@ -54,7 +54,7 @@ void EEPROMClass::write(uint16_t address, uint8_t value)
 
 	// set address & data
 	EEARL = address & 0xff;
-	EEARH = (address >> 8) & 0x3; // 1024 bytes EEPROM
+	EEARH = (address >> 8);
 	EEDR = value;
 	 
 	cli();	
@@ -91,7 +91,7 @@ uint32_t EEPROMClass::read32(uint16_t address)
 	uint32_t dwTmp;
 
 	 EEARL = address & 0xff;
-	 EEARH = (address >> 8) & 0x1;
+	 EEARH = (address >> 8);
 	 
 	 EECR |= (1 << EERE);
 	
