@@ -125,12 +125,12 @@ void lgt_eeprom_init( uint8_t number_of_1KB_pages = 1 )
 #endif
 }
 
-int lgt_eeprom_size( bool theorical = false )
+int lgt_eeprom_size( bool theoritical = false )
 {
 #ifdef __LGT8FX8P__ // TODO catch LGT8F32p only here
 	if ( ECCR & 0x40 )
 	{
-		return theorical ?
+		return theoritical ?
 			( 1024 << ( ECCR & 0x3 ) ) // thoerical size of the emulated EEPROM (see notes above)
 			:
 			( lgt_eeprom_free_space_per_1KB_page() << ( ECCR & 0x3 ) ) // actual number of bytes available to the user (see notes above)
@@ -368,7 +368,7 @@ class EEPROMClass
 	void writeSWM( uint16_t address, uint32_t *pdata, uint8_t len) { lgt_eeprom_writeSWM( address, pdata, len ); }
 	void  readSWM( uint16_t address, uint32_t *pdata, uint8_t len) { lgt_eeprom_readSWM( address, pdata, len ); }
 
-	int size() { return lgt_eeprom_size( false ); }
+	int size( theoritical = false ) { return lgt_eeprom_size( theoritical ); }
 };
 
 #else
