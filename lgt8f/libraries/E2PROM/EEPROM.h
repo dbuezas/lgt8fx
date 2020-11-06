@@ -182,7 +182,7 @@ uint8_t lgt_eeprom_read_byte( uint16_t address, bool real_address_mode = false )
 }
 
 
-void lgt_eeprom_write_byte( uint16_t address, uint8_t value, bool real_address_mode = true )
+void lgt_eeprom_write_byte( uint16_t address, uint8_t value, bool real_address_mode = false )
 {
 #ifdef __LGT8FX8P__ // TODO catch LGT8F32p only here
 	if ( ! real_address_mode )
@@ -367,7 +367,7 @@ class EEPROMClass
 
 	void writeSWM( uint16_t address, uint32_t *pdata, uint8_t len) { lgt_eeprom_writeSWM( address, pdata, len ); }
 	void  readSWM( uint16_t address, uint32_t *pdata, uint8_t len) { lgt_eeprom_readSWM( address, pdata, len ); }
-	
+
 	int size() { return lgt_eeprom_size( false ); }
 };
 
