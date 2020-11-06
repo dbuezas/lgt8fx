@@ -5,13 +5,14 @@
  * This example code is in the public domain.
 
  */
-
+#define USE_LGT_EEPROM_API
 #include <EEPROM.h>
 
 void setup()
 {
-  // write a 0 to all 512 bytes of the EEPROM
-  for (int i = 0; i < 512; i++)
+  
+  // write a 0 to all bytes of the EEPROM
+  for (int i = 0; i < EEPROM.size(); i++)
     EEPROM.write(i, 0);
     
   // turn the LED on when we're done
