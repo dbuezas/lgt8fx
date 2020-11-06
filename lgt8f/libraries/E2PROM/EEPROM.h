@@ -367,6 +367,8 @@ class EEPROMClass
 
 	void writeSWM( uint16_t address, uint32_t *pdata, uint8_t len) { lgt_eeprom_writeSWM( address, pdata, len ); }
 	void  readSWM( uint16_t address, uint32_t *pdata, uint8_t len) { lgt_eeprom_readSWM( address, pdata, len ); }
+	
+	int size() { return lgt_eeprom_size( false ); }
 };
 
 #else
