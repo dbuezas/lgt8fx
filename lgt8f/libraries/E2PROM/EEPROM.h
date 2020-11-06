@@ -128,7 +128,8 @@ void lgt_eeprom_init( uint8_t number_of_1KB_pages = 1 )
 int lgt_eeprom_size( bool theoritical = false )
 {
 #ifdef __LGT8FX8P__ // TODO catch LGT8F32p only here
-	if ( ECCR & 0x40 )
+
+	if ( ECCR & 0x40 ) // EEPROM emulation enabled ?
 	{
 		return theoritical ?
 			( 1024 << ( ECCR & 0x3 ) ) // thoerical size of the emulated EEPROM (see notes above)
@@ -136,13 +137,17 @@ int lgt_eeprom_size( bool theoritical = false )
 			( lgt_eeprom_free_space_per_1KB_page() << ( ECCR & 0x3 ) ) // actual number of bytes available to the user (see notes above)
 			;
 	}
-#endif
+
+	return 0;
+
+#else
 	// TODO : detect LGT8F8  and return 2048
 	// TODO : detect LGT8F16 and return 4096
 	// TODO : detect LGT8F32d and return ???
 	// TODO : detect LGT8F32e and return ???
 
 	return 1024;
+#endif
 }
 
 uint16_t lgt_eeprom_continuous_address_to_real_address( uint16_t address )
@@ -371,7 +376,8 @@ class EEPROMClass
 	int size( theoritical = false ) { return lgt_eeprom_size( theoritical ); }
 };
 
-#else
+#else // of #ifdef USE_LGT_EEPROM_API
+
 // ------------------ ARDUINO EEPROM API ---------------------------
 
 /*
@@ -521,6 +527,8 @@ struct EEPROMClass{
 
 // -----------------------------------------------------------------
 
+#endif // of #ifdef USE_LGT_EEPROM_API
+
 static EEPROMClass EEPROM;
-#endif
+
 #endif
