@@ -6,6 +6,7 @@
  * This example code is in the public domain.
  */
 
+#define USE_LGT_EEPROM_API
 #include <EEPROM.h>
 
 // start reading from the first byte (address 0) of the EEPROM
@@ -34,9 +35,9 @@ void loop()
   // advance to the next address of the EEPROM
   address = address + 1;
   
-  // there are only 512 bytes of EEPROM, from 0 to 511, so if we're
-  // on address 512, wrap around to address 0
-  if (address == 512)
+  // there are only 1020 bytes of EEPROM, from 0 to 1019, so if we're
+  // on address 1020, wrap around to address 0
+  if (address == EEPROM.size() )
     address = 0;
     
   delay(500);
