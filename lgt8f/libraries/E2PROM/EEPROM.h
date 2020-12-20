@@ -371,7 +371,7 @@ class EEPROMClass
 	void write_block( uint8_t *pbuf, uint16_t address, uint8_t len, bool real_address_mode = false ) { lgt_eeprom_write_block( pbuf, address, len, real_address_mode ); }
 
 	uint32_t read32( uint16_t address ) { return lgt_eeprom_read32( address ); }
-	void    write32( uint16_t address, uint32_t data ); { kgt_eeprom_write32( address, data ); }
+	void    write32( uint16_t address, uint32_t data ) { lgt_eeprom_write32( address, data ); }
 
 	void writeSWM( uint16_t address, uint32_t *pdata, uint8_t len) { lgt_eeprom_writeSWM( address, pdata, len ); }
 	void  readSWM( uint16_t address, uint32_t *pdata, uint8_t len) { lgt_eeprom_readSWM( address, pdata, len ); }
