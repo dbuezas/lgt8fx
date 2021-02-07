@@ -15,6 +15,8 @@
   You should have received a copy of the GNU Lesser General Public
   License along with this library; if not, write to the Free Software
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+  Modified 2020 by Greyson Christoforo (grey@christoforo.net) to implement timeouts
 */
 
 #ifndef twi_h
@@ -39,7 +41,9 @@
   #define TWI_STX   4
   
   void twi_init(void);
+  void twi_disable(void);
   void twi_setAddress(uint8_t);
+  void twi_setFrequency(uint32_t);
   uint8_t twi_readFrom(uint8_t, uint8_t*, uint8_t, uint8_t);
   uint8_t twi_writeTo(uint8_t, uint8_t*, uint8_t, uint8_t, uint8_t);
   uint8_t twi_transmit(const uint8_t*, uint8_t);
@@ -48,6 +52,8 @@
   void twi_reply(uint8_t);
   void twi_stop(void);
   void twi_releaseBus(void);
+  void twi_setTimeoutInMicros(uint32_t, bool);
+  void twi_handleTimeout(bool);
+  bool twi_manageTimeoutFlag(bool);
 
 #endif
-

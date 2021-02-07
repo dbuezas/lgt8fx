@@ -72,6 +72,11 @@ Now the boards appear in the IDE and you can also select the clock speed.
 
 <img src="./docs/boards/pro_mini_LQFP32.png" alt="Pro Mini style" width="200"/>
 
+### Larduino Uno LQFP32
+
+<img src="./docs/boards/larduino_uno-front.jpg" alt="Larduino Uno style" width="200"/>
+<img src="./docs/boards/larduino_uno-back.jpg" alt="Larduino Uno style" width="200"/>
+
 ### [Nano Style](../../wiki/Nano-Style)
 
 <img src="./docs/boards/nano_LQFP32.png" alt="Nano style" width="200"/>
@@ -127,7 +132,7 @@ I have no association with Arduino, Logic Green, Atmel or anything. I just wante
 
 # Download stats
 
-http://www.somsubhra.com/github-release-stats/?username=dbuezas&repository=lgt8fx
+https://tooomm.github.io/github-release-stats/?username=dbuezas&repository=lgt8fx
 
 # Thanks
 
