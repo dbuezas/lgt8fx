@@ -125,7 +125,12 @@ Like this pinout?
 - Larduino ISP for 328d https://github.com/Edragon/LGT/tree/master/Toolchain/ISP/LarduinoISP-master
 - https://www.eevblog.com/forum/projects/anyone-here-interested-in-the-logic-green-avrs-lgt8f328p/
 - http://coultersmithing.com/forums/viewtopic.php?f=6&t=1149
+- LGT SDK Builder
+  - "very useful during development, hopefully others can find it helpful too." @sengit
+  - Document page : http://www.lgtic.com/2017/11/11/lgtsdk_builder/
+  - Download link : http://www.lgtic.com/upload/tools/lgtsdk_builder/LGTSDK_Builder_latest.rar
 
+PS: Just want to say thanks for this git, helped me a lot!
 # Disclamer
 
 I have no association with Arduino, Logic Green, Atmel or anything. I just wanted to have a convenient way to use these boards and get them to work without hacks at max speed
