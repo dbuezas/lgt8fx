@@ -127,3 +127,48 @@ menu.arduino_isp=Arduino as ISP
 88.menu.variant.modelD.bootloader.path=lgt8fx8ds20
 88.menu.variant.modelD.bootloader.file=lgt8fx8ds20/optiboot_lgt8f88ds20.hex
 88.menu.variant.modelD.build.variant=lgt8fx8ds20
+
+############################
+#### Larduino Uno       ####
+############################
+lardu_328e.name= Larduino Uno
+lardu_328e.upload.tool=avrdude
+lardu_328e.upload.protocol=arduino
+lardu_328e.upload.maximum_size=29696
+lardu_328e.upload.speed=57600
+lardu_328e.bootloader.tool=avrdude
+lardu_328e.bootloader.high_fuses=0xff
+lardu_328e.bootloader.low_fuses=0xff
+lardu_328e.bootloader.extended_fuses=0x07
+lardu_328e.bootloader.path=lgt8fx8e
+lardu_328e.bootloader.file=lgt8fx8e\optiboot_lgt8f328d.hex
+lardu_328e.bootloader.unlock_bits=0x3f
+lardu_328e.bootloader.lock_bits=0x3f
+lardu_328e.build.mcu=atmega328p
+//lardu_328e.build.f_cpu=16000000L
+lardu_328e.build.core=lgt8f
+lardu_328e.build.variant=lgt8fx8e
+lardu_328e.build.board=AVR_LARDU_328E
+
+# Clock source
+lardu_328e.menu.clock_source.internal=Internal
+lardu_328e.menu.clock_source.internal.build.clock_source=1
+
+# Clock frequencies
+lardu_328e.menu.clock.16MHz=16 MHz (default internal osc)
+lardu_328e.menu.clock.16MHz.build.f_cpu=16000000L
+lardu_328e.menu.clock.8MHz=8 MHz
+lardu_328e.menu.clock.8MHz.build.f_cpu=8000000L
+lardu_328e.menu.clock.4MHz=4 MHz
+lardu_328e.menu.clock.4MHz.build.f_cpu=4000000L
+lardu_328e.menu.clock.2MHz=2 MHz
+lardu_328e.menu.clock.2MHz.build.f_cpu=2000000L
+lardu_328e.menu.clock.1MHz=1 MHz
+lardu_328e.menu.clock.1MHz.build.f_cpu=1000000L
+
+# Arduino as ISP
+
+lardu_328e.menu.arduino_isp.disable=Default (64)
+lardu_328e.menu.arduino_isp.disable.build.SERIAL_RX_BUFFER_SIZE=64
+lardu_328e.menu.arduino_isp.enable=[To burn an ISP] SERIAL_RX_BUFFER_SIZE to 250
+lardu_328e.menu.arduino_isp.enable.build.SERIAL_RX_BUFFER_SIZE=250
