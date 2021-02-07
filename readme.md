@@ -132,7 +132,7 @@ I have no association with Arduino, Logic Green, Atmel or anything. I just wante
 
 # Download stats
 
-http://www.somsubhra.com/github-release-stats/?username=dbuezas&repository=lgt8fx
+https://tooomm.github.io/github-release-stats/?username=dbuezas&repository=lgt8fx
 
 # Thanks
 
