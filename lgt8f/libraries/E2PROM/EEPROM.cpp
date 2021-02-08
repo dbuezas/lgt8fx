@@ -48,10 +48,6 @@ int lgt_eeprom_size( bool theoritical )
 	}
 
 	return 0;
-	
-	#undef E2END
-	#define E2END (lgt_eeprom_size()-1)
-
 #else
 	// TODO : detect LGT8F8  and return 2048
 	// TODO : detect LGT8F16 and return 4096
