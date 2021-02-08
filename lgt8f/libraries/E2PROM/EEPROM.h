@@ -101,7 +101,9 @@ void lgt_eeprom_read_block( uint8_t *pbuf, uint16_t address, uint8_t len, bool r
 void lgt_eeprom_write_block( uint8_t *pbuf, uint16_t address, uint8_t len, bool real_address_mode = false );
 
 #if defined(__LGT8FX8P__) // TODO catch LGT8F32p only here
-
+	#undef E2END
+	#define E2END (lgt_eeprom_size()-1)
+	
 	// ----------------------------------------------------------------------
 	// read/write native 32 bits data from/to E2PROM
 	// ----------------------------------------------------------------------
@@ -301,3 +303,4 @@ struct EEPROMClass{
 static EEPROMClass EEPROM;
 
 #endif
+
