@@ -25,7 +25,7 @@
 /* 
  * power mode defintion:
  * PM_IDLE0: disable core_clock only
- * PM_POWERDWN: disalbe most clocks and switch main clock to rc32k
+ * PM_POWERDWN: disable most clocks and switch main clock to rc32k
  * PM_POFFS0: power off all core functions (digial and analog)
  * 		wake up by external interrupt or periodly
  * PM_POFFS1: the lowest power mode which close all modules and clocks 

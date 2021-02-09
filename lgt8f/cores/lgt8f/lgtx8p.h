@@ -330,9 +330,6 @@ Description : Original version.
 //----------------------------------------------------------------
 // PCI (PIN Change Interrupt) Register Definition
 //----------------------------------------------------------------
-#define PCMSK3	(*((volatile unsigned char *)0x73))
-#define PCMSK4	(*((volatile unsigned char *)0x74))
-
 // Bits of PCICR
 #define PCIE4	4
 #define PCIE3	3
@@ -340,6 +337,26 @@ Description : Original version.
 // Bits of PCIFR
 #define PCIF4	4
 #define PCIF3	3
+
+#define PCMSK3  (*((volatile unsigned char *)0x73))
+#define PCINT31 7
+#define PCINT30 6
+#define PCINT29 5
+#define PCINT28 4
+#define PCINT27 3
+#define PCINT26 2
+#define PCINT25 1
+#define PCINT24 0
+
+#define PCMSK4  (*((volatile unsigned char *)0x74))
+#define PCINT39 7
+#define PCINT38 6
+#define PCINT37 5
+#define PCINT36 4
+#define PCINT35 3
+#define PCINT34 2
+#define PCINT33 1
+#define PCINT32 0
 
 //----------------------------------------------------------------
 // ADC (Analog to Digital Controller) Register Definition
@@ -471,6 +488,16 @@ Description : Original version.
 #define VDREN	1
 #define VDTEN	0
 
+//  Power Reduce Register
+#define PRR	    (*((volatile unsigned char *)0x64))
+#define	PRADC	0	//  Writing a logic one to this bit ,shuts down ADC by stopping the clock to the module
+#define	RUART0	1	//  Writing a logic one to this bit shuts down the USART by stopping the clock to the module                                                                                            
+#define	PRSPI	2	//  PRSPI Writing a logic one to this bit, shuts down the Serial Peripheral Interface by stopping the clock to the module.		
+#define	PRTIM1	3	//  PRTIM1 Writing a logic one to this bit shuts down the clock to the Timer/Counter1 module.
+#define PRTW0   5	//  PRTW0 Writing a logic one to this bit shuts down the clock to the Timer/Counter0 module
+#define PRTW2   6   //  PRTW2 Writing a logic one to this bit shuts down the clock to the Timer/Counter2 module
+#define PRTWI   7   //  PRTWI Writing a logic one to this bit shuts down the TWI by stopping the clock to the module.
+
 #define PRR1	(*((volatile unsigned char *)0x65))
 #define	PRWDT	5
 #define	PRTC3	3
@@ -561,6 +588,23 @@ Description : Original version.
 #define GUID1	(*((volatile unsigned char *)0xF4))
 #define GUID2	(*((volatile unsigned char *)0xF5))
 #define GUID3	(*((volatile unsigned char *)0xF6))
+
+#define _VECTOR(N) __vector_ ## N
+#undef SPM_Ready_vect
+#undef SPM_Ready_vect_num
+#define ANALOG_COMP_0_vect_num  23
+#define ANALOG_COMP_0_vect      _VECTOR(23)
+#define ANALOG_COMP_1_vect_num  25
+#define ANALOG_COMP_1_vect      _VECTOR(25)
+#define PCINT3_vect_num         27
+#define PCINT3_vect             _VECTOR(27)
+#define PCINT4_vect_num         28
+#define PCINT4_vect             _VECTOR(28)
+#define TIMER3_vect_num         29
+#define TIMER3_vect             _VECTOR(29)
+
+#undef _VECTORS_SIZE
+#define _VECTORS_SIZE (30 * 4)
 
 #endif
 /**********************************************************************************
