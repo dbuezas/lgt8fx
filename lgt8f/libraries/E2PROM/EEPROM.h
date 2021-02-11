@@ -93,7 +93,7 @@
 #define	lgt_eeprom_SWM_OFF()  do { ECCR = 0x80; ECCR &= 0xEF; } while(0);
 
 void lgt_eeprom_init( uint8_t number_of_1KB_pages = 1 );
-int lgt_eeprom_size( bool theoritical = false );
+int lgt_eeprom_size( bool theoretical = false );
 uint16_t lgt_eeprom_continuous_address_to_real_address( uint16_t address );
 uint8_t lgt_eeprom_read_byte( uint16_t address, bool real_address_mode = false );
 void lgt_eeprom_write_byte( uint16_t address, uint8_t value, bool real_address_mode = false );
@@ -144,7 +144,7 @@ class EEPROMClass
 	void writeSWM( uint16_t address, uint32_t *pdata, uint8_t len) { lgt_eeprom_writeSWM( address, pdata, len ); }
 	void  readSWM( uint16_t address, uint32_t *pdata, uint8_t len) { lgt_eeprom_readSWM( address, pdata, len ); }
 
-	int size( bool theoritical = false ) { return lgt_eeprom_size( theoritical ); }
+	int size( bool theoretical = false ) { return lgt_eeprom_size( theoretical ); }
 };
 
 #else // of #ifdef USE_LGT_EEPROM_API
