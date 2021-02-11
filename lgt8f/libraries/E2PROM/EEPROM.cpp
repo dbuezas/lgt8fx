@@ -62,7 +62,7 @@ int lgt_eeprom_size( bool theoretical )
 uint16_t lgt_eeprom_continuous_address_to_real_address( uint16_t address )
 {
 	// we recalculate the address so that we automatically skip 
-	// every reserved two last bytes of every 1KB page (see notes above)
+	// every reserved last cell of every 1KB page (see notes above)
 
 	if ( address >= lgt_eeprom_free_space_per_1KB_page() )
 	{
