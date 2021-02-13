@@ -246,6 +246,7 @@ Description     : Original version.
 // TC0 (Timer Counter 0) Register Definition
 //----------------------------------------------------------------
 #define TCCR0C  _SFR_IO8(0x29)
+#define DSX0    _SFR_IO8(0x29)
 #define DSX07   7
 #define DSX06   6
 #define DSX05   5
