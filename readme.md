@@ -16,6 +16,8 @@ Now the boards appear in the IDE and you can also select the clock speed.
 <img src="./docs/external-clock/clock-source.png" alt="External Clock" width="400"/>
 
 32Mhz is twice as fast as a conventional arduino nano! Actually _even faster_ as many operations take less clock cycles than in the atmega328p.
+# Discussions, ideas, questions and show your project
+Explore the discussions: https://github.com/dbuezas/lgt8fx/discussions
 
 # Features
 
