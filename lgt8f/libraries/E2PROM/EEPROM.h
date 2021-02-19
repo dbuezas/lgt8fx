@@ -187,6 +187,12 @@
 			void  readSWM( uint16_t address, uint32_t *pdata, uint8_t len) { lgt_eeprom_readSWM( address, pdata, len ); }
 
 			int size( bool theoretical = false ) { return lgt_eeprom_size( theoretical ); }
+			
+			uint16_t change_size( uint8_t number_of_1KB_pages ) 
+			{ 
+				lgt_eeprom_size( number_of_1KB_pages ); 
+				return lgt_eeprom_size(false); 
+			}
 		};
 	#else
 		// __LGT8F88A__ : OK
@@ -232,6 +238,12 @@
 			}
 
 			int size( bool theoretical = false ) { return lgt_eeprom_size( theoretical ); }
+			
+			uint16_t change_size( uint8_t number_of_1KB_pages ) 
+			{ 
+				lgt_eeprom_size( number_of_1KB_pages ); 
+				return lgt_eeprom_size(false); 
+			}
 		};
 	#endif
 
