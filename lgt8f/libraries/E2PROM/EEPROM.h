@@ -31,6 +31,15 @@
 #include <inttypes.h>
 #include <Arduino.h>
 
+#if !defined( __LGT8F__ )
+	#error !!! ERROR : This EEPROM library is designed for LGT8Fx microcontrolers !!!
+#endif
+
+#if !defined( __LGT8FX8P__ )
+	#warning !!! WARNING : This EEPROM library was not tested on LGT8F88a, LGT8Fx8D and LGT8Fx8E. 
+	#warning If you find bugs and want to improve compatibility, please, join the GitHub repository.
+#endif
+
 /*
 	README :
 
@@ -86,23 +95,23 @@
 // be erased each time the sketch will be uploaded (even if it's an update).
 //
 
-#define lgt_eeprom_free_space_per_1KB_page() ((uint16_t)1020)
+#ifdef __LGT8FX8P__
 
-#define	lgt_eeprom_reset()    do { ECCR |= 0x20; } while(0)
-#define	lgt_eeprom_SWM_ON()   do { ECCR = 0x80; ECCR |= 0x10; } while(0);
-#define	lgt_eeprom_SWM_OFF()  do { ECCR = 0x80; ECCR &= 0xEF; } while(0);
+	#define lgt_eeprom_free_space_per_1KB_page() ((uint16_t)1020)
+	#define	lgt_eeprom_reset()    do { ECCR |= 0x20; } while(0)
+	#define	lgt_eeprom_SWM_ON()   do { ECCR = 0x80; ECCR |= 0x10; } while(0);
+	#define	lgt_eeprom_SWM_OFF()  do { ECCR = 0x80; ECCR &= 0xEF; } while(0);
 
-void lgt_eeprom_init( uint8_t number_of_1KB_pages = 1 );
-int lgt_eeprom_size( bool theoretical = false );
-uint16_t lgt_eeprom_continuous_address_to_real_address( uint16_t address );
-uint8_t lgt_eeprom_read_byte( uint16_t address, bool real_address_mode = false );
-void lgt_eeprom_write_byte( uint16_t address, uint8_t value, bool real_address_mode = false );
-void lgt_eeprom_read_block( uint8_t *pbuf, uint16_t address, uint8_t len, bool real_address_mode = false );
-void lgt_eeprom_write_block( uint8_t *pbuf, uint16_t address, uint8_t len, bool real_address_mode = false );
+	void lgt_eeprom_init( uint8_t number_of_1KB_pages = 1 );
+	
+	int lgt_eeprom_size( bool theoretical = false );
+	uint16_t lgt_eeprom_continuous_address_to_real_address( uint16_t address );
 
-#if defined(__LGT8FX8P__) // TODO catch LGT8F32p only here
-	#undef E2END
-	#define E2END (lgt_eeprom_size()-1)
+	uint8_t lgt_eeprom_read_byte( uint16_t address, bool real_address_mode = false );
+	void lgt_eeprom_write_byte( uint16_t address, uint8_t value, bool real_address_mode = false );
+
+	void lgt_eeprom_read_block( uint8_t *pbuf, uint16_t address, uint8_t len, bool real_address_mode = false );
+	void lgt_eeprom_write_block( uint8_t *pbuf, uint16_t address, uint8_t len, bool real_address_mode = false );
 	
 	// ----------------------------------------------------------------------
 	// read/write native 32 bits data from/to E2PROM
@@ -115,7 +124,38 @@ void lgt_eeprom_write_block( uint8_t *pbuf, uint16_t address, uint8_t len, bool 
 	// ----------------------------------------------------------------------
 	void lgt_eeprom_writeSWM( uint16_t address, uint32_t *pData, uint8_t length );
 	void lgt_eeprom_readSWM( uint16_t address, uint32_t *pData, uint8_t length );
+	
+#else
+	
+	#define	lgt_eeprom_reset()
+	#define	lgt_eeprom_SWM_ON()
+	#define	lgt_eeprom_SWM_OFF()
+	
+	#define lgt_eeprom_init(x)
+	
+	int lgt_eeprom_size( bool theoretical = false );
+	
+	#define lgt_eeprom_continuous_address_to_real_address( address ) ((uint16_t)address)
+	
+	uint8_t lgt_eeprom_read_byte( uint16_t address );
+	void lgt_eeprom_write_byte( uint16_t address, uint8_t value );
 
+	void lgt_eeprom_read_block( uint8_t *pbuf, uint16_t address, uint8_t len );
+	void lgt_eeprom_write_block( uint8_t *pbuf, uint16_t address, uint8_t len );
+#endif
+
+
+
+#if defined(__LGT8F88A__)
+	#undef E2END
+	#define E2END (504-1)
+	
+#elseif defined(__LGT8FX8P__) 
+	#undef E2END
+	#define E2END (lgt_eeprom_size()-1)
+	
+#else
+	// TODO __LGT8FX8E__ ?
 #endif
 
 
@@ -123,29 +163,77 @@ void lgt_eeprom_write_block( uint8_t *pbuf, uint16_t address, uint8_t len, bool 
 
 #ifdef USE_LGT_EEPROM_API
 
-#define	e2pReset()	do { ECCR |= 0x20; } while(0)
-#define	e2pSWMON()	do { ECCR = 0x80; ECCR |= 0x10; } while(0);
-#define	e2pSWMOFF()	do { ECCR = 0x80; ECCR &= 0xEF; } while(0);
+	#ifdef __LGT8FX8P__
 
-class EEPROMClass
-{
-  public:
-	EEPROMClass() { lgt_eeprom_init(); };
+		#define	e2pReset()	do { ECCR |= 0x20; } while(0)
+		#define	e2pSWMON()	do { ECCR = 0x80; ECCR |= 0x10; } while(0);
+		#define	e2pSWMOFF()	do { ECCR = 0x80; ECCR &= 0xEF; } while(0);
 
-	uint8_t read( uint16_t address, bool real_address_mode = false ) { return lgt_eeprom_read_byte( address, real_address_mode ); }
-	void   write( uint16_t address, uint8_t value, bool real_address_mode = false ) { lgt_eeprom_write_byte( address, value, real_address_mode ); }
+		class EEPROMClass
+		{
+		  public:
+			EEPROMClass() { lgt_eeprom_init(); };
 
-	void  read_block( uint8_t *pbuf, uint16_t address, uint8_t len, bool real_address_mode = false ) { lgt_eeprom_read_block( pbuf, address, len, real_address_mode ); }
-	void write_block( uint8_t *pbuf, uint16_t address, uint8_t len, bool real_address_mode = false ) { lgt_eeprom_write_block( pbuf, address, len, real_address_mode ); }
+			uint8_t read( uint16_t address, bool real_address_mode = false ) { return lgt_eeprom_read_byte( address, real_address_mode ); }
+			void   write( uint16_t address, uint8_t value, bool real_address_mode = false ) { lgt_eeprom_write_byte( address, value, real_address_mode ); }
 
-	uint32_t read32( uint16_t address ) { return lgt_eeprom_read32( address ); }
-	void    write32( uint16_t address, uint32_t data ) { lgt_eeprom_write32( address, data ); }
+			void  read_block( uint8_t *pbuf, uint16_t address, uint8_t len, bool real_address_mode = false ) { lgt_eeprom_read_block( pbuf, address, len, real_address_mode ); }
+			void write_block( uint8_t *pbuf, uint16_t address, uint8_t len, bool real_address_mode = false ) { lgt_eeprom_write_block( pbuf, address, len, real_address_mode ); }
 
-	void writeSWM( uint16_t address, uint32_t *pdata, uint8_t len) { lgt_eeprom_writeSWM( address, pdata, len ); }
-	void  readSWM( uint16_t address, uint32_t *pdata, uint8_t len) { lgt_eeprom_readSWM( address, pdata, len ); }
+			uint32_t read32( uint16_t address ) { return lgt_eeprom_read32( address ); }
+			void    write32( uint16_t address, uint32_t data ) { lgt_eeprom_write32( address, data ); }
 
-	int size( bool theoretical = false ) { return lgt_eeprom_size( theoretical ); }
-};
+			void writeSWM( uint16_t address, uint32_t *pdata, uint8_t len) { lgt_eeprom_writeSWM( address, pdata, len ); }
+			void  readSWM( uint16_t address, uint32_t *pdata, uint8_t len) { lgt_eeprom_readSWM( address, pdata, len ); }
+
+			int size( bool theoretical = false ) { return lgt_eeprom_size( theoretical ); }
+		};
+	#else
+		// __LGT8F88A__ : OK
+		// __LGT8FX8E__ : TODO
+		
+		#define	e2pReset()
+		#define	e2pSWMON()
+		#define	e2pSWMOFF()
+		
+		class EEPROMClass
+		{
+		  public:
+			EEPROMClass() { lgt_eeprom_init(); };
+
+			uint8_t read( uint16_t address ) { return lgt_eeprom_read_byte( address ); }
+			void   write( uint16_t address, uint8_t value ) { lgt_eeprom_write_byte( address, value ); }
+
+			void  read_block( uint8_t *pbuf, uint16_t address, uint8_t len ) { lgt_eeprom_read_block( pbuf, address, len ); }
+			void write_block( uint8_t *pbuf, uint16_t address, uint8_t len ) { lgt_eeprom_write_block( pbuf, address, len ); }
+
+			uint32_t read32( uint16_t address ) 
+			{ 
+				// Emulation :
+				uint32_t data;
+				lgt_eeprom_read_block( (uint8_t*)&data, address, sizeof( data ) );
+				return data; 
+			}
+			void    write32( uint16_t address, uint32_t data ) 
+			{ 
+				// Emulation :
+				lgt_eeprom_write_block( (uint8_t*)&data, address, sizeof(data) );
+			}
+
+			void writeSWM( uint16_t address, uint32_t *pdata, uint8_t len) 
+			{ 
+				// Emulation :
+				lgt_eeprom_read_block( (uint8_t*)pdata, address, len*sizeof(uint32_t) );
+			}
+			void  readSWM( uint16_t address, uint32_t *pdata, uint8_t len) 
+			{ 
+				// Emulation :
+				lgt_eeprom_read_block( (uint8_t*)pdata, address, len*sizeof(uint32_t) );
+			}
+
+			int size( bool theoretical = false ) { return lgt_eeprom_size( theoretical ); }
+		};
+	#endif
 
 #else // of #ifdef USE_LGT_EEPROM_API
 
@@ -186,12 +274,20 @@ struct EERef{
         : index( index )                 {}
     
     //Access/read members.
+#ifdef __LGT8FX8P__
     uint8_t operator*() const            { return lgt_eeprom_read_byte( index, false ); }
+#else
+    uint8_t operator*() const            { return lgt_eeprom_read_byte( index ); }
+#endif
     operator uint8_t() const             { return **this; }
     
     //Assignment/write members.
     EERef &operator=( const EERef &ref ) { return *this = *ref; }
+#ifdef __LGT8FX8P__
     EERef &operator=( uint8_t in )       { return lgt_eeprom_write_byte( index, in, false ), *this;  }
+#else
+    EERef &operator=( uint8_t in )       { return lgt_eeprom_write_byte( index, in ), *this;  }
+#endif
     EERef &operator +=( uint8_t in )     { return *this = **this + in; }
     EERef &operator -=( uint8_t in )     { return *this = **this - in; }
     EERef &operator *=( uint8_t in )     { return *this = **this * in; }
@@ -290,9 +386,13 @@ struct EEPROMClass{
         return t;
     }
 
-	int size() { return lgt_eeprom_size( false ); }
-
-	// TODO : add a set_size() method ?
+	#ifdef __LGT8FX8P__
+		uint16_t change_size( uint8_t number_of_1KB_pages ) 
+		{ 
+			lgt_eeprom_size( number_of_1KB_pages ); 
+			return lgt_eeprom_size(false); 
+		}
+	#endif
 };
 
 
