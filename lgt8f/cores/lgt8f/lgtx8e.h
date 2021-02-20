@@ -200,6 +200,22 @@ Description     : volatile char * converted to Arduino style _SFR_IO and _SFR_ME
 
 #define AC1SR   _SFR_IO8(0x0F)
 
+#define _VECTOR(N) __vector_ ## N
+#undef SPM_Ready_vect
+#undef SPM_Ready_vect_num
+#define ANALOG_COMP_0_vect_num  23
+#define ANALOG_COMP_0_vect      _VECTOR(23)
+#define ANALOG_COMP_1_vect_num  25
+#define ANALOG_COMP_1_vect      _VECTOR(25)
+#define PCINT3_vect_num         27
+#define PCINT3_vect             _VECTOR(27)
+#define OPA0_COMP_vect_num      28
+#define OPA0_COMP_vect          _VECTOR(28)
+#define OPA1_COMP_vect_num      29
+#define OPA1_COMP_vect          _VECTOR(29)
+
+#undef _VECTORS_SIZE
+#define _VECTORS_SIZE (30 * 4)
 
 #endif
 /**********************************************************************************
