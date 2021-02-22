@@ -36,9 +36,21 @@
 #endif
 
 #if !defined( __LGT8FX8P__ )
-	#warning !!! WARNING : This EEPROM library was not tested on LGT8F88a, LGT8Fx8D and LGT8Fx8E. 
+	#warning !!! WARNING : This EEPROM library was only tested with LGT8F328-P. 
 	#warning If you find bugs and want to improve compatibility, please, join the GitHub repository.
 #endif
+
+#if defined( __LGT8FX8E__ ) && defined( __LGT8F_SSOP20__ ) || defined( ARDUINO_AVR_LARDU_88DS20 )
+	#warning untested LGT8F88D-SSOP20 detected - which contains 2KB of seperated EEPROM : ( 32bits access and SWM access will be emulated )
+	#define __LGT_EEPROM_LIB_FOR_88D__
+#endif
+
+#if defined( __LGT8FX8E__ ) && ! defined( __LGT8F_SSOP20__ ) && ! defined( ARDUINO_AVR_LARDU_88DS20 )
+	#warning untested LGT8F328D  detected - which contains shared EEPROM with 16bits cells : ( 32bits access and SWM access will be emulated )
+	
+	#define __LGT_EEPROM_LIB_FOR_328D__
+#endif
+
 
 /*
 	README :
@@ -95,13 +107,20 @@
 // be erased each time the sketch will be uploaded (even if it's an update).
 //
 
-#ifdef __LGT8FX8P__
-
-	#define lgt_eeprom_free_space_per_1KB_page() ((uint16_t)1020)
-	#define	lgt_eeprom_reset()    do { ECCR |= 0x20; } while(0)
+#if defined( __LGT8FX8P__ )
 	#define	lgt_eeprom_SWM_ON()   do { ECCR = 0x80; ECCR |= 0x10; } while(0);
 	#define	lgt_eeprom_SWM_OFF()  do { ECCR = 0x80; ECCR &= 0xEF; } while(0);
+	#define	lgt_eeprom_reset()    do { ECCR |= 0x20; } while(0)
+#else
+	#define lgt_eeprom_SWM_ON()
+	#define lgt_eeprom_SWM_OFF()
+	#define	lgt_eeprom_reset()
+#endif
 
+#if defined( __LGT8FX8P__ ) || defined( __LGT_EEPROM_LIB_FOR_328D__ )
+
+	#define lgt_eeprom_free_space_per_1KB_page() ((uint16_t)1020)
+	
 	void lgt_eeprom_init( uint8_t number_of_1KB_pages = 1 );
 	
 	int lgt_eeprom_size( bool theoretical = false );
@@ -127,10 +146,6 @@
 	
 #else
 	
-	#define	lgt_eeprom_reset()
-	#define	lgt_eeprom_SWM_ON()
-	#define	lgt_eeprom_SWM_OFF()
-	
 	#define lgt_eeprom_init(x)
 	
 	int lgt_eeprom_size( bool theoretical = false );
@@ -142,6 +157,19 @@
 
 	void lgt_eeprom_read_block( uint8_t *pbuf, uint16_t address, uint8_t len );
 	void lgt_eeprom_write_block( uint8_t *pbuf, uint16_t address, uint8_t len );
+	
+	// ----------------------------------------------------------------------
+	// /!\ emulated - read/write native 32 bits data from/to E2PROM
+	// ----------------------------------------------------------------------
+	uint32_t lgt_eeprom_read32( uint16_t address );
+	void lgt_eeprom_write32( uint16_t address, uint32_t value );
+
+	// ----------------------------------------------------------------------
+	// /!\ emualted - read/write bundle of data from/to E2PROM with SWM mode enable
+	// ----------------------------------------------------------------------
+	void lgt_eeprom_writeSWM( uint16_t address, uint32_t *pData, uint8_t length );
+	void lgt_eeprom_readSWM( uint16_t address, uint32_t *pData, uint8_t length );
+	
 #endif
 
 
@@ -150,12 +178,14 @@
 	#undef E2END
 	#define E2END (504-1)
 	
-#elseif defined(__LGT8FX8P__) 
+#elif defined(__LGT_EEPROM_LIB_FOR_88D__ )
+	#undef E2END
+	#define E2END (2048-1)
+	
+#elif defined(__LGT8FX8P__) 
 	#undef E2END
 	#define E2END (lgt_eeprom_size()-1)
 	
-#else
-	// TODO __LGT8FX8E__ ?
 #endif
 
 
@@ -163,12 +193,19 @@
 
 #ifdef USE_LGT_EEPROM_API
 
-	#ifdef __LGT8FX8P__
-
+	#if defined( __LGT8FX8P__ )
 		#define	e2pReset()	do { ECCR |= 0x20; } while(0)
 		#define	e2pSWMON()	do { ECCR = 0x80; ECCR |= 0x10; } while(0);
 		#define	e2pSWMOFF()	do { ECCR = 0x80; ECCR &= 0xEF; } while(0);
+	#else
+		#define	e2pReset()
+		#define	e2pSWMON()
+		#define	e2pSWMOFF()
+	#endif
 
+
+	#if defined( __LGT8FX8P__ ) || defined( __LGT_EEPROM_LIB_FOR_328D__ )
+	
 		class EEPROMClass
 		{
 		  public:
@@ -195,13 +232,6 @@
 			}
 		};
 	#else
-		// __LGT8F88A__ : OK
-		// __LGT8FX8E__ : TODO
-		
-		#define	e2pReset()
-		#define	e2pSWMON()
-		#define	e2pSWMOFF()
-		
 		class EEPROMClass
 		{
 		  public:
@@ -213,29 +243,12 @@
 			void  read_block( uint8_t *pbuf, uint16_t address, uint8_t len ) { lgt_eeprom_read_block( pbuf, address, len ); }
 			void write_block( uint8_t *pbuf, uint16_t address, uint8_t len ) { lgt_eeprom_write_block( pbuf, address, len ); }
 
-			uint32_t read32( uint16_t address ) 
-			{ 
-				// Emulation :
-				uint32_t data;
-				lgt_eeprom_read_block( (uint8_t*)&data, address, sizeof( data ) );
-				return data; 
-			}
-			void    write32( uint16_t address, uint32_t data ) 
-			{ 
-				// Emulation :
-				lgt_eeprom_write_block( (uint8_t*)&data, address, sizeof(data) );
-			}
+			uint32_t read32( uint16_t address ) { return lgt_eeprom_read32( address ); }
+			void    write32( uint16_t address, uint32_t data ) { lgt_eeprom_write32( address, data ); }
 
-			void writeSWM( uint16_t address, uint32_t *pdata, uint8_t len) 
-			{ 
-				// Emulation :
-				lgt_eeprom_read_block( (uint8_t*)pdata, address, len*sizeof(uint32_t) );
-			}
-			void  readSWM( uint16_t address, uint32_t *pdata, uint8_t len) 
-			{ 
-				// Emulation :
-				lgt_eeprom_read_block( (uint8_t*)pdata, address, len*sizeof(uint32_t) );
-			}
+			void writeSWM( uint16_t address, uint32_t *pdata, uint8_t len) { lgt_eeprom_writeSWM( address, pdata, len ); }
+			void  readSWM( uint16_t address, uint32_t *pdata, uint8_t len) { lgt_eeprom_readSWM( address, pdata, len ); }
+			
 
 			int size( bool theoretical = false ) { return lgt_eeprom_size( theoretical ); }
 			
