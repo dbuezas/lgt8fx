@@ -1,7 +1,7 @@
 #include "Arduino.h"
 #include "EEPROM.h"
 
-#ifdef __LGT8FX8P__ 
+#if defined( __LGT8FX8P__ )
 void lgt_eeprom_init( uint8_t number_of_1KB_pages )
 {
 	switch( number_of_1KB_pages )
@@ -32,12 +32,43 @@ void lgt_eeprom_init( uint8_t number_of_1KB_pages )
 		break;
 	}
 }
+#elif defined( __LGT_EEPROM_LIB_FOR_328D__ )
+void lgt_eeprom_init( uint8_t number_of_1KB_pages )
+{
+	switch( number_of_1KB_pages )
+	{
+		case 0: // disable EEPROM emulation
+			ECCR = 0x80; 
+			ECCR = 0x00;
+		break;
+
+		case 2: // 2KB EEPROM emulation (uses 4KB of data in main Flash memory )
+			ECCR = 0x80; 
+			ECCR = 0x40 | 0x01;
+		break;
+
+		case 4: // 4KB EEPROM emulation (uses 8KB of data in main Flash memory )
+			ECCR = 0x80; 
+			ECCR = 0x40 | 0x02;
+		break;
+
+		case 8: // 8KB EEPROM emulation (uses 16KB of data in main Flash memory )
+			ECCR = 0x80; 
+			ECCR = 0x40 | 0x03;
+		break;
+		
+		default: // 1KB EEPROM emulation (uses 2KB of data in main Flash memory )
+			ECCR = 0x80; 
+			ECCR = 0x40;
+		break;
+	}
+}
 #endif
 
 
 int lgt_eeprom_size( bool theoretical )
 {
-#if defined( __LGT8FX8P__ )
+#if defined( __LGT8FX8P__ ) || defined( __LGT_EEPROM_LIB_FOR_328D__ )
 
 	if ( ECCR & 0x40 ) // EEPROM emulation enabled ?
 	{
@@ -58,8 +89,7 @@ int lgt_eeprom_size( bool theoretical )
 	return theoretical ? 512 : 504; 
 
 #else
-	// TODO : detect LGT8F32d and return ???
-	// TODO : detect LGT8F32e and return ???
+	// other undetected boards ?
 	
 	(void)(theoretical); // suppress unused parameter warning
 	
@@ -71,7 +101,7 @@ int lgt_eeprom_size( bool theoretical )
 #endif
 }
 
-#ifdef __LGT8FX8P__
+#if defined(__LGT8FX8P__) || defined( __LGT_EEPROM_LIB_FOR_328D__ )
 uint16_t lgt_eeprom_continuous_address_to_real_address( uint16_t address )
 {
 	// we recalculate the address so that we automatically skip 
@@ -88,7 +118,7 @@ uint16_t lgt_eeprom_continuous_address_to_real_address( uint16_t address )
 }
 #endif
 
-#ifdef __LGT8FX8P__
+#if defined( __LGT8FX8P__ ) || defined( __LGT_EEPROM_LIB_FOR_328D__ )
 uint8_t lgt_eeprom_read_byte( uint16_t address, bool real_address_mode )
 {
 	if ( ! real_address_mode )
@@ -123,7 +153,7 @@ uint8_t lgt_eeprom_read_byte( uint16_t address )
 }
 #endif
 
-#ifdef __LGT8FX8P__
+#if defined( __LGT8FX8P__ ) || defined( __LGT_EEPROM_LIB_FOR_328D__ )
 void lgt_eeprom_write_byte( uint16_t address, uint8_t value, bool real_address_mode )
 {
 
@@ -165,7 +195,7 @@ void lgt_eeprom_write_byte( uint16_t address, uint8_t value )
 }
 #endif
 
-#ifdef __LGT8FX8P__
+#if defined( __LGT8FX8P__ ) || defined( __LGT_EEPROM_LIB_FOR_328D__ )
 void lgt_eeprom_read_block( uint8_t *pbuf, uint16_t address, uint8_t len, bool real_address_mode )
 {
 	uint8_t i;
@@ -189,7 +219,7 @@ void lgt_eeprom_read_block( uint8_t *pbuf, uint16_t address, uint8_t len )
 }
 #endif
 
-#ifdef __LGT8FX8P__
+#if defined( __LGT8FX8P__ ) || defined( __LGT_EEPROM_LIB_FOR_328D__ )
 void lgt_eeprom_write_block( uint8_t *pbuf, uint16_t address, uint8_t len, bool real_address_mode )
 {
 	uint8_t i;
@@ -324,6 +354,30 @@ void lgt_eeprom_write_block( uint8_t *pbuf, uint16_t address, uint8_t len )
 			pData[i] |= ((uint32_t)E2PD2 << 16);
 			pData[i] |= ((uint32_t)E2PD3 << 24);
 		}
+	}
+#else
+	uint32_t lgt_eeprom_read32( uint16_t address )
+	{ 
+		// Emulation :
+		uint32_t data;
+		lgt_eeprom_read_block( (uint8_t*)&data, address, sizeof( data ) );
+		return data; 
+	}
+	void     lgt_eeprom_write32( uint16_t address, uint32_t data ) 
+	{ 
+		// Emulation :
+		lgt_eeprom_write_block( (uint8_t*)&data, address, sizeof(data) );
+	}
+
+	void lgt_eeprom_writeSWM( uint16_t address, uint32_t *pdata, uint8_t len) 
+	{ 
+		// Emulation :
+		lgt_eeprom_read_block( (uint8_t*)pdata, address, len*sizeof(uint32_t) );
+	}
+	void  lgt_eeprom_readSWM( uint16_t address, uint32_t *pdata, uint8_t len) 
+	{ 
+		// Emulation :
+		lgt_eeprom_read_block( (uint8_t*)pdata, address, len*sizeof(uint32_t) );
 	}
 #endif
 
