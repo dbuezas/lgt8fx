@@ -196,9 +196,9 @@ void lgt_eeprom_write_byte( uint16_t address, uint8_t value )
 #endif
 
 #if defined( __LGT8FX8P__ ) || defined( __LGT_EEPROM_LIB_FOR_328D__ )
-void lgt_eeprom_read_block( uint8_t *pbuf, uint16_t address, uint8_t len, bool real_address_mode )
+void lgt_eeprom_read_block( uint8_t *pbuf, uint16_t address, uint16_t len, bool real_address_mode )
 {
-	uint8_t i;
+	uint16_t i;
 
 	uint8_t *p = pbuf;
 
@@ -207,9 +207,9 @@ void lgt_eeprom_read_block( uint8_t *pbuf, uint16_t address, uint8_t len, bool r
 	}
 }
 #else
-void lgt_eeprom_read_block( uint8_t *pbuf, uint16_t address, uint8_t len )
+void lgt_eeprom_read_block( uint8_t *pbuf, uint16_t address, uint16_t len )
 {
-	uint8_t i;
+	uint16_t i;
 
 	uint8_t *p = pbuf;
 
@@ -220,9 +220,9 @@ void lgt_eeprom_read_block( uint8_t *pbuf, uint16_t address, uint8_t len )
 #endif
 
 #if defined( __LGT8FX8P__ ) || defined( __LGT_EEPROM_LIB_FOR_328D__ )
-void lgt_eeprom_write_block( uint8_t *pbuf, uint16_t address, uint8_t len, bool real_address_mode )
+void lgt_eeprom_write_block( uint8_t *pbuf, uint16_t address, uint16_t len, bool real_address_mode )
 {
-	uint8_t i;
+	uint16_t i;
 
 	uint8_t *p = pbuf;
 
@@ -231,9 +231,9 @@ void lgt_eeprom_write_block( uint8_t *pbuf, uint16_t address, uint8_t len, bool 
 	}
 }
 #else
-void lgt_eeprom_write_block( uint8_t *pbuf, uint16_t address, uint8_t len )
+void lgt_eeprom_write_block( uint8_t *pbuf, uint16_t address, uint16_t len )
 {
-	uint8_t i;
+	uint16_t i;
 
 	uint8_t *p = pbuf;
 
@@ -292,9 +292,9 @@ void lgt_eeprom_write_block( uint8_t *pbuf, uint16_t address, uint8_t len )
 	// ----------------------------------------------------------------------
 	// public: write bundle of data to E2PROM with SWM mode enable
 	// ----------------------------------------------------------------------
-	void lgt_eeprom_writeSWM( uint16_t address, uint32_t *pData, uint8_t length )
+	void lgt_eeprom_writeSWM( uint16_t address, uint32_t *pData, uint16_t length )
 	{
-		uint8_t i;
+		uint16_t i;
 		uint8_t __bk_sreg;
 
 		lgt_eeprom_reset();
@@ -327,9 +327,9 @@ void lgt_eeprom_write_block( uint8_t *pbuf, uint16_t address, uint8_t len )
 	// ----------------------------------------------------------------------
 	// public: read bundle of data to E2PROM with SWM mode enable
 	// ----------------------------------------------------------------------
-	void lgt_eeprom_readSWM( uint16_t address, uint32_t *pData, uint8_t length )
+	void lgt_eeprom_readSWM( uint16_t address, uint32_t *pData, uint16_t length )
 	{
-		uint8_t i;
+		uint16_t i;
 
 		lgt_eeprom_reset();
 		lgt_eeprom_SWM_ON();
@@ -369,12 +369,12 @@ void lgt_eeprom_write_block( uint8_t *pbuf, uint16_t address, uint8_t len )
 		lgt_eeprom_write_block( (uint8_t*)&data, address, sizeof(data) );
 	}
 
-	void lgt_eeprom_writeSWM( uint16_t address, uint32_t *pdata, uint8_t len) 
+	void lgt_eeprom_writeSWM( uint16_t address, uint32_t *pdata, uint16_t len) 
 	{ 
 		// Emulation :
 		lgt_eeprom_read_block( (uint8_t*)pdata, address, len*sizeof(uint32_t) );
 	}
-	void  lgt_eeprom_readSWM( uint16_t address, uint32_t *pdata, uint8_t len) 
+	void  lgt_eeprom_readSWM( uint16_t address, uint32_t *pdata, uint16_t len) 
 	{ 
 		// Emulation :
 		lgt_eeprom_read_block( (uint8_t*)pdata, address, len*sizeof(uint32_t) );
