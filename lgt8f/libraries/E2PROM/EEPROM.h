@@ -193,7 +193,7 @@
 
 #ifdef USE_LGT_EEPROM_API
 
-	#if defined( __LGT8FX8P__ )
+	#if defined( __LGT8FX8P__ ) || defined( __LGT_EEPROM_LIB_FOR_328D__ )
 		#define	e2pReset()	do { ECCR |= 0x20; } while(0)
 		#define	e2pSWMON()	do { ECCR = 0x80; ECCR |= 0x10; } while(0);
 		#define	e2pSWMOFF()	do { ECCR = 0x80; ECCR &= 0xEF; } while(0);
