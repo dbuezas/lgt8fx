@@ -107,7 +107,7 @@
 // be erased each time the sketch will be uploaded (even if it's an update).
 //
 
-#if defined( __LGT8FX8P__ )
+#if defined( __LGT8FX8P__ ) || defined( __LGT_EEPROM_LIB_FOR_328D__ )
 	#define	lgt_eeprom_SWM_ON()   do { ECCR = 0x80; ECCR |= 0x10; } while(0);
 	#define	lgt_eeprom_SWM_OFF()  do { ECCR = 0x80; ECCR &= 0xEF; } while(0);
 	#define	lgt_eeprom_reset()    do { ECCR |= 0x20; } while(0)
@@ -299,20 +299,12 @@ struct EERef{
         : index( index )                 {}
     
     //Access/read members.
-#ifdef __LGT8FX8P__
     uint8_t operator*() const            { return lgt_eeprom_read_byte( index, false ); }
-#else
-    uint8_t operator*() const            { return lgt_eeprom_read_byte( index ); }
-#endif
     operator uint8_t() const             { return **this; }
     
     //Assignment/write members.
     EERef &operator=( const EERef &ref ) { return *this = *ref; }
-#ifdef __LGT8FX8P__
     EERef &operator=( uint8_t in )       { return lgt_eeprom_write_byte( index, in, false ), *this;  }
-#else
-    EERef &operator=( uint8_t in )       { return lgt_eeprom_write_byte( index, in ), *this;  }
-#endif
     EERef &operator +=( uint8_t in )     { return *this = **this + in; }
     EERef &operator -=( uint8_t in )     { return *this = **this - in; }
     EERef &operator *=( uint8_t in )     { return *this = **this * in; }
