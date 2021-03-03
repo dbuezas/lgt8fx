@@ -182,7 +182,7 @@
 	#undef E2END
 	#define E2END (2048-1)
 	
-#elif defined(__LGT8FX8P__) 
+#elif defined( __LGT8FX8P__ ) || defined( __LGT_EEPROM_LIB_FOR_328D__ )
 	#undef E2END
 	#define E2END (lgt_eeprom_size()-1)
 	
