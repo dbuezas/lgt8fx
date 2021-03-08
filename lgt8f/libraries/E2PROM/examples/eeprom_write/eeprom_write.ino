@@ -6,6 +6,7 @@
  * turned off and may be retrieved later by another sketch.
  */
 
+#define USE_LGT_EEPROM_API
 #include <EEPROM.h>
 
 // the current address in the EEPROM (i.e. which byte
@@ -28,10 +29,10 @@ void loop()
   // turned off.
   EEPROM.write(addr, val);
   
-  // advance to the next address.  there are 512 bytes in 
-  // the EEPROM, so go back to 0 when we hit 512.
+  // advance to the next address.  there are 1020 bytes in 
+  // the EEPROM, so go back to 0 when we hit 1020.
   addr = addr + 1;
-  if (addr == 512)
+  if (addr == EEPROM.size() )
     addr = 0;
   
   delay(100);
