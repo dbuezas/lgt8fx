@@ -40,6 +40,7 @@ Explore the discussions: https://github.com/dbuezas/lgt8fx/discussions
 - [ ] (in next release) [Enabled AREF pin as A10 analog input](https://github.com/dbuezas/lgt8fx/pull/36) (by [#jayzakk](https://github.com/jayzakk))
 - [ ] (in next release) [Power reduce register definitions](https://github.com/dbuezas/lgt8fx/pull/46) (by [#KooLru](https://github.com/KooLru))
 - [ ] (in next release) [Support for interrupts on all timers and comparators](https://github.com/dbuezas/lgt8fx/pull/40) (by [#jayzakk](https://github.com/jayzakk))
+- [ ] (in next release) [Arduino EEPROM API](https://github.com/dbuezas/lgt8fx/pull/64) (by [#SuperUserNameMan](https://github.com/SuperUserNameMan)
 
 # Differences to original core [Larduino_HSP v3.6c](https://github.com/Edragon/LGT/tree/master/HSP%20Patch%20File/Larduino_HSP_3.6c/Larduino_HSP_v3.6c)
 
