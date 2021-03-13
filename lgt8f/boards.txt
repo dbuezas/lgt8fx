@@ -36,8 +36,10 @@ menu.arduino_isp=Arduino as ISP
 # Clock source
 328.menu.clock_source.internal=Internal
 328.menu.clock_source.internal.build.clock_source=1
+328.menu.clock_source.internal.build.f_osc=32000000L
 328.menu.clock_source.external=External (assumes 32MHz crystal)
 328.menu.clock_source.external.build.clock_source=2
+328.menu.clock_source.external.build.f_osc=32000000L
 
 # Clock frequencies
 328.menu.clock.32MHz=32 MHz
@@ -105,8 +107,10 @@ menu.arduino_isp=Arduino as ISP
 # Clock source
 88.menu.clock_source.internal=Internal
 88.menu.clock_source.internal.build.clock_source=1
+88.menu.clock_source.internal.build.f_osc=32000000L
 88.menu.clock_source.external=External (assumes 32MHz crystal)
 88.menu.clock_source.external.build.clock_source=2
+88.menu.clock_source.external.build.f_osc=32000000L
 
 # Clock frequencies
 88.menu.clock.32MHz=32 MHz
@@ -153,6 +157,7 @@ lardu_328e.build.board=AVR_LARDU_328E
 # Clock source
 lardu_328e.menu.clock_source.internal=Internal
 lardu_328e.menu.clock_source.internal.build.clock_source=1
+lardu_328e.menu.clock_source.internal.build.f_osc=32000000L
 
 # Clock frequencies
 lardu_328e.menu.clock.16MHz=16 MHz (default internal osc)

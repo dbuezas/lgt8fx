@@ -106,6 +106,7 @@ void lgt8fx8x_init()
 	ECCR = 0x40;
 
 // clock source settings
+#if !defined(CLOCK_SOURCE)
 	if((VDTCR & 0x0C) == 0x0C) {
 		// switch to external crystal
 		sysClock(EXT_OSC);
@@ -113,15 +114,18 @@ void lgt8fx8x_init()
 		CLKPR = 0x80;
 		CLKPR = 0x01;
 	}
+#endif // CLOCK_SOURCE
 #else
 	// enable 32KRC for WDT
 	GPIOR0 = PMCR | 0x10;
 	PMCR = 0x80;
 	PMCR = GPIOR0;
 
+#if !defined(CLOCK_SOURCE)
 	// clock scalar to 16MHz
 	CLKPR = 0x80;
 	CLKPR = 0x01;
+#endif // CLOCK_SOURCE
 #endif
 }
 
@@ -130,29 +134,36 @@ void lgt8fx8x_clk_src()
 {
 // select clock source
 #if defined(CLOCK_SOURCE)
+    // override bootloader setting
     #if CLOCK_SOURCE == 1
-        // internal clock is default, do nothing
-        // sysClock(INT_OSC);
+        sysClock(INT_OSC);
     #elif CLOCK_SOURCE == 2
         sysClock(EXT_OSC);
     #endif
 #endif
 
 // select clock prescaler
-#if defined(F_CPU)
+#if defined(F_CPU) && defined(F_OSC)
+#define F_DIV	(F_OSC / F_CPU)
     CLKPR = 0x80;
-    #if F_CPU == 32000000L
+    #if F_DIV <= 1
         CLKPR = 0x00;
-    #elif F_CPU == 16000000L
+    #elif F_DIV <= 2
         CLKPR = 0x01;
-    #elif F_CPU == 8000000L
+    #elif F_DIV <= 4
         CLKPR = 0x02;
-    #elif F_CPU == 4000000L
+    #elif F_DIV <= 8
         CLKPR = 0x03;
-    #elif F_CPU == 2000000L
+    #elif F_DIV <= 16
         CLKPR = 0x04;
-    #elif F_CPU == 1000000L
+    #elif F_DIV <= 32
         CLKPR = 0x05;
+    #elif F_DIV <= 64
+        CLKPR = 0x06;
+    #elif F_DIV <= 128
+        CLKPR = 0x07;
+    #elif
+        CLKPR = 0x08;
     #endif
 #endif
 }
