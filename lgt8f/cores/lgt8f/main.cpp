@@ -144,7 +144,9 @@ void lgt8fx8x_clk_src()
 
 // select clock prescaler
 #if defined(F_CPU) && defined(F_OSC)
+#if !defined(F_DIV)
 #define F_DIV	(F_OSC / F_CPU)
+#endif
     CLKPR = 0x80;
     #if F_DIV <= 1
         CLKPR = 0x00;
