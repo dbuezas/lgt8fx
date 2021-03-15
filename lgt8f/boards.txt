@@ -43,17 +43,17 @@ menu.arduino_isp=Arduino as ISP
 
 # Clock frequencies
 328.menu.clock.32MHz=32 MHz
-328.menu.clock.32MHz.build.f_cpu=32000000L
+328.menu.clock.32MHz.build.f_div=1
 328.menu.clock.16MHz=16 MHz
-328.menu.clock.16MHz.build.f_cpu=16000000L
+328.menu.clock.16MHz.build.f_div=2
 328.menu.clock.8MHz=8 MHz
-328.menu.clock.8MHz.build.f_cpu=8000000L
+328.menu.clock.8MHz.build.f_div=4
 328.menu.clock.4MHz=4 MHz
-328.menu.clock.4MHz.build.f_cpu=4000000L
+328.menu.clock.4MHz.build.f_div=8
 328.menu.clock.2MHz=2 MHz
-328.menu.clock.2MHz.build.f_cpu=2000000L
+328.menu.clock.2MHz.build.f_div=16
 328.menu.clock.1MHz=1 MHz
-328.menu.clock.1MHz.build.f_cpu=1000000L
+328.menu.clock.1MHz.build.f_div=32
 
 # Variants
 328.menu.variant.modelP48=328P-LQFP48 MiniEVB
@@ -114,17 +114,17 @@ menu.arduino_isp=Arduino as ISP
 
 # Clock frequencies
 88.menu.clock.32MHz=32 MHz
-88.menu.clock.32MHz.build.f_cpu=32000000L
+88.menu.clock.32MHz.build.f_div=1
 88.menu.clock.16MHz=16 MHz
-88.menu.clock.16MHz.build.f_cpu=16000000L
+88.menu.clock.16MHz.build.f_div=2
 88.menu.clock.8MHz=8 MHz
-88.menu.clock.8MHz.build.f_cpu=8000000L
+88.menu.clock.8MHz.build.f_div=4
 88.menu.clock.4MHz=4 MHz
-88.menu.clock.4MHz.build.f_cpu=4000000L
+88.menu.clock.4MHz.build.f_div=8
 88.menu.clock.2MHz=2 MHz
-88.menu.clock.2MHz.build.f_cpu=2000000L
+88.menu.clock.2MHz.build.f_div=16
 88.menu.clock.1MHz=1 MHz
-88.menu.clock.1MHz.build.f_cpu=1000000L
+88.menu.clock.1MHz.build.f_div=32
 
 # Variants
 88.menu.variant.modelD=LGT8F88D-SSOP20
@@ -161,15 +161,15 @@ lardu_328e.menu.clock_source.internal.build.f_osc=32000000L
 
 # Clock frequencies
 lardu_328e.menu.clock.16MHz=16 MHz (default internal osc)
-lardu_328e.menu.clock.16MHz.build.f_cpu=16000000L
+lardu_328e.menu.clock.16MHz.build.f_div=2
 lardu_328e.menu.clock.8MHz=8 MHz
-lardu_328e.menu.clock.8MHz.build.f_cpu=8000000L
+lardu_328e.menu.clock.8MHz.build.f_div=4
 lardu_328e.menu.clock.4MHz=4 MHz
-lardu_328e.menu.clock.4MHz.build.f_cpu=4000000L
+lardu_328e.menu.clock.4MHz.build.f_div=8
 lardu_328e.menu.clock.2MHz=2 MHz
-lardu_328e.menu.clock.2MHz.build.f_cpu=2000000L
+lardu_328e.menu.clock.2MHz.build.f_div=16
 lardu_328e.menu.clock.1MHz=1 MHz
-lardu_328e.menu.clock.1MHz.build.f_cpu=1000000L
+lardu_328e.menu.clock.1MHz.build.f_div=32
 
 # Arduino as ISP
 
