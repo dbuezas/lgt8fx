@@ -6,6 +6,7 @@ menu.clock_source=Clock Source
 menu.clock=Clock
 menu.variant=Variant
 menu.arduino_isp=Arduino as ISP
+menu.upload_speed=Upload speed
 
 #############################
 #### LGT8F328 P/E/S      ####
@@ -15,7 +16,7 @@ menu.arduino_isp=Arduino as ISP
 328.upload.tool=avrdude
 328.upload.protocol=arduino
 328.upload.maximum_size=29696
-328.upload.speed=57600
+#328.upload.speed=57600
 328.bootloader.tool=avrdude
 328.bootloader.high_fuses=0xff
 328.bootloader.low_fuses=0xff
@@ -25,6 +26,12 @@ menu.arduino_isp=Arduino as ISP
 328.build.core=lgt8f
 328.build.mcu=atmega328p
 328.build.board=AVR_LARDU_328E
+
+# Upload speed
+328.menu.upload_speed.57600=Default(57600) 
+328.menu.upload_speed.57600.upload.speed=57600
+328.menu.upload_speed.19200=BTE17-11(19200)
+328.menu.upload_speed.19200.upload.speed=19200
 
 # Arduino as ISP
  
