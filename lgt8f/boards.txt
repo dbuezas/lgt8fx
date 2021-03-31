@@ -218,15 +218,15 @@ menu.upload_speed=Upload speed
 328_16.menu.clock.62k_e.build.f_div=256
 
 # Variants
-328_16.menu.variant.modelP48=328P-LQFP48
-328_16.menu.variant.modelP48.bootloader.path=lgt8fx8p
-328_16.menu.variant.modelP48.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
-328_16.menu.variant.modelP48.build.variant=lgt8fx8p48
-
 328_16.menu.variant.modelP=328P-LQFP32
 328_16.menu.variant.modelP.bootloader.path=lgt8fx8p
 328_16.menu.variant.modelP.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
 328_16.menu.variant.modelP.build.variant=lgt8fx8p
+
+328_16.menu.variant.modelP48=328P-LQFP48
+328_16.menu.variant.modelP48.bootloader.path=lgt8fx8p
+328_16.menu.variant.modelP48.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
+328_16.menu.variant.modelP48.build.variant=lgt8fx8p48
 
 328_16.menu.variant.modelD=328D
 328_16.menu.variant.modelD.bootloader.path=lgt8fx8e
@@ -238,6 +238,8 @@ menu.upload_speed=Upload speed
 328_16.menu.upload_speed.57600.upload.speed=57600
 328_16.menu.upload_speed.115200=115200
 328_16.menu.upload_speed.115200.upload.speed=115200
+328_16.menu.upload_speed.19200=19200
+328_16.menu.upload_speed.19200.upload.speed=19200
 
 ###################################
 #### LGT8F328 + 12 MHz crystal ####
@@ -365,15 +367,15 @@ menu.upload_speed=Upload speed
 328_12.menu.clock.47k_e.build.f_div=256
 
 # Variants
-328_12.menu.variant.modelP48=328P-LQFP48
-328_12.menu.variant.modelP48.bootloader.path=lgt8fx8p
-328_12.menu.variant.modelP48.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
-328_12.menu.variant.modelP48.build.variant=lgt8fx8p48
-
 328_12.menu.variant.modelP=328P-LQFP32
 328_12.menu.variant.modelP.bootloader.path=lgt8fx8p
 328_12.menu.variant.modelP.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
 328_12.menu.variant.modelP.build.variant=lgt8fx8p
+
+328_12.menu.variant.modelP48=328P-LQFP48
+328_12.menu.variant.modelP48.bootloader.path=lgt8fx8p
+328_12.menu.variant.modelP48.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
+328_12.menu.variant.modelP48.build.variant=lgt8fx8p48
 
 328_12.menu.variant.modelD=328D
 328_12.menu.variant.modelD.bootloader.path=lgt8fx8e
@@ -385,6 +387,8 @@ menu.upload_speed=Upload speed
 328_12.menu.upload_speed.57600.upload.speed=57600
 328_12.menu.upload_speed.115200=115200
 328_12.menu.upload_speed.115200.upload.speed=115200
+328_12.menu.upload_speed.19200=19200
+328_12.menu.upload_speed.19200.upload.speed=19200
 
 ############################
 #### Larduino Uno       ####
