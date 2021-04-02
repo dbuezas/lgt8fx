@@ -111,7 +111,7 @@ static int __analogRead(uint8_t pin)
 	
 	// enable/disable internal 1/5VCC channel
 	ADCSRD &= 0xf0;
-	if(pin == V5D1 || pin == V5D4) { 
+	if(pin == V5D1 || pin == V5D4 || pin == VCCM) { 
 		ADCSRD |= 0x06;
 	}	
 #endif
@@ -144,7 +144,14 @@ static int __analogRead(uint8_t pin)
 #if defined(__AVR_ATtiny25__) || defined(__AVR_ATtiny45__) || defined(__AVR_ATtiny85__)
 	ADMUX = (analog_reference << 4) | (pin & 0x07);
 #else
+  #if defined(__LGT8F__)
+    #if defined(__LGT8FX8E__)
+	if (( pin >= 9 && pin <= 12 )) || ( pin >= 16 )) return 0;   // invalid ADMUX selection in LGT8F328D
+    #endif
+	ADMUX = (analog_reference << 6) | (pin & 0x1f);
+  #else
 	ADMUX = (analog_reference << 6) | (pin & 0x07);
+  #endif
 #endif
 #endif
 
