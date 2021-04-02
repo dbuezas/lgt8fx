@@ -146,7 +146,7 @@ static int __analogRead(uint8_t pin)
 #else
   #if defined(__LGT8F__)
     #if defined(__LGT8FX8E__)
-	if (( pin >= 9 && pin <= 12 )) || ( pin >= 16 )) return 0;   // invalid ADMUX selection in LGT8F328D
+	if (( pin >= 9 && pin <= 12 ) || ( pin >= 16 )) return 0;   // invalid ADMUX selection in LGT8F328D
     #endif
 	ADMUX = (analog_reference << 6) | (pin & 0x1f);
   #else
