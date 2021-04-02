@@ -25,8 +25,8 @@
 #include "wiring_private.h"
 #include "pins_arduino.h"
 
-uint8_t analog_resbit = 0;
-uint8_t analog_resdir = 0;
+uint8_t analog_resbit = 2;
+uint8_t analog_resdir = 1;
 uint8_t analog_reference = DEFAULT;
 
 #if defined(__LGT8F__)
