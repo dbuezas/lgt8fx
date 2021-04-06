@@ -95,8 +95,11 @@ static const uint8_t A7 = 21;
 #if defined(__LGT8FX8P48__)
 static const uint8_t A8 = 23;
 static const uint8_t A9 = 24;
-static const uint8_t A10 = 25;
+// static const uint8_t A10 = 25; LGT8FXP and LGT8FXP48 both have A10 pin
 static const uint8_t A11 = 26;
+#define PIN_A8   (23)
+#define PIN_A9   (24)
+#define PIN_A11  (26)
 #endif
 #if defined(__LGT8FX8P__)
 static const uint8_t A10 = 25;
