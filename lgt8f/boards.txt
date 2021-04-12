@@ -157,21 +157,6 @@ menu.upload_speed=Upload speed
 328_16.menu.clock.1M_i.build.f_osc=32000000L
 328_16.menu.clock.1M_i.build.f_div=32
 
-328_16.menu.clock.500k_i=Internal 500 kHz
-328_16.menu.clock.500k_i.build.clock_source=1
-328_16.menu.clock.500k_i.build.f_osc=32000000L
-328_16.menu.clock.500k_i.build.f_div=64
-
-328_16.menu.clock.250k_i=Internal 250 kHz
-328_16.menu.clock.250k_i.build.clock_source=1
-328_16.menu.clock.250k_i.build.f_osc=32000000L
-328_16.menu.clock.250k_i.build.f_div=128
-
-328_16.menu.clock.125k_i=Internal 125 kHz
-328_16.menu.clock.125k_i.build.clock_source=1
-328_16.menu.clock.125k_i.build.f_osc=32000000L
-328_16.menu.clock.125k_i.build.f_div=256
-
 328_16.menu.clock.16M_e=External 16 MHz
 328_16.menu.clock.16M_e.build.clock_source=2
 328_16.menu.clock.16M_e.build.f_osc=16000000L
@@ -196,26 +181,6 @@ menu.upload_speed=Upload speed
 328_16.menu.clock.1M_e.build.clock_source=2
 328_16.menu.clock.1M_e.build.f_osc=16000000L
 328_16.menu.clock.1M_e.build.f_div=16
-
-328_16.menu.clock.500k_e=External 500 kHz
-328_16.menu.clock.500k_e.build.clock_source=2
-328_16.menu.clock.500k_e.build.f_osc=16000000L
-328_16.menu.clock.500k_e.build.f_div=32
-
-328_16.menu.clock.250k_e=External 250 kHz
-328_16.menu.clock.250k_e.build.clock_source=2
-328_16.menu.clock.250k_e.build.f_osc=16000000L
-328_16.menu.clock.250k_e.build.f_div=64
-
-328_16.menu.clock.125k_e=External 125 kHz
-328_16.menu.clock.125k_e.build.clock_source=2
-328_16.menu.clock.125k_e.build.f_osc=16000000L
-328_16.menu.clock.125k_e.build.f_div=128
-
-328_16.menu.clock.62k_e=External 62.5 kHz
-328_16.menu.clock.62k_e.build.clock_source=2
-328_16.menu.clock.62k_e.build.f_osc=16000000L
-328_16.menu.clock.62k_e.build.f_div=256
 
 # Variants
 328_16.menu.variant.modelP=328P-LQFP32
@@ -306,21 +271,6 @@ menu.upload_speed=Upload speed
 328_12.menu.clock.1M_i.build.f_osc=32000000L
 328_12.menu.clock.1M_i.build.f_div=32
 
-328_12.menu.clock.500k_i=Internal 500 kHz
-328_12.menu.clock.500k_i.build.clock_source=1
-328_12.menu.clock.500k_i.build.f_osc=32000000L
-328_12.menu.clock.500k_i.build.f_div=64
-
-328_12.menu.clock.250k_i=Internal 250 kHz
-328_12.menu.clock.250k_i.build.clock_source=1
-328_12.menu.clock.250k_i.build.f_osc=32000000L
-328_12.menu.clock.250k_i.build.f_div=128
-
-328_12.menu.clock.125k_i=Internal 125 kHz
-328_12.menu.clock.125k_i.build.clock_source=1
-328_12.menu.clock.125k_i.build.f_osc=32000000L
-328_12.menu.clock.125k_i.build.f_div=256
-
 328_12.menu.clock.12M_e=External 12 MHz
 328_12.menu.clock.12M_e.build.clock_source=2
 328_12.menu.clock.12M_e.build.f_osc=12000000L
@@ -340,31 +290,6 @@ menu.upload_speed=Upload speed
 328_12.menu.clock.1_5M_e.build.clock_source=2
 328_12.menu.clock.1_5M_e.build.f_osc=12000000L
 328_12.menu.clock.1_5M_e.build.f_div=8
-
-328_12.menu.clock._75M_e=External 750 kHz
-328_12.menu.clock._75M_e.build.clock_source=2
-328_12.menu.clock._75M_e.build.f_osc=12000000L
-328_12.menu.clock._75M_e.build.f_div=16
-
-328_12.menu.clock.375k_e=External 375 kHz
-328_12.menu.clock.375k_e.build.clock_source=2
-328_12.menu.clock.375k_e.build.f_osc=12000000L
-328_12.menu.clock.375k_e.build.f_div=32
-
-328_12.menu.clock.187k_e=External 187.5 kHz
-328_12.menu.clock.187k_e.build.clock_source=2
-328_12.menu.clock.187k_e.build.f_osc=12000000L
-328_12.menu.clock.187k_e.build.f_div=64
-
-328_12.menu.clock.94k_e=External 93.75 kHz
-328_12.menu.clock.94k_e.build.clock_source=2
-328_12.menu.clock.94k_e.build.f_osc=12000000L
-328_12.menu.clock.94k_e.build.f_div=128
-
-328_12.menu.clock.47k_e=External 46.875 kHz
-328_12.menu.clock.47k_e.build.clock_source=2
-328_12.menu.clock.47k_e.build.f_osc=12000000L
-328_12.menu.clock.47k_e.build.f_div=256
 
 # Variants
 328_12.menu.variant.modelP=328P-LQFP32
