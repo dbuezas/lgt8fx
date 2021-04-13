@@ -286,11 +286,6 @@ menu.upload_speed=Upload speed
 328_12.menu.clock.3M_e.build.f_osc=12000000L
 328_12.menu.clock.3M_e.build.f_div=4
 
-328_12.menu.clock.1_5M_e=External 1.5 MHz
-328_12.menu.clock.1_5M_e.build.clock_source=2
-328_12.menu.clock.1_5M_e.build.f_osc=12000000L
-328_12.menu.clock.1_5M_e.build.f_div=8
-
 # Variants
 328_12.menu.variant.modelP=328P-LQFP32
 328_12.menu.variant.modelP.bootloader.path=lgt8fx8p
