@@ -8,7 +8,7 @@ byte table[SAMPLES];
 void setup() {
   // put your setup code here, to run once:
   for (int i = 0; i < SAMPLES; i++) {
-    table[i] = sin((float)i * TWO_PI / SAMPLES) * 255;
+    table[i] = (1 + sin((float)i * TWO_PI / SAMPLES)) / 2 * 255;
   }
   analogReference(DEFAULT);  // 5v
   // analogReference(EXTERNAL);      // REF PIN Voltage
