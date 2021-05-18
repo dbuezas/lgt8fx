@@ -1,4 +1,5 @@
 adapted: https://github.com/dbuezas/lgt8fx/
+
 source: https://github.com/brother-yan/LGTISP
 
 # LGTISP
@@ -26,9 +27,9 @@ This is an implementation of LGT8Fx8P ISP download protocol. You can make arduin
    1. change **Programmer** to **AVR ISP**.
    2. click **Burn Bootloader** or upload sketches directly through the menu: **Sketch/Upload using programmer**
 
-## advanced usage
+## Guide
 
-Explore yourself!
+[rickygai](https://github.com/rickygai) created a very detailed guide [here](https://github.com/rickygai/arduino/blob/main/LGT8F328P.pdf)
 
 ## author
 
