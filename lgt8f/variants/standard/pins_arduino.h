@@ -384,16 +384,16 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] = {
 	_BV(1), /* 33, port F1 */
 	_BV(2), /* 34, port F2 */
 	_BV(3), /* 35, port F3 */
-	_BV(4), /* 34, port F4 */
-	_BV(5), /* 34, port F5 */
-	_BV(6), /* 34, port F6 */
-	_BV(7), /* 34, port F7 */
+	_BV(4), /* 36, port F4 */
+	_BV(5), /* 37, port F5 */
+	_BV(6), /* 38, port F6 */
+	_BV(7), /* 39, port F7 */
 #else
 	_BV(0), /* 22, port E0 */
 	_BV(2), /* 23, port E2 */ 
 	_BV(4), /* 24, port E4 */
-	_BV(5), /* 26, port E5 */
-	_BV(6), /* 25, port E6 */
+	_BV(6), /* 26, port E6 */
+	_BV(5), /* 25, port E5 */
 	_BV(6), /* 27, port C6 */
 #endif
 #endif
