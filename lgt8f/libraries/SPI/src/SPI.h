@@ -310,7 +310,7 @@ public:
 #endif
   }
 
-#if defined(__LGT8F__)
+#if defined(__LGT8FX8P__)
 #define SPI_HAS_TRANSFER_BUF
   const static void SPIClass::transfer(void * buf, void * retbuf, size_t count);
 #endif

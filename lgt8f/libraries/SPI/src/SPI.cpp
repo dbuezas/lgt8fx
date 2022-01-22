@@ -80,7 +80,7 @@ void SPIClass::end() {
   SREG = sreg;
 }
 
-#if defined(__LGT8F__)
+#if defined(__LGT8FX8P__)
   const static void SPIClass::transfer(void * buf, void * retbuf, size_t count) {
     if (count == 0) return;
 

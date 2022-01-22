@@ -372,7 +372,7 @@ void lgt_eeprom_write_block( uint8_t *pbuf, uint16_t address, uint16_t len )
 	void lgt_eeprom_writeSWM( uint16_t address, uint32_t *pdata, uint16_t len) 
 	{ 
 		// Emulation :
-		lgt_eeprom_read_block( (uint8_t*)pdata, address, len*sizeof(uint32_t) );
+		lgt_eeprom_write_block( (uint8_t*)pdata, address, len*sizeof(uint32_t) );
 	}
 	void  lgt_eeprom_readSWM( uint16_t address, uint32_t *pdata, uint16_t len) 
 	{ 

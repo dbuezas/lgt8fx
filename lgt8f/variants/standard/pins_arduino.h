@@ -95,8 +95,11 @@ static const uint8_t A7 = 21;
 #if defined(__LGT8FX8P48__)
 static const uint8_t A8 = 23;
 static const uint8_t A9 = 24;
-static const uint8_t A10 = 25;
+// static const uint8_t A10 = 25; LGT8FXP and LGT8FXP48 both have A10 pin
 static const uint8_t A11 = 26;
+#define PIN_A8   (23)
+#define PIN_A9   (24)
+#define PIN_A11  (26)
 #endif
 #if defined(__LGT8FX8P__)
 static const uint8_t A10 = 25;
@@ -212,11 +215,6 @@ static const uint8_t A10 = 25;
 #define XCK_PIN   PIND
 #define XCK_BIT   (4)
 #endif
-
-#define digitalPinToPCICR(p)    (((p) >= 0 && (p) <= 21) ? (&PCICR) : ((uint8_t *)0))
-#define digitalPinToPCICRbit(p) (((p) <= 7) ? 2 : (((p) <= 13) ? 0 : 1))
-#define digitalPinToPCMSK(p)    (((p) <= 7) ? (&PCMSK2) : (((p) <= 13) ? (&PCMSK0) : (((p) <= 21) ? (&PCMSK1) : ((uint8_t *)0))))
-#define digitalPinToPCMSKbit(p) (((p) <= 7) ? (p) : (((p) <= 13) ? ((p) - 8) : ((p) - 14)))
 
 #define digitalPinToInterrupt(p)  ((p) == 2 ? 0 : ((p) == 3 ? 1 : NOT_AN_INTERRUPT))
 
@@ -401,7 +399,11 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] = {
 #endif
 };
 
-const uint8_t PROGMEM port_to_PCMSK_PGM[] = { (uint8_t *)0, (uint8_t *)0, &PCMSK0, &PCMSK1, &PCMSK2, &PCMSK3, &PCMSK4 };
+#if defined(__LGT8FX8P__)
+const uint8_t PROGMEM port_to_PCMSK_PGM[] = { 0, 0, 0xFF & (uint16_t)&PCMSK0, 0xFF & (uint16_t)&PCMSK1, 0xFF & (uint16_t)&PCMSK2, 0xFF & (uint16_t)&PCMSK3, 0xFF & (uint16_t)&PCMSK4 };
+#else
+const uint8_t PROGMEM port_to_PCMSK_PGM[] = { 0, 0, 0xFF & (uint16_t)&PCMSK0, 0xFF & (uint16_t)&PCMSK1, 0xFF & (uint16_t)&PCMSK2, 0xFF & (uint16_t)&PCMSK3 };
+#endif
 
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
 	NOT_ON_TIMER, /* 0 - port D */
