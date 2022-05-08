@@ -44,22 +44,16 @@ menu.upload_speed=Upload speed
 
 # Clock frequencies
 328.menu.clock.32MHz=32 MHz
-328.menu.clock.32MHz.build.f_cpu=32000000L
 328.menu.clock.32MHz.build.f_div=1
 328.menu.clock.16MHz=16 MHz
-328.menu.clock.16MHz.build.f_cpu=16000000L
 328.menu.clock.16MHz.build.f_div=2
 328.menu.clock.8MHz=8 MHz
-328.menu.clock.8MHz.build.f_cpu=8000000L
 328.menu.clock.8MHz.build.f_div=4
 328.menu.clock.4MHz=4 MHz
-328.menu.clock.4MHz.build.f_cpu=4000000L
 328.menu.clock.4MHz.build.f_div=8
 328.menu.clock.2MHz=2 MHz
-328.menu.clock.2MHz.build.f_cpu=2000000L
 328.menu.clock.2MHz.build.f_div=16
 328.menu.clock.1MHz=1 MHz
-328.menu.clock.1MHz.build.f_cpu=1000000L
 328.menu.clock.1MHz.build.f_div=32
 
 # Variants
@@ -89,7 +83,9 @@ menu.upload_speed=Upload speed
 328.menu.variant.modelP_SSOP20.build.variant=lgt8fx8ps20
 
 #328.menu.variant.modelD_SSOP20=328D-SSOP20 (rare)
+#328.menu.variant.modelD_SSOP20.bootloader.path=lgt8fx8e
 #328.menu.variant.modelD_SSOP20.bootloader.path=lgt8fx8ds20
+#328.menu.variant.modelD_SSOP20.bootloader.file=lgt8fx8e/optiboot_lgt8f328d.hex
 #328.menu.variant.modelD_SSOP20.bootloader.file=lgt8fx8ds20/optiboot_lgt8f328ds20.hex
 #328.menu.variant.modelD_SSOP20.build.variant=lgt8fx8ds20
 
@@ -355,19 +351,14 @@ lardu_328e.menu.clock_source.internal.build.f_osc=32000000L
 
 # Clock frequencies
 lardu_328e.menu.clock.16MHz=16 MHz (default internal osc)
-lardu_328e.menu.clock.16MHz.build.f_cpu=16000000L
 lardu_328e.menu.clock.16MHz.build.f_div=2
 lardu_328e.menu.clock.8MHz=8 MHz
-lardu_328e.menu.clock.8MHz.build.f_cpu=8000000L
 lardu_328e.menu.clock.8MHz.build.f_div=4
 lardu_328e.menu.clock.4MHz=4 MHz
-lardu_328e.menu.clock.4MHz.build.f_cpu=4000000L
 lardu_328e.menu.clock.4MHz.build.f_div=8
 lardu_328e.menu.clock.2MHz=2 MHz
-lardu_328e.menu.clock.2MHz.build.f_cpu=2000000L
 lardu_328e.menu.clock.2MHz.build.f_div=16
 lardu_328e.menu.clock.1MHz=1 MHz
-lardu_328e.menu.clock.1MHz.build.f_cpu=1000000L
 lardu_328e.menu.clock.1MHz.build.f_div=32
 
 # Arduino as ISP
