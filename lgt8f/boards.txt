@@ -6,6 +6,7 @@ menu.clock_source=Clock Source
 menu.clock=Clock
 menu.variant=Variant
 menu.arduino_isp=Arduino as ISP
+menu.upload_speed=Upload speed
 
 #############################
 #### LGT8F328 P/E/S      ####
@@ -14,6 +15,7 @@ menu.arduino_isp=Arduino as ISP
 328.name=LGT8F328
 328.upload.tool=avrdude
 328.upload.protocol=arduino
+328.upload.maximum_data_size=2048
 328.upload.maximum_size=29696
 328.upload.speed=57600
 328.bootloader.tool=avrdude
@@ -27,7 +29,6 @@ menu.arduino_isp=Arduino as ISP
 328.build.board=AVR_LARDU_328E
 
 # Arduino as ISP
- 
 328.menu.arduino_isp.disable=Default (64)
 328.menu.arduino_isp.disable.build.SERIAL_RX_BUFFER_SIZE=64
 328.menu.arduino_isp.enable=[To burn an ISP] SERIAL_RX_BUFFER_SIZE to 250
@@ -36,22 +37,30 @@ menu.arduino_isp=Arduino as ISP
 # Clock source
 328.menu.clock_source.internal=Internal
 328.menu.clock_source.internal.build.clock_source=1
+328.menu.clock_source.internal.build.f_osc=32000000L
 328.menu.clock_source.external=External (assumes 32MHz crystal)
 328.menu.clock_source.external.build.clock_source=2
+328.menu.clock_source.external.build.f_osc=32000000L
 
 # Clock frequencies
 328.menu.clock.32MHz=32 MHz
 328.menu.clock.32MHz.build.f_cpu=32000000L
+328.menu.clock.32MHz.build.f_div=1
 328.menu.clock.16MHz=16 MHz
 328.menu.clock.16MHz.build.f_cpu=16000000L
+328.menu.clock.16MHz.build.f_div=2
 328.menu.clock.8MHz=8 MHz
 328.menu.clock.8MHz.build.f_cpu=8000000L
+328.menu.clock.8MHz.build.f_div=4
 328.menu.clock.4MHz=4 MHz
 328.menu.clock.4MHz.build.f_cpu=4000000L
+328.menu.clock.4MHz.build.f_div=8
 328.menu.clock.2MHz=2 MHz
 328.menu.clock.2MHz.build.f_cpu=2000000L
+328.menu.clock.2MHz.build.f_div=16
 328.menu.clock.1MHz=1 MHz
 328.menu.clock.1MHz.build.f_cpu=1000000L
+328.menu.clock.1MHz.build.f_div=32
 
 # Variants
 328.menu.variant.modelP48=328P-LQFP48 MiniEVB
@@ -78,62 +87,251 @@ menu.arduino_isp=Arduino as ISP
 328.menu.variant.modelP_SSOP20.bootloader.path=lgt8fx8ps20
 328.menu.variant.modelP_SSOP20.bootloader.file=lgt8fx8ps20/optiboot_lgt8f328ps20.hex
 328.menu.variant.modelP_SSOP20.build.variant=lgt8fx8ps20
+
 #328.menu.variant.modelD_SSOP20=328D-SSOP20 (rare)
-#328.menu.variant.modelD_SSOP20.bootloader.path=lgt8fx8e
-#328.menu.variant.modelD_SSOP20.bootloader.file=lgt8fx8e/optiboot_lgt8f328d.hex
+#328.menu.variant.modelD_SSOP20.bootloader.path=lgt8fx8ds20
+#328.menu.variant.modelD_SSOP20.bootloader.file=lgt8fx8ds20/optiboot_lgt8f328ds20.hex
 #328.menu.variant.modelD_SSOP20.build.variant=lgt8fx8ds20
 
-############################
-#### LGT8F88            ####
-############################
+# Upload Speeds
+#328.menu.upload_speed.57600=57600
+#328.menu.upload_speed.57600.upload.speed=57600
+#328.menu.upload_speed.115200=115200
+#328.menu.upload_speed.115200.upload.speed=115200
 
-88.name=LGT8F88
-88.upload.tool=avrdude
-88.upload.protocol=arduino
-88.upload.maximum_size=7168
-88.upload.speed=57600
-88.bootloader.tool=avrdude
-88.bootloader.high_fuses=0xff
-88.bootloader.low_fuses=0xff
-88.bootloader.extended_fuses=0x07
-88.bootloader.unlock_bits=0x3f
-88.bootloader.lock_bits=0x3f
-88.build.mcu=atmega88
-88.build.core=lgt8f
-88.build.board=AVR_LARDU_88DS20
+
+###################################
+#### LGT8F328 + 16 MHz crystal ####
+###################################
+
+328_16.name=LGT8F328 + 16 MHz crystal
+328_16.upload.tool=avrdude
+328_16.upload.protocol=arduino
+328_16.upload.maximum_data_size=2048
+328_16.upload.maximum_size=29696
+328_16.upload.speed=57600
+328_16.bootloader.tool=avrdude
+328_16.bootloader.high_fuses=0xff
+328_16.bootloader.low_fuses=0xff
+328_16.bootloader.extended_fuses=0x07
+328_16.bootloader.unlock_bits=0x3f
+328_16.bootloader.lock_bits=0x3f
+328_16.build.core=lgt8f
+328_16.build.mcu=atmega328p
+328_16.build.board=AVR_LARDU_328E
+
+# Arduino as ISP
+328_16.menu.arduino_isp.disable=Default (64)
+328_16.menu.arduino_isp.disable.build.SERIAL_RX_BUFFER_SIZE=64
+328_16.menu.arduino_isp.enable=[To burn an ISP] SERIAL_RX_BUFFER_SIZE to 250
+328_16.menu.arduino_isp.enable.build.SERIAL_RX_BUFFER_SIZE=250
 
 # Clock source
-88.menu.clock_source.internal=Internal
-88.menu.clock_source.internal.build.clock_source=1
-88.menu.clock_source.external=External (assumes 32MHz crystal)
-88.menu.clock_source.external.build.clock_source=2
+#328_16.menu.clock_source.internal=Nothing here
+#328_16.menu.clock_source.internal=Internal 32 MHz
+#328_16.menu.clock_source.internal.build.clock_source=1
+#328_16.menu.clock_source.internal.build.f_osc=32000000L
+#328_16.menu.clock_source.external=External 16 MHz crystal
+#328_16.menu.clock_source.external.build.clock_source=2
+#328_16.menu.clock_source.external.build.f_osc=16000000L
 
 # Clock frequencies
-88.menu.clock.32MHz=32 MHz
-88.menu.clock.32MHz.build.f_cpu=32000000L
-88.menu.clock.16MHz=16 MHz
-88.menu.clock.16MHz.build.f_cpu=16000000L
-88.menu.clock.8MHz=8 MHz
-88.menu.clock.8MHz.build.f_cpu=8000000L
-88.menu.clock.4MHz=4 MHz
-88.menu.clock.4MHz.build.f_cpu=4000000L
-88.menu.clock.2MHz=2 MHz
-88.menu.clock.2MHz.build.f_cpu=2000000L
-88.menu.clock.1MHz=1 MHz
-88.menu.clock.1MHz.build.f_cpu=1000000L
+328_16.menu.clock.32M_i=Internal 32 MHz (Not for 328D)
+328_16.menu.clock.32M_i.build.clock_source=1
+328_16.menu.clock.32M_i.build.f_osc=32000000L
+328_16.menu.clock.32M_i.build.f_div=1
+
+328_16.menu.clock.16M_i=Internal 16 MHz
+328_16.menu.clock.16M_i.build.clock_source=1
+328_16.menu.clock.16M_i.build.f_osc=32000000L
+328_16.menu.clock.16M_i.build.f_div=2
+
+328_16.menu.clock.8M_i=Internal 8 MHz
+328_16.menu.clock.8M_i.build.clock_source=1
+328_16.menu.clock.8M_i.build.f_osc=32000000L
+328_16.menu.clock.8M_i.build.f_div=4
+
+328_16.menu.clock.4M_i=Internal 4 MHz
+328_16.menu.clock.4M_i.build.clock_source=1
+328_16.menu.clock.4M_i.build.f_osc=32000000L
+328_16.menu.clock.4M_i.build.f_div=8
+
+328_16.menu.clock.2M_i=Internal 2 MHz
+328_16.menu.clock.2M_i.build.clock_source=1
+328_16.menu.clock.2M_i.build.f_osc=32000000L
+328_16.menu.clock.2M_i.build.f_div=16
+
+328_16.menu.clock.1M_i=Internal 1 MHz
+328_16.menu.clock.1M_i.build.clock_source=1
+328_16.menu.clock.1M_i.build.f_osc=32000000L
+328_16.menu.clock.1M_i.build.f_div=32
+
+328_16.menu.clock.16M_e=External 16 MHz
+328_16.menu.clock.16M_e.build.clock_source=2
+328_16.menu.clock.16M_e.build.f_osc=16000000L
+328_16.menu.clock.16M_e.build.f_div=1
+
+328_16.menu.clock.8M_e=External 8 MHz
+328_16.menu.clock.8M_e.build.clock_source=2
+328_16.menu.clock.8M_e.build.f_osc=16000000L
+328_16.menu.clock.8M_e.build.f_div=2
+
+328_16.menu.clock.4M_e=External 4 MHz
+328_16.menu.clock.4M_e.build.clock_source=2
+328_16.menu.clock.4M_e.build.f_osc=16000000L
+328_16.menu.clock.4M_e.build.f_div=4
+
+328_16.menu.clock.2M_e=External 2 MHz
+328_16.menu.clock.2M_e.build.clock_source=2
+328_16.menu.clock.2M_e.build.f_osc=16000000L
+328_16.menu.clock.2M_e.build.f_div=8
+
+328_16.menu.clock.1M_e=External 1 MHz
+328_16.menu.clock.1M_e.build.clock_source=2
+328_16.menu.clock.1M_e.build.f_osc=16000000L
+328_16.menu.clock.1M_e.build.f_div=16
 
 # Variants
-88.menu.variant.modelD=LGT8F88D-SSOP20
-88.menu.variant.modelD.bootloader.path=lgt8fx8ds20
-88.menu.variant.modelD.bootloader.file=lgt8fx8ds20/optiboot_lgt8f88ds20.hex
-88.menu.variant.modelD.build.variant=lgt8fx8ds20
+328_16.menu.variant.modelP=328P-LQFP32
+328_16.menu.variant.modelP.bootloader.path=lgt8fx8p
+328_16.menu.variant.modelP.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
+328_16.menu.variant.modelP.build.variant=lgt8fx8p
+
+328_16.menu.variant.modelP48=328P-LQFP48
+328_16.menu.variant.modelP48.bootloader.path=lgt8fx8p
+328_16.menu.variant.modelP48.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
+328_16.menu.variant.modelP48.build.variant=lgt8fx8p48
+
+328_16.menu.variant.modelD=328D
+328_16.menu.variant.modelD.bootloader.path=lgt8fx8e
+328_16.menu.variant.modelD.bootloader.file=lgt8fx8e/optiboot_lgt8f328d.hex
+328_16.menu.variant.modelD.build.variant=lgt8fx8e
+
+328_16.menu.variant.modelP_SSOP20=328P-SSOP20
+328_16.menu.variant.modelP_SSOP20.bootloader.path=lgt8fx8ps20
+328_16.menu.variant.modelP_SSOP20.bootloader.file=lgt8fx8ps20/optiboot_lgt8f328ps20.hex
+328_16.menu.variant.modelP_SSOP20.build.variant=lgt8fx8ps20
+
+# Upload Speeds
+328_16.menu.upload_speed.57600=57600
+328_16.menu.upload_speed.57600.upload.speed=57600
+328_16.menu.upload_speed.115200=115200
+328_16.menu.upload_speed.115200.upload.speed=115200
+328_16.menu.upload_speed.19200=19200
+328_16.menu.upload_speed.19200.upload.speed=19200
+
+###################################
+#### LGT8F328 + 12 MHz crystal ####
+###################################
+
+328_12.name=LGT8F328 + 12 MHz crystal
+328_12.upload.tool=avrdude
+328_12.upload.protocol=arduino
+328_12.upload.maximum_data_size=2048
+328_12.upload.maximum_size=29696
+328_12.upload.speed=57600
+328_12.bootloader.tool=avrdude
+328_12.bootloader.high_fuses=0xff
+328_12.bootloader.low_fuses=0xff
+328_12.bootloader.extended_fuses=0x07
+328_12.bootloader.unlock_bits=0x3f
+328_12.bootloader.lock_bits=0x3f
+328_12.build.core=lgt8f
+328_12.build.mcu=atmega328p
+328_12.build.board=AVR_LARDU_328E
+
+# Arduino as ISP
+328_12.menu.arduino_isp.disable=Default (64)
+328_12.menu.arduino_isp.disable.build.SERIAL_RX_BUFFER_SIZE=64
+328_12.menu.arduino_isp.enable=[To burn an ISP] SERIAL_RX_BUFFER_SIZE to 250
+328_12.menu.arduino_isp.enable.build.SERIAL_RX_BUFFER_SIZE=250
+
+# Clock source
+#328_12.menu.clock_source.internal=Nothing here
+#328_12.menu.clock_source.internal=Internal 32 MHz
+#328_12.menu.clock_source.internal.build.clock_source=1
+#328_12.menu.clock_source.internal.build.f_osc=32000000L
+#328_12.menu.clock_source.external=External 12 MHz crystal
+#328_12.menu.clock_source.external.build.clock_source=2
+#328_12.menu.clock_source.external.build.f_osc=12000000L
+
+# Clock frequencies
+328_12.menu.clock.32M_i=Internal 32 MHz (Not for 328D)
+328_12.menu.clock.32M_i.build.clock_source=1
+328_12.menu.clock.32M_i.build.f_osc=32000000L
+328_12.menu.clock.32M_i.build.f_div=1
+
+328_12.menu.clock.16M_i=Internal 16 MHz
+328_12.menu.clock.16M_i.build.clock_source=1
+328_12.menu.clock.16M_i.build.f_osc=32000000L
+328_12.menu.clock.16M_i.build.f_div=2
+
+328_12.menu.clock.8M_i=Internal 8 MHz
+328_12.menu.clock.8M_i.build.clock_source=1
+328_12.menu.clock.8M_i.build.f_osc=32000000L
+328_12.menu.clock.8M_i.build.f_div=4
+
+328_12.menu.clock.4M_i=Internal 4 MHz
+328_12.menu.clock.4M_i.build.clock_source=1
+328_12.menu.clock.4M_i.build.f_osc=32000000L
+328_12.menu.clock.4M_i.build.f_div=8
+
+328_12.menu.clock.2M_i=Internal 2 MHz
+328_12.menu.clock.2M_i.build.clock_source=1
+328_12.menu.clock.2M_i.build.f_osc=32000000L
+328_12.menu.clock.2M_i.build.f_div=16
+
+328_12.menu.clock.1M_i=Internal 1 MHz
+328_12.menu.clock.1M_i.build.clock_source=1
+328_12.menu.clock.1M_i.build.f_osc=32000000L
+328_12.menu.clock.1M_i.build.f_div=32
+
+328_12.menu.clock.12M_e=External 12 MHz
+328_12.menu.clock.12M_e.build.clock_source=2
+328_12.menu.clock.12M_e.build.f_osc=12000000L
+328_12.menu.clock.12M_e.build.f_div=1
+
+328_12.menu.clock.6M_e=External 6 MHz
+328_12.menu.clock.6M_e.build.clock_source=2
+328_12.menu.clock.6M_e.build.f_osc=12000000L
+328_12.menu.clock.6M_e.build.f_div=2
+
+328_12.menu.clock.3M_e=External 3 MHz
+328_12.menu.clock.3M_e.build.clock_source=2
+328_12.menu.clock.3M_e.build.f_osc=12000000L
+328_12.menu.clock.3M_e.build.f_div=4
+
+# Variants
+328_12.menu.variant.modelP=328P-LQFP32
+328_12.menu.variant.modelP.bootloader.path=lgt8fx8p
+328_12.menu.variant.modelP.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
+328_12.menu.variant.modelP.build.variant=lgt8fx8p
+
+328_12.menu.variant.modelP48=328P-LQFP48
+328_12.menu.variant.modelP48.bootloader.path=lgt8fx8p
+328_12.menu.variant.modelP48.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
+328_12.menu.variant.modelP48.build.variant=lgt8fx8p48
+
+328_12.menu.variant.modelD=328D
+328_12.menu.variant.modelD.bootloader.path=lgt8fx8e
+328_12.menu.variant.modelD.bootloader.file=lgt8fx8e/optiboot_lgt8f328d.hex
+328_12.menu.variant.modelD.build.variant=lgt8fx8e
+
+# Upload Speeds
+328_12.menu.upload_speed.57600=57600
+328_12.menu.upload_speed.57600.upload.speed=57600
+328_12.menu.upload_speed.115200=115200
+328_12.menu.upload_speed.115200.upload.speed=115200
+328_12.menu.upload_speed.19200=19200
+328_12.menu.upload_speed.19200.upload.speed=19200
 
 ############################
 #### Larduino Uno       ####
 ############################
-lardu_328e.name= Larduino Uno
+lardu_328e.name=Larduino Uno
 lardu_328e.upload.tool=avrdude
 lardu_328e.upload.protocol=arduino
+lardu_328e.upload.maximum_data_size=2048
 lardu_328e.upload.maximum_size=29696
 lardu_328e.upload.speed=57600
 lardu_328e.bootloader.tool=avrdude
@@ -153,18 +351,24 @@ lardu_328e.build.board=AVR_LARDU_328E
 # Clock source
 lardu_328e.menu.clock_source.internal=Internal
 lardu_328e.menu.clock_source.internal.build.clock_source=1
+lardu_328e.menu.clock_source.internal.build.f_osc=32000000L
 
 # Clock frequencies
 lardu_328e.menu.clock.16MHz=16 MHz (default internal osc)
 lardu_328e.menu.clock.16MHz.build.f_cpu=16000000L
+lardu_328e.menu.clock.16MHz.build.f_div=2
 lardu_328e.menu.clock.8MHz=8 MHz
 lardu_328e.menu.clock.8MHz.build.f_cpu=8000000L
+lardu_328e.menu.clock.8MHz.build.f_div=4
 lardu_328e.menu.clock.4MHz=4 MHz
 lardu_328e.menu.clock.4MHz.build.f_cpu=4000000L
+lardu_328e.menu.clock.4MHz.build.f_div=8
 lardu_328e.menu.clock.2MHz=2 MHz
 lardu_328e.menu.clock.2MHz.build.f_cpu=2000000L
+lardu_328e.menu.clock.2MHz.build.f_div=16
 lardu_328e.menu.clock.1MHz=1 MHz
 lardu_328e.menu.clock.1MHz.build.f_cpu=1000000L
+lardu_328e.menu.clock.1MHz.build.f_div=32
 
 # Arduino as ISP
 
