@@ -19,11 +19,9 @@
 
 #include "differential_amplifier.h"
 #include "wiring_analog.c"
-/** DAPCR Differential Ampliifier Control Register **/
+/** DAPCR Differential Amplifier Control Register **/
 // enable DAP |   gain  |    inverting     | non-inverting
 // DAPEN      | GA1 GA0 | DNS2  DNS1  DNS0 | DPS1 DPS0
-
-#define DAPEN 0b1 << 7
 
 #define INVERTING_ADC2 0b000 << 2
 #define INVERTING_ADC3 0b001 << 2
@@ -50,13 +48,8 @@
 | n/a | fast | 0=MXER 1=DIFF-AMP | test mode |
 */
 
-#define ADTM 0b1 << 0
-#define DIFS_MXER 0b0 << 1
-#define DIFS_DIFFAMP 0b1 << 1
-#define SPD_FAST 0b1 << 2
-#define AMEN 0b1 << 4
-#define SPN 0b1 << 5
-#define OFEN 0b1 << 7
+#define DIFS_MXER (0UL << (1))
+#define DIFS_DIFFAMP bit(DIFS)
 
 int analogDiffRead(uint8_t negativePin, uint8_t positivePin, uint8_t gain) {
   uint8_t inverting;
@@ -92,20 +85,19 @@ int analogDiffRead(uint8_t negativePin, uint8_t positivePin, uint8_t gain) {
       noninverting = NONINVERTING_MXER;
       muxedPin = positivePin;
   }
-  if (negativePin == positivePin ||
-      inverting == INVERTING_MXER && noninverting == NONINVERTING_MXER) {
+  if ( (negativePin == positivePin) || ((inverting == INVERTING_MXER) && (noninverting == NONINVERTING_MXER)) ) {
     // combination not allowed
     return -1;
   }
   // enable |   gain  |    inverting     | non-inverting
   // DAPEN  | GA1 GA0 | DNS2  DNS1  DNS0 | DPS1 DPS0
-  DAPCR = DAPEN | gain | inverting | noninverting;  // get right side
+  DAPCR = bit(DAPEN) | gain | inverting | noninverting;  // get right side
   ADCSRC |= DIFS_DIFFAMP;  // set Diff. Amp. as source for the ADC
   // Note: analogRead() will configure the muxer even if the multiplexer is not
   // used by neither the inverting nor the noninverting pin, but that's fine
   // because the ADC won't read it
   int res = analogRead(muxedPin);
-  DAPCR &= ~DAPEN;          // disable Diff. Amp.
+  DAPCR &= ~bit(DAPEN);     // disable Diff. Amp.
   ADCSRC &= ~DIFS_DIFFAMP;  // set back the Muxer as source for the ADC
   return res;
 }
