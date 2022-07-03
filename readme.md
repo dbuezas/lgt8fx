@@ -8,12 +8,12 @@ Add the package to the arduino Boards Manager Urls:
   - Type `lgt8fx` in the search box
   - install lgt8fx
 
-Now the boards appear in the IDE and you can also select the clock speed.
+Now the boards appear in the IDE. You can also select internal or external the clock speeds.
 
-<img src="./docs/arduino/boards_manager.png" alt="Boards Manager" width="400"/>
-<img src="./docs/arduino/variants.png" alt="Variants" width="400"/>
-<img src="./docs/arduino/clock.png" alt="Clock" width="400"/>
-<img src="./docs/external-clock/clock-source.png" alt="External Clock" width="400"/>
+<img src="./docs/arduino/boards_manager.png" alt="Boards Manager" width="400">
+<img src="./docs/arduino/variants.png" alt="Variants" width="400">
+<img src="./docs/arduino/clock.png" alt="Clock" width="400">
+<img src="./docs/external-clock/clock-source.png" alt="External Clock" width="400">
 
 32Mhz is twice as fast as a conventional arduino nano! Actually _even faster_ as many operations take less clock cycles than in the atmega328p. Check out some [benchmarks](https://github.com/dbuezas/lgt8fx/discussions/77)
 # Discussions, ideas, questions and show your project
@@ -22,8 +22,8 @@ Explore the discussions: https://github.com/dbuezas/lgt8fx/discussions
 # Features
 
 - [x] [Fast_IO update](./lgt8f/libraries/lgt328p/examples/lgt8fx8p_fastio/lgt8fx8p_fastio.ino)
-- [x] [Automatic prescaler setup](./lgt8f/cores/lgt8f/main.cpp#L126)
-- [x] [In Menu support of 1, 2, 4, 8, 16 and 32 Mhz](./lgt8f/boards.txt)
+- [x] [Automatic prescaler setup](./lgt8f/cores/lgt8f/main.cpp#L128)
+- [x] [In menu support custom boards with 1, 2, 4, 8, 12, 16 and 32 Mhz](./lgt8f/boards.txt)
 - [x] [Digital Analog Converter](./lgt8f/libraries/lgt328p/examples/dac0_sinus/dac0_sinus.ino)
 - [x] [Voltage References](./lgt8f/libraries/lgt328p/examples/adc_i2v56/adc_i2v56.ino) INTERNAL1V024/INTERNAL2V048/INTERNAL4V096/DEFAULT/EXTERNAL (useful for example for analogRead or DAC analogWrite via analogReference(xxx));
 - [ ] Analog Comparator (page 224 of datasheet v1.0.4)
@@ -34,17 +34,18 @@ Explore the discussions: https://github.com/dbuezas/lgt8fx/discussions
 - [x] [2 to 6 high current 80ma IO pins](https://github.com/dbuezas/lgt8fx/issues/21#issuecomment-657020605) (thanks [#rokweom](https://github.com/rokweom))
 - [x] [328p Arduino ISP](https://github.com/dbuezas/lgt8fx/blob/master/lgt8f/libraries/LarduinoISP/readme.md) (from [#brother-yan](https://github.com/brother-yan/LGTISP))
 - [x] [SSOP20 328p Support](https://github.com/dbuezas/lgt8fx/pull/16) (by [#LaZsolt](https://github.com/LaZsolt))
-- [ ] (in next release) [Precise delayMicroseconds](https://github.com/dbuezas/lgt8fx/issues/18) (by [#LaZsolt](https://github.com/LaZsolt))
-- [ ] (in next release) [Faster Analog Read](https://github.com/dbuezas/lgt8fx/pull/32) (by [#jayzakk](https://github.com/jayzakk))
-- [ ] (in next release) [Fixed analogReference](https://github.com/dbuezas/lgt8fx/issues/27) (reported by [#macron0](https://github.com/macron0))
-- [ ] (in next release) [Enabled AREF pin as A10 analog input](https://github.com/dbuezas/lgt8fx/pull/36) (by [#jayzakk](https://github.com/jayzakk))
-- [ ] (in next release) [Power reduce register definitions](https://github.com/dbuezas/lgt8fx/pull/46) (by [#KooLru](https://github.com/KooLru))
-- [ ] (in next release) [Support for interrupts on all timers and comparators](https://github.com/dbuezas/lgt8fx/pull/40) (by [#jayzakk](https://github.com/jayzakk))
-- [ ] (in next release) [Arduino EEPROM API](https://github.com/dbuezas/lgt8fx/pull/64) (by [#SuperUserNameMan](https://github.com/SuperUserNameMan)
+- [x] [Precise delayMicroseconds](https://github.com/dbuezas/lgt8fx/issues/18) (by [#LaZsolt](https://github.com/LaZsolt))
+- [x] [Faster Analog Read](https://github.com/dbuezas/lgt8fx/pull/32) (by [#jayzakk](https://github.com/jayzakk))
+- [x] [Fixed analogReference](https://github.com/dbuezas/lgt8fx/issues/27) (reported by [#macron0](https://github.com/macron0))
+- [x] [Enabled AREF pin as A10 analog input](https://github.com/dbuezas/lgt8fx/pull/36) (by [#jayzakk](https://github.com/jayzakk))
+- [x] [Power reduce register definitions](https://github.com/dbuezas/lgt8fx/pull/46) (by [#KooLru](https://github.com/KooLru))
+- [x] [Support for interrupts on all timers and comparators](https://github.com/dbuezas/lgt8fx/pull/40) (by [#jayzakk](https://github.com/jayzakk))
+- [x] [Arduino EEPROM API](https://github.com/dbuezas/lgt8fx/pull/64) (by [#SuperUserNameMan](https://github.com/SuperUserNameMan)
 
 # Differences to original core [Larduino_HSP v3.6c](https://github.com/Edragon/LGT/tree/master/HSP%20Patch%20File/Larduino_HSP_3.6c/Larduino_HSP_v3.6c)
 
 - Support 32 Mhz and other clock speeds
+- Selectable ADC resolution (Arduino compatibile default is 10 bits)
 - Differential Amplifier API
 - Better Boards Menu
 - Installation via Board Manager Urls
@@ -114,7 +115,7 @@ Like this pinout?
 
 - Check the [Wiki](https://github.com/dbuezas/lgt8fx/wiki) for more content by contribuitors
 - And you may also find something in the closed [Issues](https://github.com/dbuezas/lgt8fx/issues?utf8=%E2%9C%93&q=is%3Aissue)
-- Core is based on [Larduino_HSP v3.6c](https://github.com/Edragon/LGT/tree/master/HSP%20Patch%20File/Larduino_HSP_3.6c/Larduino_HSP_v3.6c) with fastIO backported from https://github.com/LGTMCU/Larduino_HSP
+- Core is based on [Larduino_HSP v3.6c](https://github.com/Edragon/LGT/tree/master/1-LGT8F328/SDK/Arduino/HSP/HSP%20Patch%20File/Larduino_HSP_3.6c/Larduino_HSP_v3.6c) with fastIO backported from https://github.com/LGTMCU/Larduino_HSP
 - And inspired from Ralph Bacon's video: https://youtu.be/Myfeqrl3QP0 (Check his channel, he's uploaded a lot of great videos)
 - Great place to gather data about this boards: https://github.com/RalphBacon/LGT8F328P-Arduino-Clone-Chip-ATMega328P
 - Datasheet [(Chinese) LGT8FX8P_databook_V1.04](./docs/LGT8FX8P_databook_v1.0.4.ch.pdf)
@@ -123,7 +124,7 @@ Like this pinout?
 - [Instruction set clk vs avr](https://docs.google.com/spreadsheets/d/1EzwMkWOIMNDqnjpbzuchsLx5Zq_j927tvAPgvmSuP6M/edit?usp=sharing) By unknown, claim if you are the author
 - [Work on the differential amplifier](./docs/differential-amplifier/readme.md)
 - "Forbiden tech from China has arrived" https://www.avrfreaks.net/forum/forbiden-tech-china-has-arrived?page=all
-- Larduino ISP for 328d https://github.com/Edragon/LGT/tree/master/Toolchain/ISP/LarduinoISP-master
+- Larduino ISP for 328d https://github.com/Edragon/LGT/tree/master/Toolchain/LarduinoISP-master
 - https://www.eevblog.com/forum/projects/anyone-here-interested-in-the-logic-green-avrs-lgt8f328p/
 - http://coultersmithing.com/forums/viewtopic.php?f=6&t=1149
 - LGT SDK Builder
@@ -149,5 +150,5 @@ https://tooomm.github.io/github-release-stats/?username=dbuezas&repository=lgt8f
 - [#dwillmore](https://github.com/dwillmore) for creating the wiki, serial adapter troubleshooting, more examples of boards and wemos-TTGO-XI board support
 - [#seisfeld](https://github.com/seisfeld) for adding in-menu support for an external oscillator
 - [#jg1uaa](https://github.com/jg1uaa) for the updated Software Serial without timing tables and missing methods
-- [#LaZsolt](https://github.com/LaZsolt) for adding SSOP20 lgt8f328p support and precise delayMicroseconds
+- [#LaZsolt](https://github.com/LaZsolt) for adding SSOP20 lgt8f328p support and accurate delayMicroseconds
 - [#jayzakk](https://github.com/jayzakk) for fixing the ADC prescaler for faster analog reads
