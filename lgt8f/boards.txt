@@ -57,15 +57,15 @@ menu.upload_speed=Upload speed
 328.menu.clock.1MHz.build.f_div=32
 
 # Variants
+28.menu.variant.modelP=328P-LQFP32 (e.g. MiniEVB nano-style or WAVGAT)
+328.menu.variant.modelP.bootloader.path=lgt8fx8p
+328.menu.variant.modelP.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
+328.menu.variant.modelP.build.variant=lgt8fx8p
+
 328.menu.variant.modelP48=328P-LQFP48 MiniEVB
 328.menu.variant.modelP48.bootloader.path=lgt8fx8p
 328.menu.variant.modelP48.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
 328.menu.variant.modelP48.build.variant=lgt8fx8p48
-
-328.menu.variant.modelP=328P-LQFP32 (e.g. MiniEVB nano-style and WAVGAT)
-328.menu.variant.modelP.bootloader.path=lgt8fx8p
-328.menu.variant.modelP.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
-328.menu.variant.modelP.build.variant=lgt8fx8p
 
 328.menu.variant.modelP-wemos-TTGO-XI=328P-LQFP32 wemos-TTGO-XI
 328.menu.variant.modelP-wemos-TTGO-XI.bootloader.path=lgt8fx8p
@@ -320,6 +320,51 @@ menu.upload_speed=Upload speed
 328_12.menu.upload_speed.115200.upload.speed=115200
 328_12.menu.upload_speed.19200=19200
 328_12.menu.upload_speed.19200.upload.speed=19200
+
+############################
+#### LGT8F88            ####
+############################
+#
+#88.name=LGT8F88
+#88.upload.tool=avrdude
+#88.upload.protocol=arduino
+#88.upload.maximum_size=7168
+#88.upload.speed=57600
+#88.bootloader.tool=avrdude
+#88.bootloader.high_fuses=0xff
+#88.bootloader.low_fuses=0xff
+#88.bootloader.extended_fuses=0x07
+#88.bootloader.unlock_bits=0x3f
+#88.bootloader.lock_bits=0x3f
+#88.build.mcu=atmega88
+#88.build.core=lgt8f
+#88.build.board=AVR_LARDU_88DS20
+#
+## Clock source
+#88.menu.clock_source.internal=Internal
+#88.menu.clock_source.internal.build.clock_source=1
+#88.menu.clock_source.external=External (assumes 32MHz crystal)
+#88.menu.clock_source.external.build.clock_source=2
+#
+## Clock frequencies
+#88.menu.clock.32MHz=32 MHz
+#88.menu.clock.32MHz.build.f_cpu=32000000L
+#88.menu.clock.16MHz=16 MHz
+#88.menu.clock.16MHz.build.f_cpu=16000000L
+#88.menu.clock.8MHz=8 MHz
+#88.menu.clock.8MHz.build.f_cpu=8000000L
+#88.menu.clock.4MHz=4 MHz
+#88.menu.clock.4MHz.build.f_cpu=4000000L
+#88.menu.clock.2MHz=2 MHz
+#88.menu.clock.2MHz.build.f_cpu=2000000L
+#88.menu.clock.1MHz=1 MHz
+#88.menu.clock.1MHz.build.f_cpu=1000000L
+#
+## Variants
+#88.menu.variant.modelD=LGT8F88D-SSOP20
+#88.menu.variant.modelD.bootloader.path=lgt8fx8ds20
+#88.menu.variant.modelD.bootloader.file=lgt8fx8ds20/optiboot_lgt8f88ds20.hex
+#88.menu.variant.modelD.build.variant=lgt8fx8ds20
 
 ############################
 #### Larduino Uno       ####
