@@ -75,7 +75,7 @@ Explore the discussions: https://github.com/dbuezas/lgt8fx/discussions
 
 #### [WAVGAT Pro Mini Pseudo Clone](../../wiki/WAVGAT-Pro-Mini-Pseudo-Clone)
 
-<img src="./docs/boards/WAVGAT_Pro_Mini_Clone.jpg" alt="Wavgat Pro Mini pseudo-clone" width="200"> <img src="./docs/boards/wavgat_back.jpg" alt="Wavgat Pro Mini pseudo-clone" width="200">
+<img src="./docs/boards/WAVGAT_Pro_Mini_Clone.jpg" alt="Wavgat Pro Mini pseudo-clone" width="200"> <img src="./docs/boards/wavgat_back.jpg" alt="Wavgat Pro Mini pseudo-clone" width="200"> Chip marked as AVGA328P
 
 #### Pro Mini style
 
