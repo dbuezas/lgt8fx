@@ -15,7 +15,7 @@ LGT8F88A, LGT8Fx8D and LGT8Fx8P main differences
 | AC resolution | mV | 6 | 12 | 10 |
 | DAP Differential Amplifier | gain | 7.5/15/22.5/30 | - | 1/8/16/32 |
 | ACD | bit | 10 | 12 | 12 |
-| Max sysclk | MHz | 32 | 32 | 32 |
+| Max sysclk | MHz | 32 | 32 div 2 internal, 20 external | 32 |
 | Extras |  | Capacitive touch button controller, <br> Thermal sensor | 2x Operational Amplifier <br> fixed gain = +12 or -11 | DSC (16 bit arithmetic), <br> SPI buffer, SPI 2 wire input mode |
 | Package |  | QFP32, SSOP28 | QFP32, SSOP28, SSOP24, SSOP20 | QFP48, QFP32, SSOP20 |
 
