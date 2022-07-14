@@ -57,7 +57,7 @@ menu.upload_speed=Upload speed
 328.menu.clock.1MHz.build.f_div=32
 
 # Variants
-28.menu.variant.modelP=328P-LQFP32 (e.g. MiniEVB nano-style or WAVGAT)
+328.menu.variant.modelP=328P-LQFP32 (e.g. MiniEVB nano-style or WAVGAT)
 328.menu.variant.modelP.bootloader.path=lgt8fx8p
 328.menu.variant.modelP.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
 328.menu.variant.modelP.build.variant=lgt8fx8p
