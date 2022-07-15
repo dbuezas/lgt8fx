@@ -10,10 +10,10 @@ Add the package to the arduino Boards Manager Urls:
 
 Now the boards appear in the IDE. You can also select internal or external the clock speeds.
 
-<img src="./docs/arduino/boards_manager.png" alt="Boards Manager" width="500">
-<img src="./docs/arduino/variants.png" alt="Variants" width="500">
-<img src="./docs/arduino/clock.png" alt="Clock" width="500">
-<img src="./docs/arduino/clock-source.png" alt="External Clock" width="500">
+<img src="./docs/arduino/boards_manager.png" alt="Boards Manager" width="550">
+<img src="./docs/arduino/variants.png" alt="Variants" width="550">
+<img src="./docs/arduino/clock.png" alt="Clock" width="550">
+<img src="./docs/arduino/clock-source.png" alt="External Clock" width="550">
 
 32Mhz is twice as fast as a conventional arduino nano! Actually _even faster_ as many operations take less clock cycles than in the atmega328p. Check out some [benchmarks](https://github.com/dbuezas/lgt8fx/discussions/77)
 # Discussions, ideas, questions and show your project
