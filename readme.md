@@ -22,19 +22,19 @@ Explore the discussions: https://github.com/dbuezas/lgt8fx/discussions
 # Features
 
 - [x] [Fast_IO update](./lgt8f/libraries/lgt328p/examples/lgt8fx8p_fastio/lgt8fx8p_fastio.ino)
+- [x] [In-menu external clock support](./docs/external-clock/readme.md) (by [#seisfeld](https://github.com/seisfeld))
+- [x] [In menu custom boards support with 1, 2, 4, 8, 12, 16 and 32 Mhz](./lgt8f/boards.txt)
 - [x] [Automatic prescaler setup](./lgt8f/cores/lgt8f/main.cpp#L128)
-- [x] [In menu support custom boards with 1, 2, 4, 8, 12, 16 and 32 Mhz](./lgt8f/boards.txt)
 - [x] [Digital Analog Converter](./lgt8f/libraries/lgt328p/examples/dac0_sinus/dac0_sinus.ino)
 - [x] [Voltage References](./lgt8f/libraries/lgt328p/examples/adc_i2v56/adc_i2v56.ino) INTERNAL1V024/INTERNAL2V048/INTERNAL4V096/DEFAULT/EXTERNAL (useful for example for analogRead or DAC analogWrite via analogReference(xxx));
 - [ ] Analog Comparator (page 224 of datasheet v1.0.4)
 - [x] [Differential Amplifier](./docs/differential-amplifier/readme.md). See this [Example](./lgt8f/libraries/differential_amplifier/examples/all_vs_all/all_vs_all.ino).
 - [ ] Computation Accelerator (page 52 of datasheet v1.0.4) [Work by others](https://www.avrfreaks.net/comment/2272366#comment-2272366)
 - [x] [SoftwareSerial at any clock speed](https://github.com/dbuezas/lgt8fx/pull/26). Updated implementation without timing tables by [#jg1uaa](https://github.com/jg1uaa)
-- [x] [In-menu external clock support](./docs/external-clock/readme.md) (by [#seisfeld](https://github.com/seisfeld))
 - [x] [2 to 6 high current 80ma IO pins](https://github.com/dbuezas/lgt8fx/issues/21#issuecomment-657020605) (thanks [#rokweom](https://github.com/rokweom))
 - [x] [328p Arduino ISP](https://github.com/dbuezas/lgt8fx/blob/master/lgt8f/libraries/LarduinoISP/readme.md) (from [#brother-yan](https://github.com/brother-yan/LGTISP))
 - [x] [SSOP20 328p Support](https://github.com/dbuezas/lgt8fx/pull/16) (by [#LaZsolt](https://github.com/LaZsolt))
-- [x] [Precise delayMicroseconds](https://github.com/dbuezas/lgt8fx/issues/18) (by [#LaZsolt](https://github.com/LaZsolt))
+- [x] [Accurate delayMicroseconds](https://github.com/dbuezas/lgt8fx/issues/18) (by [#LaZsolt](https://github.com/LaZsolt))
 - [x] [Faster Analog Read](https://github.com/dbuezas/lgt8fx/pull/32) (by [#jayzakk](https://github.com/jayzakk))
 - [x] [Fixed analogReference](https://github.com/dbuezas/lgt8fx/issues/27) (reported by [#macron0](https://github.com/macron0))
 - [x] [Enabled AREF pin as A10 analog input](https://github.com/dbuezas/lgt8fx/pull/36) (by [#jayzakk](https://github.com/jayzakk))
