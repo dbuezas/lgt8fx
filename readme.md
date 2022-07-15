@@ -101,6 +101,8 @@ Like this pinout?
 
 <img src="./docs/boards/uno_LQFP32.jpeg" alt="Uno style" width="200">
 
+## *-->LGT8F328D-LQFP32*
+
 #### LARDUINO Uno style
 
 <img src="./docs/boards/larduino_uno-front.jpg" alt="Larduino Uno style" width="200"> <img src="./docs/boards/larduino_uno-back.jpg" alt="Larduino Uno style" width="210">
