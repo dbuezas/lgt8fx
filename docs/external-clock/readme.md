@@ -17,6 +17,7 @@ or
 
 <img width="704" alt="image" src="./with-12M-crystal.png">
 
+<br>
 On board Larduino Uno has no external crystal.
 
 <img width="694" alt="image" src="./larduino-clocks.png">
