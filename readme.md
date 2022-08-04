@@ -8,7 +8,7 @@ Add the package to the arduino Boards Manager Urls:
   - Type `lgt8fx` in the search box
   - install lgt8fx
 
-Now the boards appear in the IDE. You can also select internal or external the clock speeds.
+Now the boards appear in the IDE. You can also select clock speeds, [upload speeds and custom boards with external cystal](./docs/arduino/readme.md).
 
 <img src="./docs/arduino/boards_manager.png" alt="Boards Manager" width="550">
 <img src="./docs/arduino/variants.png" alt="Variants" width="550">
