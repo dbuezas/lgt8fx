@@ -153,3 +153,5 @@ https://tooomm.github.io/github-release-stats/?username=dbuezas&repository=lgt8f
 - [#jg1uaa](https://github.com/jg1uaa) for the updated Software Serial without timing tables and missing methods
 - [#LaZsolt](https://github.com/LaZsolt) for adding SSOP20 lgt8f328p support and precise delayMicroseconds
 - [#jayzakk](https://github.com/jayzakk) for fixing the ADC prescaler for faster analog reads
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/dbuezas)
