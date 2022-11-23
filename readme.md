@@ -8,7 +8,7 @@ Add the package to the arduino Boards Manager Urls:
   - Type `lgt8fx` in the search box
   - install lgt8fx
 
-Now the boards appear in the IDE. You can also select clock speeds, [upload speeds and custom boards with external cystal](./docs/arduino/readme.md).
+Now the boards appear in the IDE. You can also select clock speeds, [upload speeds and generic boards with external cystal](./docs/arduino/readme.md).
 
 <img src="./docs/arduino/boards_manager.png" alt="Boards Manager" width="550">
 <img src="./docs/arduino/variants.png" alt="Variants" width="550">
@@ -23,7 +23,7 @@ Explore the discussions: https://github.com/dbuezas/lgt8fx/discussions
 
 - [x] [Fast_IO update](./lgt8f/libraries/lgt328p/examples/lgt8fx8p_fastio/lgt8fx8p_fastio.ino)
 - [x] [In-menu external clock support](./docs/external-clock/readme.md) (by [#seisfeld](https://github.com/seisfeld))
-- [x] [In menu custom boards support with 1, 2, 4, 8, 12, 16 and 32 Mhz](./lgt8f/boards.txt)
+- [x] [In menu generic boards support with 1, 2, 4, 8, 12, 16 and 32 Mhz](./lgt8f/boards.txt)
 - [x] [Automatic prescaler setup](./lgt8f/cores/lgt8f/main.cpp#L128)
 - [x] [Digital Analog Converter](./lgt8f/libraries/lgt328p/examples/dac0_sinus/dac0_sinus.ino)
 - [x] [Voltage References](./lgt8f/libraries/lgt328p/examples/adc_i2v56/adc_i2v56.ino) INTERNAL1V024/INTERNAL2V048/INTERNAL4V096/DEFAULT/EXTERNAL (useful for example for analogRead or DAC analogWrite via analogReference(xxx));
@@ -154,3 +154,5 @@ https://tooomm.github.io/github-release-stats/?username=dbuezas&repository=lgt8f
 - [#jg1uaa](https://github.com/jg1uaa) for the updated Software Serial without timing tables and missing methods
 - [#LaZsolt](https://github.com/LaZsolt) for adding SSOP20 lgt8f328p support and accurate delayMicroseconds
 - [#jayzakk](https://github.com/jayzakk) for fixing the ADC prescaler for faster analog reads
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/dbuezas)
