@@ -9,6 +9,7 @@ on:
 
 jobs:
   build:
+    if: github.repository == ‘dbuezas/lgt8fx’
     runs-on: ubuntu-latest
     permissions:
       contents: write
