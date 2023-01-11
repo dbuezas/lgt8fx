@@ -87,105 +87,68 @@ void analogReference(uint8_t mode)
 #endif
 }
 
+//-----------
 static uint16_t adcRead(void)
 {
-//	volatile uint8_t tmp = 0;
-
 	// start the conversion
 	sbi(ADCSRA, ADSC);
 
 	// ADSC is cleared when the conversion finishes
 	while (bit_is_set(ADCSRA, ADSC));
 
-	// read low byte firstly to cause high byte lock.
-//	tmp = ADCL;
-//	return (ADCH << 8) | tmp;
 	return ADC;
 }
 
-static int __analogRead(uint8_t pin)
-{
-	uint16_t pVal;
-#if defined(__LGT8FX8P__)
-	uint16_t nVal;
-	
-	// enable/disable internal 1/5VCC channel
-	ADCSRD &= 0xf0;
-	if(pin == V5D1 || pin == V5D4 || pin == VCCM) { 
-		ADCSRD |= 0x06;
-	}	
-#endif
+//-----------
+static int __analogRead(uint8_t pin) {
+  uint16_t pVal;
 
-#if defined(analogPinToChannel)
-#if defined(__AVR_ATmega32U4__)
-	if (pin >= 18) pin -= 18; // allow for channel or pin numbers
+  // enable/disable internal 1/5VCC channel
+  ADCSRD &= 0xf0;
+  if (pin == V5D1 || pin == V5D4) {
+    ADCSRD |= 0x06;
+  }
+
+  // analog Pin to Channel translation
+  if (pin >= 14) pin -= 14;
+
+    // set the analog reference (high two bits of ADMUX) and select the
+    // channel (low 4 bits).  this also sets ADLAR (left-adjust result)
+    // to 0 (the default).
+#if defined(__LGT8F__)
+#if defined(__LGT8FX8E__)
+  if ((pin >= 9 && pin <= 12) || (pin >= 16)) return 0;  // invalid ADMUX selection in LGT8F328D
 #endif
-	pin = analogPinToChannel(pin);
-#elif defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
-	if (pin >= 54) pin -= 54; // allow for channel or pin numbers
-#elif defined(__AVR_ATmega32U4__)
-	if (pin >= 18) pin -= 18; // allow for channel or pin numbers
-#elif defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644__) || defined(__AVR_ATmega644A__) || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega644PA__)
-	if (pin >= 24) pin -= 24; // allow for channel or pin numbers
+  ADMUX = (analog_reference << 6) | (pin & 0x1f);
 #else
-	if (pin >= 14) pin -= 14; // allow for channel or pin numbers
+  ADMUX = (analog_reference << 6) | (pin & 0x07);
 #endif
 
-#if defined(ADCSRB) && defined(MUX5)
-	// the MUX5 bit of ADCSRB selects whether we're reading from channels
-	// 0 to 7 (MUX5 low) or 8 to 15 (MUX5 high).
-	ADCSRB = (ADCSRB & ~(1 << MUX5)) | (((pin >> 3) & 0x01) << MUX5);
+// ADC Detuning Calibration
+#if defined(__LGT8FX8P__)
+  sbi(ADCSRC, SPN);
+  uint16_t nVal = adcRead();
+  cbi(ADCSRC, SPN);
+#endif
+
+  pVal = adcRead();
+
+#if defined(__LGT8FX8P__)
+  pVal = (pVal + nVal) >> 1;
+#endif
+
+  // gain-error correction
+#if defined(__LGT8FX8E__)
+  //	pVal -= (pVal >> 5);
+  pVal -= 0;    // What?
+#elif defined(__LGT8FX8P__)
+  pVal -= (pVal >> 7);
 #endif
   
-	// set the analog reference (high two bits of ADMUX) and select the
-	// channel (low 4 bits).  this also sets ADLAR (left-adjust result)
-	// to 0 (the default).
-#if defined(ADMUX)
-#if defined(__AVR_ATtiny25__) || defined(__AVR_ATtiny45__) || defined(__AVR_ATtiny85__)
-	ADMUX = (analog_reference << 4) | (pin & 0x07);
-#else
-  #if defined(__LGT8F__)
-    #if defined(__LGT8FX8E__)
-	if (( pin >= 9 && pin <= 12 ) || ( pin >= 16 )) return 0;   // invalid ADMUX selection in LGT8F328D
-    #endif
-	ADMUX = (analog_reference << 6) | (pin & 0x1f);
-  #else
-	ADMUX = (analog_reference << 6) | (pin & 0x07);
-  #endif
-#endif
-#endif
-
-	// without a delay, we seem to read from the wrong channel
-	//delay(1);
-
-#if defined(ADCSRA) && defined(ADCL)
-	#if defined(__LGT8FX8P__)
-	sbi(ADCSRC, SPN);
-	nVal = adcRead();
-	cbi(ADCSRC, SPN);
-	#endif
-	
-	pVal = adcRead();
-
-	#if defined(__LGT8FX8P__)
-	pVal = (pVal + nVal) >> 1;
-	#endif
-#else
-	// we dont have an ADC, return 0
-	pVal = 0;
-#endif
-
-	// gain-error correction
-#if defined(__LGT8FX8E__)
-//	pVal -= (pVal >> 5);
-	pVal -= 0;
-#elif defined(__LGT8FX8P__)
-	pVal -= (pVal >> 7);
-#endif
-	// standard device from atmel
-	return pVal;
+  return pVal;
 }
 
+//-----------
 int analogRead(uint8_t pin)
 {
 #if defined(__LGT8F__)
@@ -200,8 +163,32 @@ int analogRead(uint8_t pin)
 #else
 	return __analogRead(pin);
 #endif
-	
 }
+
+//-----------
+uint16_t analogReadVccmV() {
+  // save resolution/reference for restore
+  uint8_t s_analog_resbit = analog_resbit;
+  uint8_t s_analog_resdir = analog_resdir;
+  uint8_t s_analog_reference = analog_reference;
+
+  // set 12 bit resolution, 2048 mV Ref.
+  analog_resbit = 0;
+  analogReference(INTERNAL2V048);
+
+  // Do we need a dummy read to switch the mux and settle the wires?
+
+  uint16_t adc = analogRead(V5D1);
+
+  return ((long)adc * 5 * 2048) / 4095;
+
+  // yeah.
+  analog_resbit = s_analog_resbit;
+  analog_resdir = s_analog_resdir;
+  analogReference(s_analog_reference);
+}
+
+
 
 // Right now, PWM output only works on the pins with
 // hardware support.  These are defined in the appropriate

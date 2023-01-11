@@ -146,6 +146,8 @@ void analogReference(uint8_t mode);
 void analogWrite(uint8_t pin, int val);
 void analogReadResolution(uint8_t res);
 
+uint16_t analogReadVccmV();
+
 unsigned long millis(void);
 unsigned long micros(void);
 void delay(unsigned long ms);
