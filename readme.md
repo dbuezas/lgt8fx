@@ -139,6 +139,20 @@ PS: Just want to say thanks for this git, helped me a lot!
 
 I have no association with Arduino, Logic Green, Atmel or anything. I just wanted to have a convenient way to use these boards and get them to work without hacks at max speed
 
+# Automated Releases
+
+Each time a a commit is pushed to master or a PR is merged, the release action will be triggered.
+
+The following steps are executed
+* Generate the release artefacts (the lgt8f-1.0.x.zip file)
+* Update the `package_lgt8fx_index.json` file with the new version
+* Commit and push those changes to the repository
+* Generate a release with the artefact.
+
+PRs and commits that only touch the `readme.md` file, or the `/docs` folder will NOT trigger a release.
+
+The action can be found here: https://github.com/dbuezas/lgt8fx/blob/main/.github/workflows/release.yml
+
 # Download stats
 
 https://tooomm.github.io/github-release-stats/?username=dbuezas&repository=lgt8fx

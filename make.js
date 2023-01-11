@@ -5,29 +5,20 @@ const { execSync } = require("child_process");
 const package = "package_lgt8fx_index.json";
 const folder = "lgt8f";
 
-const toNum = (str) => parseInt(str.split(".").join(""), 10);
-const jsonStr = fs.readFileSync(package);
-
-const json = JSON.parse(jsonStr);
+const json = JSON.parse(fs.readFileSync(package));
 const { platforms } = json.packages[0];
-let lastVersion = "0.9.9";
-for (const { version } of platforms) {
-  if (toNum(version) > toNum(lastVersion)) {
-    lastVersion = version;
-  }
-}
+const [major, minor, patch] = platforms[0].version.split(".");
 
-const newVersion = (toNum(lastVersion) + 1 + "").split("").join(".");
-
+const newVersion = [major, minor, parseFloat(patch) + 1].join(".");
 const archiveFileName = `${folder}-${newVersion}.zip`;
 execSync(`zip -r ${archiveFileName} ${folder}`);
-console.log(`zipped ${archiveFileName}`);
+console.warn(`zipped ${archiveFileName}`);
 const size = fs.statSync(archiveFileName).size.toString();
-console.log(`size ${size}`);
+console.warn(`size ${size}`);
 const checksum =
   "SHA-256:" +
   execSync(`shasum -a 256 ${archiveFileName}`).toString().split(" ")[0];
-console.log(`checksum ${checksum}`);
+console.warn(`checksum ${checksum}`);
 
 platforms.unshift({
   name: "LGT8fx",
@@ -55,3 +46,4 @@ platforms.unshift({
 });
 
 fs.writeFileSync(package, JSON.stringify(json, 0, 2));
+console.log(newVersion);
