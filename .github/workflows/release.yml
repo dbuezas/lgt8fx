@@ -1,11 +1,5 @@
 name: Release on PR or commit 
 on:
-  push: 
-    branches: [ "master" ]
-    paths-ignore:
-      - 'readme.md'
-      - 'docs/**/*'
-      - '.github/**/*'
   pull_request:
     branches: [ "master" ]
     paths-ignore:

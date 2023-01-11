@@ -141,7 +141,7 @@ I have no association with Arduino, Logic Green, Atmel or anything. I just wante
 
 # Automated Releases
 
-Each time a a commit is pushed to master or a PR is merged, the release action will be triggered.
+Each time a PR is merged, the release action will be triggered.
 
 The following steps are executed
 * Generate the release artefacts (the lgt8f-1.0.x.zip file)
@@ -149,7 +149,7 @@ The following steps are executed
 * Commit and push those changes to the repository
 * Generate a release with the artefact.
 
-PRs and commits that only touch the `readme.md` file, or the `/docs` folder will NOT trigger a release.
+PRs that only touch the `readme.md` file, or the `/docs` folder will NOT trigger a release.
 
 The action can be found here: https://github.com/dbuezas/lgt8fx/blob/main/.github/workflows/release.yml
 
