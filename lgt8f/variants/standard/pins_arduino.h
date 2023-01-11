@@ -195,12 +195,12 @@ static const uint8_t A10 = 25;
 #endif
 
 #if defined(__LGT8FX8E__)
-#define VCCM	22
+// #define VCCM	22
 #define	AOFF	24
 #define	IVREF	28
 #define	AGND	29
 #elif defined(__LGT8FX8P__)
-#define VCCM	22
+// #define VCCM	22
 #define V5D1	22
 #define	IVREF	27
 #define	V5D4	28
