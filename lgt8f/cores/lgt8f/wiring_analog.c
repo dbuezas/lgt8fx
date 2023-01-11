@@ -25,8 +25,8 @@
 #include "wiring_private.h"
 #include "pins_arduino.h"
 
-uint8_t analog_resbit = 0;
-uint8_t analog_resdir = 0;
+uint8_t analog_resbit = 2;
+uint8_t analog_resdir = 1;
 uint8_t analog_reference = DEFAULT;
 
 #if defined(__LGT8F__)
@@ -56,10 +56,11 @@ void analogReference(uint8_t mode)
 	if(analog_reference == INTERNAL2V56) {
 		VCAL = VCAL2;
 	} else {
-		VCAL = VCAL1;
+		VCAL = _VCAL_1_;
 	}
 	#else
 	// set analog reference for ADC/DAC
+	cbi(ADCSRD, REFS2);
 	if(analog_reference == EXTERNAL) {
 		DACON = (DACON & 0x0C) | 0x1;
 		if((PMX2 & 0x2) == 0x2) {
@@ -71,7 +72,6 @@ void analogReference(uint8_t mode)
 		DACON &= 0x0C;
 	} else {
 		DACON = (DACON & 0x0C) | 0x2;
-		cbi(ADCSRD, REFS2);
 		if(analog_reference == INTERNAL2V048) {
 			VCAL = VCAL2;	// 2.048V
 		} else if(analog_reference == INTERNAL4V096) {
@@ -89,7 +89,7 @@ void analogReference(uint8_t mode)
 
 static uint16_t adcRead(void)
 {
-	volatile uint8_t tmp = 0;
+//	volatile uint8_t tmp = 0;
 
 	// start the conversion
 	sbi(ADCSRA, ADSC);
@@ -98,9 +98,9 @@ static uint16_t adcRead(void)
 	while (bit_is_set(ADCSRA, ADSC));
 
 	// read low byte firstly to cause high byte lock.
-	tmp = ADCL;
-
-	return (ADCH << 8) | tmp;
+//	tmp = ADCL;
+//	return (ADCH << 8) | tmp;
+	return ADC;
 }
 
 static int __analogRead(uint8_t pin)
@@ -111,7 +111,7 @@ static int __analogRead(uint8_t pin)
 	
 	// enable/disable internal 1/5VCC channel
 	ADCSRD &= 0xf0;
-	if(pin == V5D1 || pin == V5D4) { 
+	if(pin == V5D1 || pin == V5D4 || pin == VCCM) { 
 		ADCSRD |= 0x06;
 	}	
 #endif
@@ -144,7 +144,14 @@ static int __analogRead(uint8_t pin)
 #if defined(__AVR_ATtiny25__) || defined(__AVR_ATtiny45__) || defined(__AVR_ATtiny85__)
 	ADMUX = (analog_reference << 4) | (pin & 0x07);
 #else
+  #if defined(__LGT8F__)
+    #if defined(__LGT8FX8E__)
+	if (( pin >= 9 && pin <= 12 ) || ( pin >= 16 )) return 0;   // invalid ADMUX selection in LGT8F328D
+    #endif
+	ADMUX = (analog_reference << 6) | (pin & 0x1f);
+  #else
 	ADMUX = (analog_reference << 6) | (pin & 0x07);
+  #endif
 #endif
 #endif
 
@@ -170,7 +177,8 @@ static int __analogRead(uint8_t pin)
 
 	// gain-error correction
 #if defined(__LGT8FX8E__)
-	pVal -= (pVal >> 5);
+//	pVal -= (pVal >> 5);
+	pVal -= 0;
 #elif defined(__LGT8FX8P__)
 	pVal -= (pVal >> 7);
 #endif

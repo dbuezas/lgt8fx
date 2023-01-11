@@ -30,7 +30,7 @@ const checksum =
 console.log(`checksum ${checksum}`);
 
 platforms.unshift({
-  name: "LGT8fx Boards",
+  name: "LGT8fx",
   architecture: "avr",
   version: newVersion,
   category: "lgt8fx",
@@ -46,13 +46,11 @@ platforms.unshift({
     online: "https://github.com/dbuezas/LGT8fx/issues",
   },
   boards: [
+    { name: "LGT8F328P-LQFP32 MiniEVB" },
     { name: "LGT8F328P-LQFP48 MiniEVB" },
     { name: "LGT8F328P-LQFP32 wemos-TTGO-XI" },
-    { name: "LGT8F328P-LQFP32 MiniEVB" },
     { name: "LGT8F328P-SSOP20" },
     { name: "LGT8F328D-LQFP32" },
-    { name: "LGT8F328D-SSOP20" },
-    { name: "LGT8F88D-SSOP20" },
   ],
 });
 

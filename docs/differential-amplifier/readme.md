@@ -48,7 +48,7 @@ All information was extracted from this translation of the datasheet: [(English)
 
 1. Setup the inputs and gain and turn DAO on through the DAPRC (Differential amplifier control register):
 
-   `DAPCR = DAPEN | gain | inverting | noninverting;`
+   `DAPCR = bit(DAPEN) | gain | inverting | noninverting;`
 
    - Enable: DAPEN
    - Gain: GA[1:0]
@@ -76,7 +76,7 @@ All information was extracted from this translation of the datasheet: [(English)
 
    - Turn DAO off:
 
-     `DAPCR &= ~DAPEN;`
+     `DAPCR &= ~bit(DAPEN);`
 
    - Undo step (3) (reconnect ADC to multiplexer for future normal analogRead calls)
 

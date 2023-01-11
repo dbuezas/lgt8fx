@@ -101,6 +101,8 @@ Description     : volatile char * converted to Arduino style _SFR_IO and _SFR_ME
 #define VCAL    _SFR_MEM8(0xC8)
 #define VCAL1   _SFR_MEM8(0xCD)
 #define VCAL2   _SFR_MEM8(0xCE)
+// Declare a variable for save and store ivref calibration_1
+extern uint8_t _VCAL_1_;
 
 // TCCR1C
 #define DOC1B   5
