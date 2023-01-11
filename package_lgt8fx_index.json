@@ -9,6 +9,36 @@
       },
       "platforms": [
         {
+          "name": "LGT8fx",
+          "architecture": "avr",
+          "version": "1.0.7",
+          "category": "lgt8fx",
+          "url": "https://github.com/dbuezas/lgt8fx/releases/download/v1.0.7/lgt8f-1.0.7.zip",
+          "archiveFileName": "lgt8f-1.0.7.zip",
+          "checksum": "SHA-256:e69c27206c57d0d182e8506161cdf77eeb65be1854a794c4b63fe74b23ae09ce",
+          "size": "629338",
+          "help": {
+            "online": "https://github.com/dbuezas/LGT8fx/issues"
+          },
+          "boards": [
+            {
+              "name": "LGT8F328P-LQFP32 MiniEVB"
+            },
+            {
+              "name": "LGT8F328P-LQFP48 MiniEVB"
+            },
+            {
+              "name": "LGT8F328P-LQFP32 wemos-TTGO-XI"
+            },
+            {
+              "name": "LGT8F328P-SSOP20"
+            },
+            {
+              "name": "LGT8F328D-LQFP32"
+            }
+          ]
+        },
+        {
           "name": "LGT8fx Boards",
           "architecture": "avr",
           "version": "1.0.6",
