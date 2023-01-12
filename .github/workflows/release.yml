@@ -1,6 +1,6 @@
 name: Release on PR or commit 
 on:
-  pull_request:
+  push:
     branches: [ "master" ]
     paths-ignore:
       - 'readme.md'
@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    if: github.repository == ‘dbuezas/lgt8fx’
+    if: github.repository == 'dbuezas/lgt8fx' &&  github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     permissions:
       contents: write
