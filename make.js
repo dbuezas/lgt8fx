@@ -9,7 +9,8 @@ const json = JSON.parse(fs.readFileSync(package));
 const { platforms } = json.packages[0];
 const [major, minor, patch] = platforms[0].version.split(".");
 
-const newVersion = [major, minor, parseFloat(patch) + 1].join(".");
+// const newVersion = [major, minor, parseFloat(patch) + 1].join(".");
+const newVersion = "2.0.0";
 const archiveFileName = `${folder}-${newVersion}.zip`;
 execSync(`zip -r ${archiveFileName} ${folder}`);
 console.warn(`zipped ${archiveFileName}`);
