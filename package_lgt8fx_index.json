@@ -1,15 +1,15 @@
 {
   "packages": [
     {
-      "name": "LGT8fx Boards",
+      "name": "lgt8fx",
       "maintainer": "dbuezas",
-      "websiteURL": "https://github.com/dbuezas/LGT8fx",
+      "websiteURL": "https://github.com/dbuezas/lgt8fx",
       "help": {
-        "online": "https://github.com/dbuezas/LGT8fx"
+        "online": "https://github.com/dbuezas/lgt8fx"
       },
       "platforms": [
         {
-          "name": "LGT8fx",
+          "name": "LGT8fx Boards",
           "architecture": "avr",
           "version": "1.0.7",
           "category": "lgt8fx",
@@ -18,7 +18,7 @@
           "checksum": "SHA-256:e69c27206c57d0d182e8506161cdf77eeb65be1854a794c4b63fe74b23ae09ce",
           "size": "629338",
           "help": {
-            "online": "https://github.com/dbuezas/LGT8fx/issues"
+            "online": "https://github.com/dbuezas/lgt8fx/issues"
           },
           "boards": [
             {
@@ -48,7 +48,7 @@
           "checksum": "SHA-256:e7384539898243cb013182b37780205330d61fa8c5276f512422b84b2a2f23bd",
           "size": "615499",
           "help": {
-            "online": "https://github.com/dbuezas/LGT8fx/issues"
+            "online": "https://github.com/dbuezas/lgt8fx/issues"
           },
           "boards": [
             {
@@ -84,7 +84,7 @@
           "checksum": "SHA-256:6bde3060b7a9102eed89c32a163bd99db4129231ed7847a6245b2fa44433fff5",
           "size": "598269",
           "help": {
-            "online": "https://github.com/dbuezas/LGT8fx/issues"
+            "online": "https://github.com/dbuezas/lgt8fx/issues"
           },
           "boards": [
             {
@@ -117,7 +117,7 @@
           "checksum": "SHA-256:d940a66f95e5f1c22dc2ac5e30a01e8af5b04577e8e9b07cdbf1d7374139db33",
           "size": "599016",
           "help": {
-            "online": "https://github.com/dbuezas/LGT8fx/issues"
+            "online": "https://github.com/dbuezas/lgt8fx/issues"
           },
           "boards": [
             {
@@ -150,7 +150,7 @@
           "checksum": "SHA-256:59b4890596a987410e5b5aabf18ce5cdb032f7acf1258f2634dc000a94729f21",
           "size": "597452",
           "help": {
-            "online": "https://github.com/dbuezas/LGT8fx/issues"
+            "online": "https://github.com/dbuezas/lgt8fx/issues"
           },
           "boards": [
             {
@@ -180,7 +180,7 @@
           "checksum": "SHA-256:01aa986432317baeb3325acf0eeb3e3ad60382d06f9ff699d8b388c1ad02467d",
           "size": "591621",
           "help": {
-            "online": "https://github.com/dbuezas/LGT8fx/issues"
+            "online": "https://github.com/dbuezas/lgt8fx/issues"
           },
           "boards": [
             {
@@ -210,7 +210,7 @@
           "checksum": "SHA-256:59cd6e6d2a9284d9bb625795b5cad4d6fcb91fe63126c3876cc42ea620832413",
           "size": "588364",
           "help": {
-            "online": "https://github.com/dbuezas/LGT8fx/issues"
+            "online": "https://github.com/dbuezas/lgt8fx/issues"
           },
           "boards": [
             {
@@ -240,7 +240,7 @@
           "checksum": "SHA-256:c0645f7bf8a2b8169cbb5ed70195fe703db9f63890b880c337630f3c2b3a916f",
           "size": "586752",
           "help": {
-            "online": "https://github.com/dbuezas/LGT8fx/issues"
+            "online": "https://github.com/dbuezas/lgt8fx/issues"
           },
           "boards": [
             {
