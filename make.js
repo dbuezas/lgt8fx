@@ -10,6 +10,7 @@ const { platforms } = json.packages[0];
 const [major, minor, patch] = platforms[0].version.split(".");
 
 const newVersion = [major, minor, parseFloat(patch) + 1].join(".");
+
 const archiveFileName = `${folder}-${newVersion}.zip`;
 execSync(`zip -r ${archiveFileName} ${folder}`);
 console.warn(`zipped ${archiveFileName}`);
@@ -21,7 +22,7 @@ const checksum =
 console.warn(`checksum ${checksum}`);
 
 platforms.unshift({
-  name: "LGT8fx",
+  name: "LGT8fx Boards",
   architecture: "avr",
   version: newVersion,
   category: "lgt8fx",
