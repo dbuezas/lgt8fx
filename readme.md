@@ -151,7 +151,7 @@ The following steps are executed
 
 PRs that only touch the `readme.md` file, or the `/docs` folder will NOT trigger a release.
 
-The action can be found here: https://github.com/dbuezas/lgt8fx/blob/main/.github/workflows/release.yml
+The action can be found here: https://github.com/dbuezas/lgt8fx/blob/master/.github/workflows/release.yml
 
 # Download stats
 
