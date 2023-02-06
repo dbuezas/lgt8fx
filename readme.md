@@ -41,6 +41,7 @@ Explore the discussions: https://github.com/dbuezas/lgt8fx/discussions
 - [x] [Power reduce register definitions](https://github.com/dbuezas/lgt8fx/pull/46) (by [#KooLru](https://github.com/KooLru))
 - [x] [Support for interrupts on all timers and comparators](https://github.com/dbuezas/lgt8fx/pull/40) (by [#jayzakk](https://github.com/jayzakk))
 - [x] [Arduino EEPROM API](https://github.com/dbuezas/lgt8fx/pull/64) (by [#SuperUserNameMan](https://github.com/SuperUserNameMan)
+- [ ] Lock bits. It seems this micro controller doesn't have flash lock bits.
 
 # Differences to original core [Larduino_HSP v3.6c](https://github.com/Edragon/LGT/tree/master/1-LGT8F328/SDK/Arduino/HSP/HSP%20Patch%20File/Larduino_HSP_3.6c/Larduino_HSP_v3.6c)
 
