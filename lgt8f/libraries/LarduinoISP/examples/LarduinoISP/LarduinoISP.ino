@@ -22,7 +22,7 @@
 // pin name:    Arduino:          LGT8FX8P:
 // slave reset: 10:               PC6/RESET 
 // SWD:         12:               PE2/SWD
-// SWC:         13:               PE0/SCK
+// SWC:         13:               PE0/SWC
 // Make sure to 
 // Put an LED (with resistor) on the following pins:
 // 9: Heartbeat   - shows the programmer is running
