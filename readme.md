@@ -71,6 +71,10 @@ Explore the discussions: https://github.com/dbuezas/lgt8fx/discussions
 #### [Pro Mini Style SSOP20](../../wiki/Pro-Mini-Style---SSOP20)
 
 <img src="./docs/boards/ssop20.jpg" alt="Pro Mini ssop20" width="200"> <img src="./docs/boards/ssop20_back.jpg" alt="Pro Mini ssop20" width="200"> <img src="./docs/boards/ssop20.png" alt="Pro Mini ssop20" width="200">
+![image](https://user-images.githubusercontent.com/777196/222880206-57e643d7-d955-4025-9e0d-541b5e960230.png)
+
+Pinout by [Electrogate](https://blog.eletrogate.com/tutorial-pro-mini-evb-lgt8f328p-arduino-ide/)
+
 
 ## *-->LGT8F328P-LQFP32*
 
@@ -81,6 +85,7 @@ Explore the discussions: https://github.com/dbuezas/lgt8fx/discussions
 #### Pro Mini style
 
 <img src="./docs/boards/pro_mini_LQFP32.png" alt="Pro Mini style" width="200">
+(
 
 #### [Nano Style](../../wiki/Nano-Style)
 
