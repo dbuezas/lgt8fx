@@ -43,6 +43,12 @@ Explore the discussions: https://github.com/dbuezas/lgt8fx/discussions
 - [x] [Arduino EEPROM API](https://github.com/dbuezas/lgt8fx/pull/64) (by [#SuperUserNameMan](https://github.com/SuperUserNameMan)
 - [ ] Lock bits. It seems this micro controller doesn't have flash lock bits.
 
+# Timers
+This chip has more timers, each with more features than the atmega328p.
+Explore, configure and visualize timers for both atmega328p and lgt328p with this online tool [https://github.com/dbuezas/arduino-web-timers](https://github.com/dbuezas/arduino-web-timers)
+<img width="800" alt="image" src="https://user-images.githubusercontent.com/777196/221049698-d2a51443-73c8-42d7-8e85-b46f25c42dc7.png">
+
+
 # Differences to original core [Larduino_HSP v3.6c](https://github.com/Edragon/LGT/tree/master/1-LGT8F328/SDK/Arduino/HSP/HSP%20Patch%20File/Larduino_HSP_3.6c/Larduino_HSP_v3.6c)
 
 - Support 32 Mhz and other clock speeds
