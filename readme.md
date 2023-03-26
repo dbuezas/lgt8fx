@@ -92,7 +92,7 @@ Pinout by [Electrogate](https://blog.eletrogate.com/tutorial-pro-mini-evb-lgt8f3
 <img src="./docs/boards/nano.jpg" alt="Nano style" width="200"> <img src="./docs/boards/nano_back.jpg" alt="Nano style" width="200">
 
 <img src="./docs/boards/nano_LQFP32.png" alt="Nano style" width="200">
-<img src="./docs/boards/lgt8f328p_32_nano_pinout.png" alt="Nano style" width="400">
+<img src="./docs/boards/lgt8f328p_32_nano_pinout.png" alt="Nano style" width="600">
 Like this pinout?
 
 [Create](./docs/boards/pinouts) more pinouts for the other boards!
