@@ -15,16 +15,16 @@ int invalid_output = analogDiffRead(A0, A5, GAIN_8);
 
 | -\\+ | A0  | A1  | A2  | A3  | A4  | A5  | A6  | A7  | A8  | A9  |
 | ---- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| A0   |     | ✓   |     |     |     |     |     |     |     |     |
-| A1   | ✓   |     |     |     |     |     |     |     |     |     |
-| A2   | ✓   | ✓   |     | ✓   | ✓   | ✓   | ✓   | ✓   | ✓   | ✓   |
-| A3   | ✓   | ✓   | ✓   |     | ✓   | ✓   | ✓   | ✓   | ✓   | ✓   |
-| A4   | ✓   | ✓   |     |     |     |     |     |     |     |     |
-| A5   | ✓   | ✓   |     |     |     |     |     |     |     |     |
-| A6   | ✓   | ✓   |     |     |     |     |     |     |     |     |
-| A7   | ✓   | ✓   |     |     |     |     |     |     |     |     |
-| A8   | ✓   | ✓   | ✓   | ✓   | ✓   | ✓   | ✓   | ✓   |     | ✓   |
-| A9   | ✓   | ✓   | ✓   | ✓   | ✓   | ✓   | ✓   | ✓   | ✓   |     |
+| A0   | -   | ✓   |     |     |     |     |     |     |     |     |
+| A1   | ✓   | -   |     |     |     |     |     |     |     |     |
+| A2   | ✓   | ✓   | -   | ✓   | ✓   | ✓   | ✓   | ✓   | ✓   | ✓   |
+| A3   | ✓   | ✓   | ✓   | -   | ✓   | ✓   | ✓   | ✓   | ✓   | ✓   |
+| A4   | ✓   | ✓   |     |     | -   |     |     |     |     |     |
+| A5   | ✓   | ✓   |     |     |     | -   |     |     |     |     |
+| A6   | ✓   | ✓   |     |     |     |     | -   |     |     |     |
+| A7   | ✓   | ✓   |     |     |     |     |     | -   |     |     |
+| A8   | ✓   | ✓   | ✓   | ✓   | ✓   | ✓   | ✓   | ✓   | -   | ✓   |
+| A9   | ✓   | ✓   | ✓   | ✓   | ✓   | ✓   | ✓   | ✓   | ✓   | -   |
 
 Also see the examples in the `differential_amplifier` library provided with this core.
 
@@ -32,13 +32,26 @@ Also see the examples in the `differential_amplifier` library provided with this
 
 ### Basics
 
-The differential amplifier (DAP) has 2 inputs (`inverting`/minus and `non-inverting`/plus), a `gain` value and 1 `output`.
+The differential amplifier (DAP) consists of
+
+* `inverting` input (-)
+* `non_inverting` input (+)
+* `gain` value 
+* `output`.
+
+where 
 
 ```
-output = gain * (non-inverting - inverting)
+output = gain * (non_inverting - inverting)
 ```
 
 And the output can be read through the ADC (like a normal analog read).
+
+### Limitations
+
+Both inputs and output must be between gnd and vcc.
+
+### Datasheet
 
 All information was extracted from this translation of the datasheet: [(English) LGT8FX8P_databook_V1.04](../LGT8FX8P_databook_v1.0.4.en.pdf) (thanks to [metallurge](https://github.com/metallurge) for the translated doc [here](https://github.com/RalphBacon/LGT8F328P-Arduino-Clone-Chip-ATMega328P/issues/2#issuecomment-517952757))
 
