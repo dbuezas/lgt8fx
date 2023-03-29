@@ -17,7 +17,7 @@ This is an implementation of LGT8Fx8P ISP download protocol. You can make arduin
    2. Open `File`/`Examples`/`LarduinoISP`/`LarduinoISP`
    3. Upload the sketch.
    4. Go back to normal serial buffer size: `Tools`/`Arduino as ISP`/`Default`
-   5. Put a capacitor (e.g 10uF) between the `RESET` pin and `VCC` pin of ISP board to resets while uploading. Alternatively, short `RESET` and `VCC`, but make sure to NOT press the reset button in the board.
+   5. Put a capacitor (e.g 10uF) between the `RESET` pin and `VCC` pin of ISP board to avoid resets while uploading. Alternatively, short `RESET` and `VCC`, but make sure to NOT press the reset button in the board.
    6. Congratulations, you have a LGTISP Programmer now!
 2. Connect the programmer to the target board
    1. Connect `SWD` and `SWC`. `RST` can be either connect or not.
