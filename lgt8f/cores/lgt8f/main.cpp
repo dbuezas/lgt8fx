@@ -165,7 +165,7 @@ void lgt8fx8x_clk_src()
         CLKPR = 0x06;
     #elif F_DIV <= 128
         CLKPR = 0x07;
-    #elif
+    #else
         CLKPR = 0x08;
     #endif
 #endif
