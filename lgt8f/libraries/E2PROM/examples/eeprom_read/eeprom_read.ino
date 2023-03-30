@@ -15,6 +15,8 @@ byte value;
 
 void setup()
 {
+  // initialize EEPROM simulation to the size selected in the menu
+  lgt_eeprom_init(EEPROM_SIZE);
   // initialize serial and wait for port to open:
   Serial.begin(9600);
   while (!Serial) {

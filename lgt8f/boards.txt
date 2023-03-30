@@ -7,6 +7,7 @@ menu.clock=Clock
 menu.variant=Variant
 menu.arduino_isp=Arduino as ISP
 menu.upload_speed=Upload speed
+menu.eeprom=EEPROM Emulation
 
 #############################
 #### LGT8F328 P/E/S      ####
@@ -95,6 +96,22 @@ menu.upload_speed=Upload speed
 #328.menu.upload_speed.115200=115200
 #328.menu.upload_speed.115200.upload.speed=115200
 
+# EEPROM
+328.menu.eeprom.0kb=0 KB
+328.menu.eeprom.0kb.upload.maximum_size=31744
+328.menu.eeprom.0kb.build.eeprom_size=0
+328.menu.eeprom.1kb=1 KB
+328.menu.eeprom.1kb.upload.maximum_size=29696
+328.menu.eeprom.1kb.build.eeprom_size=1
+328.menu.eeprom.2kb=2 KB
+328.menu.eeprom.2kb.upload.maximum_size=27648
+328.menu.eeprom.2kb.build.eeprom_size=2
+328.menu.eeprom.4kb=4 KB
+328.menu.eeprom.4kb.upload.maximum_size=23552
+328.menu.eeprom.4kb.build.eeprom_size=4
+328.menu.eeprom.8kb=8 KB
+328.menu.eeprom.8kb.upload.maximum_size=15360
+328.menu.eeprom.8kb.build.eeprom_size=8
 
 ###################################
 #### LGT8F328 + 16 MHz crystal ####
@@ -216,6 +233,24 @@ menu.upload_speed=Upload speed
 328_16.menu.upload_speed.19200=19200
 328_16.menu.upload_speed.19200.upload.speed=19200
 
+
+# EEPROM
+328_16.menu.eeprom.0kb=0 KB
+328_16.menu.eeprom.0kb.upload.maximum_size=31744
+328_16.menu.eeprom.0kb.build.eeprom_size=0
+328_16.menu.eeprom.1kb=1 KB
+328_16.menu.eeprom.1kb.upload.maximum_size=29696
+328_16.menu.eeprom.1kb.build.eeprom_size=1
+328_16.menu.eeprom.2kb=2 KB
+328_16.menu.eeprom.2kb.upload.maximum_size=27648
+328_16.menu.eeprom.2kb.build.eeprom_size=2
+328_16.menu.eeprom.4kb=4 KB
+328_16.menu.eeprom.4kb.upload.maximum_size=23552
+328_16.menu.eeprom.4kb.build.eeprom_size=4
+328_16.menu.eeprom.8kb=8 KB
+328_16.menu.eeprom.8kb.upload.maximum_size=15360
+328_16.menu.eeprom.8kb.build.eeprom_size=8
+
 ###################################
 #### LGT8F328 + 12 MHz crystal ####
 ###################################
@@ -321,6 +356,24 @@ menu.upload_speed=Upload speed
 328_12.menu.upload_speed.19200=19200
 328_12.menu.upload_speed.19200.upload.speed=19200
 
+
+# EEPROM
+328_12.menu.eeprom.0kb=0 KB
+328_12.menu.eeprom.0kb.upload.maximum_size=31744
+328_12.menu.eeprom.0kb.build.eeprom_size=0
+328_12.menu.eeprom.1kb=1 KB
+328_12.menu.eeprom.1kb.upload.maximum_size=29696
+328_12.menu.eeprom.1kb.build.eeprom_size=1
+328_12.menu.eeprom.2kb=2 KB
+328_12.menu.eeprom.2kb.upload.maximum_size=27648
+328_12.menu.eeprom.2kb.build.eeprom_size=2
+328_12.menu.eeprom.4kb=4 KB
+328_12.menu.eeprom.4kb.upload.maximum_size=23552
+328_12.menu.eeprom.4kb.build.eeprom_size=4
+328_12.menu.eeprom.8kb=8 KB
+328_12.menu.eeprom.8kb.upload.maximum_size=15360
+328_12.menu.eeprom.8kb.build.eeprom_size=8
+
 ############################
 #### LGT8F88            ####
 ############################
@@ -412,3 +465,21 @@ lardu_328e.menu.arduino_isp.disable=Default (64)
 lardu_328e.menu.arduino_isp.disable.build.SERIAL_RX_BUFFER_SIZE=64
 lardu_328e.menu.arduino_isp.enable=[To burn an ISP] SERIAL_RX_BUFFER_SIZE to 250
 lardu_328e.menu.arduino_isp.enable.build.SERIAL_RX_BUFFER_SIZE=250
+
+
+# EEPROM
+lardu_328e.menu.eeprom.0kb=0 KB
+lardu_328e.menu.eeprom.0kb.upload.maximum_size=31744
+lardu_328e.menu.eeprom.0kb.build.eeprom_size=0
+lardu_328e.menu.eeprom.1kb=1 KB
+lardu_328e.menu.eeprom.1kb.upload.maximum_size=29696
+lardu_328e.menu.eeprom.1kb.build.eeprom_size=1
+lardu_328e.menu.eeprom.2kb=2 KB
+lardu_328e.menu.eeprom.2kb.upload.maximum_size=27648
+lardu_328e.menu.eeprom.2kb.build.eeprom_size=2
+lardu_328e.menu.eeprom.4kb=4 KB
+lardu_328e.menu.eeprom.4kb.upload.maximum_size=23552
+lardu_328e.menu.eeprom.4kb.build.eeprom_size=4
+lardu_328e.menu.eeprom.8kb=8 KB
+lardu_328e.menu.eeprom.8kb.upload.maximum_size=15360
+lardu_328e.menu.eeprom.8kb.build.eeprom_size=8

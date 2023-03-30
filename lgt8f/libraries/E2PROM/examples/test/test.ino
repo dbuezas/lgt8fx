@@ -15,6 +15,9 @@ byte *buff;
 
 void setup()
 {
+	// initialize EEPROM simulation to the size selected in the menu
+  lgt_eeprom_init(EEPROM_SIZE);
+	
 	Serial.begin(9600);
 
 	while(!Serial);

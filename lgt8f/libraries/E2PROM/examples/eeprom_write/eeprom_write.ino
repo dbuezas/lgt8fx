@@ -15,6 +15,8 @@ int addr = 0;
 
 void setup()
 {
+  // initialize EEPROM simulation to the size selected in the menu
+  lgt_eeprom_init(EEPROM_SIZE);
 }
 
 void loop()

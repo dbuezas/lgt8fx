@@ -102,10 +102,6 @@ void lgt8fx8x_init()
 // store ivref calibration value (According to the LGT8F328D databook, if VCAL is rewritten, the value of VCAL1 can be lost.)
 	_VCAL_1_ = VCAL1;
 
-// enable 1KB E2PROM 
-	ECCR = 0x80;
-	ECCR = 0x40;
-
 // clock source settings
 #if !defined(CLOCK_SOURCE)
 	if((VDTCR & 0x0C) == 0x0C) {
