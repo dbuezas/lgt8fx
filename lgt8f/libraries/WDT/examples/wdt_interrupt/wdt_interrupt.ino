@@ -19,7 +19,7 @@ void setup() {
 
 void loop() {
     int n = 0;
-  do {
+    do {
         Serial.print(F("    Elapsed time: "));
         Serial.print(n);
         Serial.println(" s");
