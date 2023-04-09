@@ -5,22 +5,24 @@
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
-WTO_1MS		KEYWORD1
-WTO_2MS		KEYWORD1
-WTO_4MS		KEYWORD1
-WTO_8MS		KEYWORD1
-WTO_16MS	KEYWORD1
-WTO_32MS	KEYWORD1
 WTO_64MS	KEYWORD1
 WTO_128MS	KEYWORD1
 WTO_256MS	KEYWORD1
 WTO_512MS	KEYWORD1
+WTO_1S	KEYWORD1
+WTO_2S	KEYWORD1
+WTO_4S	KEYWORD1
+WTO_8S	KEYWORD1
+WTO_16S	KEYWORD1
+WTO_32S	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
-wdt_enable	KEYWORD2
 wdt_reset	KEYWORD2
+wdt_enable	KEYWORD2
+wdt_ienable	KEYWORD2
+wdt_disable	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
