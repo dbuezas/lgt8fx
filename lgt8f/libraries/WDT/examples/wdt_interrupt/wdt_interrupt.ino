@@ -3,6 +3,11 @@
  * About every 4 seconds there will be a wdt interrupt. *
  * If you uncomment the line containing wdt_reset() the *
  * sketch you will not detect wdt interrupt signal.     *
+ ********************************************************
+ * When writing an Interrupt Service Routine (ISR):     *
+ * Keep short,don't use delay(), don't do serial prints *
+ * Make variables shared with the main code volatile    *
+ * Read this: https://gammon.com.au/interrupts          *
  ********************************************************/
 #include <WDT.h>
 
