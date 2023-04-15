@@ -88,7 +88,6 @@ void softRepairedWdtIsr(void)
 
         : /* No outputs */
         : [wdtcsr] "n" (_SFR_MEM_ADDR(WDTCSR)),
-		  [gpior1] "n" (_SFR_IO_ADDR(GPIOR1)),
           [wdif]   "i" (WDIF),
           [wdie]   "i" (WDIE),
           [nwdie]  "i" (~(1 << WDIE))
