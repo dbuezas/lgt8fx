@@ -5,7 +5,7 @@
 menu.clock_source=Clock Source
 menu.clock_div=Clock Divider
 menu.variant=Variant
-menu.arduino_isp=Arduino as ISP
+menu.arduino_isp=SERIAL_RX_BUFFER_SIZE
 menu.upload_speed=Upload speed
 
 #############################
@@ -28,9 +28,9 @@ menu.upload_speed=Upload speed
 328.build.board=AVR_LARDU_328E
 
 # Arduino as ISP
-328.menu.arduino_isp.disable=Default (64)
+328.menu.arduino_isp.disable=64 (normal)
 328.menu.arduino_isp.disable.build.SERIAL_RX_BUFFER_SIZE=64
-328.menu.arduino_isp.enable=[To burn an ISP] SERIAL_RX_BUFFER_SIZE to 250
+328.menu.arduino_isp.enable=250 (to burn ISP)
 328.menu.arduino_isp.enable.build.SERIAL_RX_BUFFER_SIZE=250
 
 # Clock source
