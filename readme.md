@@ -124,6 +124,10 @@ Like this pinout?
 
 ## *-->LGT8F328P-LQFP48*
 
+#### Nano Style
+
+<img src="https://user-images.githubusercontent.com/777196/232343332-d8d93c6b-80b1-4865-9910-bfa864a91081.png" alt="Nano style" width="200">
+
 #### Uno Style
 
 <img src="./docs/boards/uno_LQFP48.png" alt="Uno style" width="200">
