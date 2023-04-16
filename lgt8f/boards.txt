@@ -48,17 +48,17 @@ menu.upload_speed=Upload speed
 328.menu.clock_source.external_12.build.f_osc=12000000L
 
 # Clock divider
-328.menu.clock_div.1=1x
+328.menu.clock_div.1=1
 328.menu.clock_div.1.build.f_div=1
-328.menu.clock_div.2=2x
+328.menu.clock_div.2=2
 328.menu.clock_div.2.build.f_div=2
-328.menu.clock_div.4=4x
+328.menu.clock_div.4=4
 328.menu.clock_div.4.build.f_div=4
-328.menu.clock_div.8=8x
+328.menu.clock_div.8=8
 328.menu.clock_div.8.build.f_div=8
-328.menu.clock_div.16=16x
+328.menu.clock_div.16=16
 328.menu.clock_div.16.build.f_div=16
-328.menu.clock_div.32=32x
+328.menu.clock_div.32=32
 328.menu.clock_div.32.build.f_div=32
 
 # Variants
