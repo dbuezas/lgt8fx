@@ -17,7 +17,6 @@ menu.upload_speed=Upload speed
 328.upload.protocol=arduino
 328.upload.maximum_data_size=2048
 328.upload.maximum_size=29696
-328.upload.speed=57600
 328.bootloader.tool=avrdude
 328.bootloader.high_fuses=0xff
 328.bootloader.low_fuses=0xff
@@ -62,7 +61,6 @@ menu.upload_speed=Upload speed
 328.menu.clock_div.32=32x
 328.menu.clock_div.32.build.f_div=32
 
-
 # Variants
 328.menu.variant.modelP=328P-LQFP32 (e.g. MiniEVB nano-style or WAVGAT)
 328.menu.variant.modelP.bootloader.path=lgt8fx8p
@@ -88,3 +86,11 @@ menu.upload_speed=Upload speed
 328.menu.variant.modelP_SSOP20.bootloader.path=lgt8fx8ps20
 328.menu.variant.modelP_SSOP20.bootloader.file=lgt8fx8ps20/optiboot_lgt8f328ps20.hex
 328.menu.variant.modelP_SSOP20.build.variant=lgt8fx8ps20
+
+# Upload Speeds
+328.menu.upload_speed.57600=57600
+328.menu.upload_speed.57600.upload.speed=57600
+328.menu.upload_speed.115200=115200
+328.menu.upload_speed.115200.upload.speed=115200
+328.menu.upload_speed.19200=19200
+328.menu.upload_speed.19200.upload.speed=19200
