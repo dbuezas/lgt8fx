@@ -3,7 +3,7 @@
 
 # Menu options
 menu.clock_source=Clock Source
-menu.clock_div=Clock Divder
+menu.clock_div=Clock Divider
 menu.variant=Variant
 menu.arduino_isp=Arduino as ISP
 menu.upload_speed=Upload speed
