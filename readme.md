@@ -77,10 +77,9 @@ Explore, configure and visualize timers for both atmega328p and lgt328p with thi
 #### [Pro Mini Style SSOP20](../../wiki/Pro-Mini-Style---SSOP20)
 
 <img src="./docs/boards/ssop20.jpg" alt="Pro Mini ssop20" width="200"> <img src="./docs/boards/ssop20_back.jpg" alt="Pro Mini ssop20" width="200"> <img src="./docs/boards/ssop20.png" alt="Pro Mini ssop20" width="200">
-![image](https://user-images.githubusercontent.com/777196/222880206-57e643d7-d955-4025-9e0d-541b5e960230.png)
 
-Pinout by [Electrogate](https://blog.eletrogate.com/tutorial-pro-mini-evb-lgt8f328p-arduino-ide/)
-
+<img src="./docs/boards/lgt8f328p_pro_mini_ssop20_pinout.png" alt="Nano style" width="800">
+Pinout by [wollewald](https://github.com/wollewald)
 
 ## *-->LGT8F328P-LQFP32*
 
