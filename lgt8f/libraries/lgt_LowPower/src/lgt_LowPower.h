@@ -204,19 +204,21 @@ extern LowPowerClass LowPower;
   
       #define s_unlockWrite(sfr,val)   \
 	    do {                           \
+		  uint8_t uwtmp = val;         \
           if (&sfr == &PMX1)           \
             { PMX0 = 0x80; }           \
           else                         \
             { _SFR_BYTE(sfr) = 0x80; } \
-          _SFR_BYTE(sfr) = val;        \
+          _SFR_BYTE(sfr) = uwtmp;      \
         } while (0)
 
   #else
              // LGT8F238D
       #define s_unlockWrite(sfr,val)   \
         do {                           \
+		  uint8_t  uwtmp = val;        \
           _SFR_BYTE(sfr) = 0x80;       \
-          _SFR_BYTE(sfr) = val;        \
+          _SFR_BYTE(sfr) = uwtmp;      \
         } while (0)
 
   #endif
