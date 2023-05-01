@@ -2,7 +2,7 @@
  * This example shows how the watchdog interrupt works. *
  * About every 4 seconds there will be a wdt interrupt. *
  * If you uncomment the line containing wdt_reset() the *
- * sketch you will not detect wdt interrupt signal.     *
+ * sketch will not detect wdt interrupt signal.         *
  ********************************************************
  * When writing an Interrupt Service Routine (ISR):     *
  * Keep short,don't use delay(), don't do serial prints *
@@ -39,7 +39,7 @@ void loop() {
             wdt_ienable(WTO_4S);
         }
       //wdt_reset();
-  } while( n++ < 1000 );
+    } while( n++ < 1000 );
 }
 
 ISR (WDT_vect)
