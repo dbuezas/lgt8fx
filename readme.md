@@ -91,16 +91,18 @@ Pinout by [Electrogate](https://blog.eletrogate.com/tutorial-pro-mini-evb-lgt8f3
 #### Pro Mini style
 
 <img src="./docs/boards/pro_mini_LQFP32.png" alt="Pro Mini style" width="200">
-(
+<img src="./docs/boards/lgt8f328p_pro_mini_qfp32l_pinout.png" alt="Nano style" width="800">
+
+Pinout by [wollewald](https://github.com/wollewald) Visit his Electronic projects blog here https://wolles-elektronikkiste.de/en/
 
 #### [Nano Style](../../wiki/Nano-Style)
 
 <img src="./docs/boards/nano.jpg" alt="Nano style" width="200"> <img src="./docs/boards/nano_back.jpg" alt="Nano style" width="200">
 
 <img src="./docs/boards/nano_LQFP32.png" alt="Nano style" width="200">
-<img src="./docs/boards/lgt8f328p_32_nano__pinout.png" alt="Nano style" width="600">
+<img src="./docs/boards/lgt8f328p_nano_qfp32l_pinout.png" alt="Nano style" width="800">
 
-Pinout by [wollewald](https://github.com/wollewald) Visit his Electronic projects blog here https://wolles-elektronikkiste.de/en/
+Pinout by [wollewald](https://github.com/wollewald)
 
 Like this pinout?
 
@@ -127,6 +129,8 @@ Like this pinout?
 #### Nano Style
 
 <img src="https://user-images.githubusercontent.com/777196/232343332-d8d93c6b-80b1-4865-9910-bfa864a91081.png" alt="Nano style" width="200">
+<img src="./docs/boards/lgt8f328p_nano_qfp48l_pinout.png" alt="Nano style" width="800">
+Pinout by [wollewald](https://github.com/wollewald)
 
 #### Uno Style
 
