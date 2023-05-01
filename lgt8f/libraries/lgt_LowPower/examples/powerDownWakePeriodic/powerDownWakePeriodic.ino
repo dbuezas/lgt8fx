@@ -1,9 +1,24 @@
+/*******************************************************************************
+ * This example shows how to use the DPS1 (powerDown) sleep mode and how to    *
+ * set up input pins for the best low consumption and how to set up the LVD.   *
+ * In this example if LVD enabled with BOD_ON parameter the consumption will   *
+ * increase about 12.5 microamps during sleep. The LED will turned on for      *
+ * 2 seconds every time it wakes up.                                           *
+ *                                                                             *
+ * Attention! The input pins voltage level without pullup (or pulldown)        *
+ * resistors will be float. At numerous floating input pins can cause the      *
+ * sleeping consumption increase up to 900 microamps.                          *
+ *                                                                             *
+ * Using LGT8F328x in Arduino envinronment LVD (BOD equivalent) not activated  *
+ * by default. Therefore in case of unused LVD not needed to turn if off. In   *
+ * this case (parameter BOD_ON) the generated code is a bit shorter.           *
+ *******************************************************************************/
+
 #include "lgt_LowPower.h"
 
 void setup()
 {
-    // No setup is required for LowPower library
-	
+  // Pin settings for low consumption in sleep mode.
     DDRB  = 0x00;                 // Set all pins to input
     DDRC  = 0x00;
     DDRD  = 0x00;
@@ -13,7 +28,7 @@ void setup()
     PORTD = 0xFF;
     PORTE = 0xFF;
     pinMode(LED_BUILTIN, OUTPUT); // Visual effect to show program status
-    digitalWrite(LED_BUILTIN, HIGH);
+    digitalWrite(LED_BUILTIN, LOW);
     VDTCR = 0x80;
     VDTCR = 0x4B;                 // LVD (BOD) enable to 2.5 V for demonstration purpose 
 }
@@ -31,3 +46,4 @@ void loop()
     // Example: Read sensor, data logging, data transmission.
     digitalWrite(LED_BUILTIN, HIGH);
 }
+
