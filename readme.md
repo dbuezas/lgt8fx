@@ -181,7 +181,7 @@ https://tooomm.github.io/github-release-stats/?username=dbuezas&repository=lgt8f
 
 # Thanks
 
-- [#Larduino_HSP](https://github.com/LGTMCU/Larduino_HSP) for doing 99.9999% of the work
+- [#Larduino_HSP](https://github.com/LGTMCU/Larduino_HSP) for doing 90% of the work
 - [#RalphBacon](https://github.com/RalphBacon) introducing most of us to the board
 - [#dcfusor](https://github.com/dcfusor) for help with fast io backporting
 - [#HI-SEBA](https://github.com/HI-SEBA) for help with software serial
@@ -190,5 +190,6 @@ https://tooomm.github.io/github-release-stats/?username=dbuezas&repository=lgt8f
 - [#jg1uaa](https://github.com/jg1uaa) for the updated Software Serial without timing tables and missing methods
 - [#LaZsolt](https://github.com/LaZsolt) for adding SSOP20 lgt8f328p support and accurate delayMicroseconds
 - [#jayzakk](https://github.com/jayzakk) for fixing the ADC prescaler for faster analog reads
+- [#wollewald](https://github.com/wollewald) for all the pinout diagrms 
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/dbuezas)
