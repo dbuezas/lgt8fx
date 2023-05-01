@@ -16,7 +16,7 @@ void setup() {
 
 void loop() {
     int n = 0;
-  do {
+    do {
         Serial.print(F("Elapsed time: "));
         Serial.print(n);
         Serial.println(" s");
@@ -25,5 +25,5 @@ void loop() {
         delay(499);
         digitalWrite(LED_BUILTIN, LOW);
       //wdt_reset();
-  } while( n++ < 1000 );
+    } while( n++ < 1000 );
 }
