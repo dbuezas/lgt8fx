@@ -9,6 +9,8 @@
  * Low Power RC timer or Reset pin.                                            *
  * Available durations for this low power mode: about 128, 256, 512, 2500 ms   *
  *                                                    and     SLEEP_FOREVER    *
+ *******************************************************************************
+ * LGT8F328D does not have DPS2 sleep mode.                                    *
  *******************************************************************************/
  
 #include "lgt_LowPower.h"
