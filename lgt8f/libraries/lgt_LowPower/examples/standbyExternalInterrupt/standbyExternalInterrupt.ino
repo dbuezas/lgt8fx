@@ -16,7 +16,7 @@
 #include "lgt_LowPower.h"
 
 const int wakeUpPin = D2;         // Digital pin 2 == Int 0
-boolean intflag;
+volatile boolean intflag;
 
 void anExtISR(void)
 {
