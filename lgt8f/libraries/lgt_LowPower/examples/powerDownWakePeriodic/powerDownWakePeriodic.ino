@@ -12,6 +12,8 @@
  * Using LGT8F328x in Arduino envinronment LVD (BOD equivalent) not activated  *
  * by default. Therefore in case of unused LVD not needed to turn if off. In   *
  * this case (parameter BOD_ON) the generated code is a bit shorter.           *
+ *******************************************************************************
+ * LGT8F328D cannot wake up with watchdog timer when mode is DPS0 or DPS1.     *
  *******************************************************************************/
 
 #include "lgt_LowPower.h"
