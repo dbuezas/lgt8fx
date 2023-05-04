@@ -8,6 +8,9 @@
  * by default. Therefore not needed to turn off it to sleep. In case of BOD_ON *
  * the generated code is shorter a bit.                                        *
  *                                                                             *
+ * LGT8F328D cannot wake up with watchdog timer when mode is DPS0 or DPS1.     *
+ * SLEEP_FOREVER is recommended.                                               *
+ *******************************************************************************
  * In DPS1 (== powerDown) sleep mode the external interrupts can only work in  *
  * low level mode. In this case if the related ISR mode was set to something   *
  * other than LOW then interrupt will not called at wake up.                   *
@@ -47,7 +50,6 @@ void setup()
   // External interrupt on pin (example: press of an active low button)
   // A pullup resistor is used to hold the signal high when no button press
   // In this example the internal resistor is used for to hold the signal high.
-  
 }
 
 void loop() 
