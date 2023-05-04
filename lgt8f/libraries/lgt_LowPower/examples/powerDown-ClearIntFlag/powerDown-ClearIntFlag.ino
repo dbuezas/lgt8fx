@@ -5,6 +5,8 @@
  * wakes up.                                                                   *
  *                                                                             *
  * The case of the ADC interrupt flag shows how to proceed in such cases.      *
+ *******************************************************************************
+ * LGT8F328D cannot wake up with watchdog timer when mode is DPS0 or DPS1.     *
  *******************************************************************************/
 
 #include "lgt_LowPower.h"
