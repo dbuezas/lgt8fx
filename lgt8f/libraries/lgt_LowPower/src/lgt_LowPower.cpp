@@ -374,6 +374,8 @@ void    LowPowerClass::idle(period_t period, adc_t adc,
 
     if (period != SLEEP_FOREVER)
     {
+        // enable 32KRC for WDT
+        s_unlockWrite(PMCR,PMCR | 0x10);
         wdt_ienable(period);
     }
     else
@@ -659,6 +661,10 @@ void    LowPowerClass::adcNoiseReduction(period_t period, adc_t adc, timer2_t ti
 
     if (period != SLEEP_FOREVER)
     {
+    #if defined (__LGT8FX8E__)
+        // enable 32KRC for WDT
+        s_unlockWrite(PMCR,PMCR | 0x10);
+    #endif
         wdt_ienable(period);
     }
     else
@@ -851,6 +857,8 @@ void    LowPowerClass::powerDown(period_t period, adc_t adc, bod_t bod)
 
     if (period != SLEEP_FOREVER)
     {
+        // enable 32KRC for WDT
+        s_unlockWrite(PMCR,PMCR | 0x10);
         wdt_ienable(period);
     }
     else
@@ -1204,6 +1212,8 @@ void    LowPowerClass::powerStandby(period_t period, adc_t adc, bod_t bod, timer
 
     if (period != SLEEP_FOREVER)
     {
+        // enable 32KRC for WDT
+        s_unlockWrite(PMCR,PMCR | 0x10);
         wdt_ienable(period);
     }
     else
@@ -1506,6 +1516,8 @@ void    LowPowerClass::powerExtStandby(period_t period, adc_t adc, bod_t bod, ti
 
     if (period != SLEEP_FOREVER)
     {
+        // enable 32KRC for WDT
+        s_unlockWrite(PMCR,PMCR | 0x10);
         wdt_ienable(period);
     }
     else
@@ -1658,24 +1670,6 @@ void    LowPowerClass::powerExtStandby(period_t period, adc_t adc, bod_t bod, ti
 
 /*******************************************************************************
 * Name: deepSleep2
-* Description: Putting LGT8F328D microcontroller into power down mode.
-*              Available wake-up sources are INT0, INT1 and Reset pin.
-*              After waking up from power down mode, the program execution
-*              start with Reset vector. The software can read the MCUSR
-*              register to identify a reset condition.
-*
-*******************************************************************************/
-#if defined (__LGT8FX8E__)
-void    LowPowerClass::deepSleep2()
-{
-    lowPower_(SLEEP_MODE_DPS2);
-
-    //Code execution will not continue in this mode
-}
-#endif
-
-/*******************************************************************************
-* Name: deepSleep2
 * Description: Putting LGT8F328P microcontroller into deep sleep.
 *              Wake up sources are available by port D pin level change ( INT0,
 *              INT1, RXD, TXD, etc) or using Low Power RC timer or with Reset pin.
@@ -1692,7 +1686,7 @@ void    LowPowerClass::deepSleep2()
 *               (a) SLEEP_128MS ~ 128 ms sleep
 *               (b) SLEEP_256MS ~ 256 ms sleep
 *               (c) SLEEP_512MS ~ 512 ms sleep
-*               (d) SLEEP_1S    ~ 1 s sleep
+*               (d) SLEEP_1S    ~ 2,5 s sleep
 *               (e) SLEEP_FOREVER - Sleep without waking up through LPRC
 *
 *******************************************************************************/

@@ -174,7 +174,6 @@ class LowPowerClass
                 void    powerDown        (period_t period, adc_t adc, bod_t bod);
                 void    powerStandby     (period_t period, adc_t adc, bod_t bod, timer2_t timer2);
                 void    powerExtStandby  (period_t period, adc_t adc, bod_t bod, timer2_t timer2);
-                void    deepSleep2();
             #elif defined (__LGT8FX8P__)
                 void    idle(period_t period, adc_t adc, timer3_t timer3, timer2_t timer2,
                              timer1_t timer1, timer0_t timer0, spi_t spi,
@@ -203,7 +202,7 @@ extern LowPowerClass LowPower;
   #if defined(__LGT8FX8P__)
   
       #define s_unlockWrite(sfr,val)   \
-        do {                           \
+	    do {                           \
           uint8_t uwtmp = val;         \
           if (&sfr == &PMX1)           \
             { PMX0 = 0x80; }           \
@@ -234,3 +233,4 @@ extern LowPowerClass LowPower;
 #endif
 
 #endif
+
