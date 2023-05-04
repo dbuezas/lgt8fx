@@ -3,6 +3,8 @@
  *                                                                             *
  * The lgt_LowPower library is using WDT for the timing of the sleep period.   *
  * This is the reason why required to reinitialize the WDT after waking up.    *
+ *******************************************************************************
+ * LGT8F328D cannot wake up with watchdog timer when mode is DPS0 or DPS1.     *
  *******************************************************************************/
  
 #include "WDT.h"
