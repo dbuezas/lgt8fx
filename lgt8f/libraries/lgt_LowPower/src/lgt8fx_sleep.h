@@ -91,14 +91,14 @@
   do {                       \
       uint8_t _tmp_fe_ = MCUCR | (uint8_t) (1 << FPDEN); \
       MCUCR = 1 << MWCE;     \
-	  MCUCR = _tmp_fe_;      \
+      MCUCR = _tmp_fe_;      \
   } while (0)
 	  
 #define sleep_flash_enable() \
   do {                       \
       uint8_t _tmp_fd_ = MCUCR & (uint8_t)~(1 << FPDEN); \
       MCUCR = 1 << MWCE;     \
-	  MCUCR = _tmp_fd_;      \
+      MCUCR = _tmp_fd_;      \
   } while (0)
 
 #endif
