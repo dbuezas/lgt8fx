@@ -230,7 +230,7 @@ void setup()
 	
 	Serial.print(F("Writing, please wait ..."));
 	
-	lgt_eeprom_writeSWM( 123, (uint32_t*)buff, 512/sizeof(uint32_t) );
+	lgt_eeprom_writeSWM( 124, (uint32_t*)buff, 512/sizeof(uint32_t) );
 
 	free(buff);
 	
@@ -246,7 +246,7 @@ void setup()
 	
 	rngSeed(0);
 	
-	lgt_eeprom_readSWM( 123, (uint32_t*)buff, 512/sizeof(uint32_t) );
+	lgt_eeprom_readSWM( 124, (uint32_t*)buff, 512/sizeof(uint32_t) );
 	
 	Serial.println(F("Verifying ..."));
 	
