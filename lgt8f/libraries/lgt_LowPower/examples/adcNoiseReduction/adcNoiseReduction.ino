@@ -4,8 +4,7 @@
  * an ADC conversion starts automatically. )                                   *
  * The example periodically read A0 input. The sleep time is shorter than the  *
  * specified because the ADC wakes it up at the end of the conversion. This    *
- * library clears the WDT immediately after waking up. ( The original LowPower *
- * library by Lim Phang Moh does not clear the WDT immediately.)               *
+ * library clears the WDT immediately after waking up.                         *
  * This example also show how to clear ADIF flag before entering sleep mode.   *
  *                                                                             *
  * - You should pay attention to that reading any analalog input with ADC      *
