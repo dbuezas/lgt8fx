@@ -35,7 +35,7 @@
 #define _FIO_DDR_29	DDRE 
 #define _FIO_DDR_30	DDRE 
 #define _FIO_DDR_31	DDRE 
-#define _FIO_DDR_32	DDRF 
+#define _FIO_DDR_32	DDRE 
 #define _FIO_DDR_33	DDRF 
 #define _FIO_DDR_34	DDRF 
 #define _FIO_DDR_35	DDRF 
@@ -86,7 +86,7 @@
 #define _FIO_DDR_D29	DDRE 
 #define _FIO_DDR_D30	DDRE 
 #define _FIO_DDR_D31	DDRE 
-#define _FIO_DDR_D32	DDRF 
+#define _FIO_DDR_D32	DDRE 
 #define _FIO_DDR_D33	DDRF 
 #define _FIO_DDR_D34	DDRF 
 #define _FIO_DDR_D35	DDRF 
@@ -137,7 +137,7 @@
 #define _FIO_PORT_29	PORTE 
 #define _FIO_PORT_30	PORTE 
 #define _FIO_PORT_31	PORTE 
-#define _FIO_PORT_32	PORTF 
+#define _FIO_PORT_32	PORTE 
 #define _FIO_PORT_33	PORTF 
 #define _FIO_PORT_34	PORTF 
 #define _FIO_PORT_35	PORTF 
@@ -188,7 +188,7 @@
 #define _FIO_PORT_D29	PORTE 
 #define _FIO_PORT_D30	PORTE 
 #define _FIO_PORT_D31	PORTE 
-#define _FIO_PORT_D32	PORTF 
+#define _FIO_PORT_D32	PORTE 
 #define _FIO_PORT_D33	PORTF 
 #define _FIO_PORT_D34	PORTF 
 #define _FIO_PORT_D35	PORTF 
@@ -239,7 +239,7 @@
 #define _FIO_PIN_29	PINE 
 #define _FIO_PIN_30	PINE 
 #define _FIO_PIN_31	PINE 
-#define _FIO_PIN_32	PINF 
+#define _FIO_PIN_32	PINE 
 #define _FIO_PIN_33	PINF 
 #define _FIO_PIN_34	PINF 
 #define _FIO_PIN_35	PINF 
@@ -290,7 +290,7 @@
 #define _FIO_PIN_D29	PINE 
 #define _FIO_PIN_D30	PINE 
 #define _FIO_PIN_D31	PINE 
-#define _FIO_PIN_D32	PINF 
+#define _FIO_PIN_D32	PINE 
 #define _FIO_PIN_D33	PINF 
 #define _FIO_PIN_D34	PINF 
 #define _FIO_PIN_D35	PINF 
