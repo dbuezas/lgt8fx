@@ -1,0 +1,13 @@
+{
+  "name": "lgt_Low-Power",
+  "version": "1.82",
+  "keywords": "lowpower, sleep",
+  "description": "Library sleeping for Logicgreen LGT8F328x MCUs",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/dbuezas/lgt8fx/tree/master/lgt8f/libraries/lgt_lowpower"
+  },
+  "frameworks": "arduino",
+  "platforms": "atmelavr"
+}

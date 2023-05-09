@@ -1,0 +1,71 @@
+#######################################
+# Syntax Coloring Map fo lgt_LowPower #
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)                #
+#######################################
+
+#######################################
+# Methods and Functions (KEYWORD2)    #
+#######################################
+
+idle	KEYWORD2
+adcNoiseReduction	KEYWORD2
+powerDown	KEYWORD2
+powerSave	KEYWORD2
+powerStandby	KEYWORD2
+powerExtStandby	KEYWORD2
+deepSleep2	KEYWORD2
+#addWakeupPin	KEYWORD2
+#removeWakeupPin	KEYWORD2
+#pullupUnusedPin	KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)                #
+#######################################
+
+LowPower	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)                #
+#######################################
+
+SLEEP_64MS	LITERAL1
+SLEEP_128MS	LITERAL1
+SLEEP_256MS	LITERAL1
+SLEEP_512MS	LITERAL1
+SLEEP_1S	LITERAL1
+SLEEP_2S	LITERAL1
+SLEEP_4S	LITERAL1
+SLEEP_8S	LITERAL1
+SLEEP_16S	LITERAL1
+SLEEP_32S	LITERAL1
+SLEEP_FOREVER LITERAL1
+ADC_OFF	LITERAL1
+ADC_ON	LITERAL1
+BOD_OFF	LITERAL1		
+BOD_ON	LITERAL1
+TIMER3_OFF	LITERAL1
+TIMER3_ON	LITERAL1
+TIMER2_OFF	LITERAL1
+TIMER2_ON	LITERAL1
+TIMER1_OFF	LITERAL1
+TIMER1_ON	LITERAL1
+TIMER0_OFF	LITERAL1
+TIMER0_ON	LITERAL1
+USART0_OFF	LITERAL1
+USART0_ON	LITERAL1
+SPI_OFF	LITERAL1
+SPI_ON	LITERAL1
+TWI_OFF	LITERAL1
+TWI_ON	LITERAL1
+PCIC_OFF	LITERAL1
+PCIC_ON	LITERAL1
+FLASHCTL_OFF	LITERAL1
+FLASHCTL_ON	LITERAL1
+HFOSC_OFF	LITERAL1
+HFOSC_ON	LITERAL1
+SLEEP_MODE_DPS0	LITERAL1
+SLEEP_MODE_DPS1	LITERAL1
+SLEEP_MODE_DPS2	LITERAL1
