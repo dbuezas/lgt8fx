@@ -16,8 +16,15 @@ Now the boards appear in the IDE. You can also select clock speeds, [upload spee
 <img src="./docs/arduino/clock-source.png" alt="External Clock" width="550">
 
 32Mhz is twice as fast as a conventional arduino nano! Actually _even faster_ as many operations take less clock cycles than in the atmega328p. Check out some [benchmarks](https://github.com/dbuezas/lgt8fx/discussions/77)
+
+# Recommended read
+
+Tutorials and details about this board:
+[LGT8F328P - LQFP32 Boards • Wolles Elektronikkiste](https://wolles-elektronikkiste.de/en/lgt8f328p-lqfp32-boards)
+
 # Discussions, ideas, questions and show your project
-Explore the discussions: https://github.com/dbuezas/lgt8fx/discussions
+
+- Explore the discussions: https://github.com/dbuezas/lgt8fx/discussions
 
 # Features
 
