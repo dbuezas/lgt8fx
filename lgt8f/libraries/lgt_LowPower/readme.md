@@ -82,14 +82,14 @@ Basic usage:
   The Pin Change and Interrupt module uses the I/O clock which is halted in all sleep modes except Idle mode, like ATmega328 does. <br>
 <br>
 
-`LowPower.adcNoiseReduction(SLEEP_period, ADC_ON, BOD_OFF, TIMER2_OFF )` <br>
+`LowPower.adcNoiseReduction( SLEEP_period, ADC_ON, TIMER2_OFF )` <br>
   --Putting microcontroller into ADC noise reduction state. <br>
   (Turning off the ADC module is basically removing the purpose of this low power mode.) <br>
 <br>
 
  _--The functions below stops the clocks of peripherial modules so there's no point to left under powered modules during sleep which has no clock, like ADC._
 
-`LowPower.powerExtStandby(SLEEP_period, ADC_OFF, BOD_OFF, TIMER2_OFF )` <br>
+`LowPower.powerExtStandby( SLEEP_period, ADC_OFF, BOD_OFF, TIMER2_OFF )` <br>
   --LGT8F power save sleep mode <br>
   --Wake up sources: Watchdog, External interrupt 0/1, Pin Change Interrupt, Timer2, Two-Wire serial Interface address match, External reset <br>
 <br>
@@ -99,7 +99,7 @@ Basic usage:
   --Wake up sources: Watchdog, External interrupt 0/1, Pin Change Interrupt, Timer2, Two-Wire serial Interface address match, External reset <br>
 <br>
 
-`LowPower.powerDown(SLEEP_period, ADC_OFF, BOD_OFF, TIMER2_OFF )` <br>
+`LowPower.powerDown( SLEEP_period, ADC_OFF, BOD_OFF )` <br>
   --LGT8F **D**ee**P** **S**leep mode **1** <br>
   --Same as DSP0, but since of all system clock are turned off the INT0, INT1 edge detect interrupts not working.<br>
   --Wake up sources: Watchdog, External level interrupt 0/1, Port D level change, Timer2. <br>
