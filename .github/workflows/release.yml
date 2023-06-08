@@ -1,8 +1,16 @@
 name: Release on PR or commit 
 on:
-  workflow_dispatch: # can be ran manually
+  pull_request:
+    types:
+      - closed
+    branches: [ "master" ]
+    paths-ignore:
+      - 'readme.md'
+      - 'docs/**/*'
+      - '.github/**/*'
 jobs:
   build:
+    if: github.repository == 'dbuezas/lgt8fx' && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     permissions:
       contents: write
