@@ -34,7 +34,7 @@
 
 #if defined (__LGT8F__)
 
-#include <avr\sleep.h>
+#include <avr/sleep.h>
 
 #if defined(__LGT8FX8E__)
   // Sleep FLASH during sleep bit for 328D
