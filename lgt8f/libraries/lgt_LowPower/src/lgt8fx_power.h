@@ -30,7 +30,7 @@
 #ifndef _LGT8F_POWER2_
 #define _LGT8F_POWER2_ 1
 
-#include <avr\power.h>
+#include <avr/power.h>
 
 /* ATmega328P compatibile funcions */
 #define power2_spi_enable()  ( SPCR  |= (uint8_t) (1 << SPE) )
