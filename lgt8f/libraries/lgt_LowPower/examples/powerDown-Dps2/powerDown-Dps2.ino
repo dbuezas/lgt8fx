@@ -7,8 +7,8 @@
  * retention. After wake up the chip will perform a complete power-on reset.   *
  * Wake up sources are: port D pin level change( INT0, INT1, RXD, TXD, etc) or *
  * Low Power RC timer or Reset pin.                                            *
- * Available durations for this low power mode: about 128, 256, 512, 2500 ms   *
- *                                                    and     SLEEP_FOREVER    *
+ * Available durations for this low power mode: about 128 ms, 256 ms, 512 ms,  *
+ * 1 s and SLEEP_FOREVER.                                                      *
  *******************************************************************************
  * LGT8F328D does not have DPS2 sleep mode.                                    *
  *******************************************************************************/
@@ -25,11 +25,10 @@ void loop()
     delay(4000);
 
     // Set which pins should be the wake-up pins
-    IOCWK = PORTD2 | PORTD4;
+    IOCWK = (1<<PORTD2) | (1<<PORTD4);
 
-    // Enter deep sleep state for > 2 s
+    // Enter deep sleep state for < 2 s or forever
     LowPower.deepSleep2(SLEEP_1S);
 
-    // No code executiion after deepSleep2
+    // No code execution after deepSleep2
 }
-
