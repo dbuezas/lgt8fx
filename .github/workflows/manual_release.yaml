@@ -14,5 +14,7 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v4
     - uses: ncipollo/release-action@v1
       with:
+        makeLatest: true
+        generateReleaseNotes: true
         tag: "v${{env.RELEASE_VERSION}}"
         artifacts: "lgt8f-${{env.RELEASE_VERSION}}.zip"
