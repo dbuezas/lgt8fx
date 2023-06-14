@@ -1,0 +1,18 @@
+name: Manual Release
+on:
+    workflow_dispatch: # can be ran manually
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set env
+      run: echo "RELEASE_VERSION=$(node make.js)" >> $GITHUB_ENV
+    - name: Commit & Push changes
+      uses: stefanzweifel/git-auto-commit-action@v4
+    - uses: ncipollo/release-action@v1
+      with:
+        tag: "v${{env.RELEASE_VERSION}}"
+        artifacts: "lgt8f-${{env.RELEASE_VERSION}}.zip"
