@@ -35,7 +35,7 @@ WTO_32S	KEYWORD1
 # Methods and Functions (KEYWORD2)
 #######################################
 
-Lgtwdt KEYWORD2
+Lgtwdt  KEYWORD2
 wdt_reset	KEYWORD2
 wdt_enable	KEYWORD2
 wdt_ienable	KEYWORD2
