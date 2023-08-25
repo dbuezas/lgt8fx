@@ -114,11 +114,11 @@ void softRepairedWdtIsr(void) {
       "out    __SREG__  , r24 \n\t"
       "lds    r24, (s_tempreg)\n\t" // temp_reg = s_tempreg;
       "jmp    __vector_6      \n\t"
-      "1:                        \n\t"
+      "1:                     \n\t"
 
       : /* No outputs */
       : [wdtcsr] "n"(_SFR_MEM_ADDR(WDTCSR)), [wdif] "i"(WDIF), [wdie] "i"(WDIE),
-        [nwdie] "i"(~(1 << WDIE)));
+        [nwdie] "i"(~(1 << WDIE)) );
 
   /*
       o_sreg = SREG;
@@ -133,5 +133,7 @@ void softRepairedWdtIsr(void) {
       }
   */
 }
+
+extern LGTWDT Lgtwdt;
 
 #endif
