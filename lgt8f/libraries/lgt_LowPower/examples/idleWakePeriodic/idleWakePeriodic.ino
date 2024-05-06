@@ -30,7 +30,7 @@ void setup()
 
 void loop() 
 {
-    // It is recommended to clear ADC interrupt and start conversion flag before sleep.
+    // It is recommended to clear ADC interrupt and clear start conversion flag before sleep.
     ADCSRA |=  ( 1<<ADIF );
     ADCSRA &= ~( 1<<ADSC );
 
