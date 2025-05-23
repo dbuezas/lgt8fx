@@ -407,8 +407,13 @@ const uint8_t PROGMEM port_to_PCMSK_PGM[] = { 0, 0, 0xFF & (uint16_t)&PCMSK0, 0x
 
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
 	NOT_ON_TIMER, /* 0 - port D */
+#if defined(__LGT8FX8E__) || defined(__LGT8FX8P__)
+	TIMER3A,
+	TIMER3B,
+#else
 	NOT_ON_TIMER,
 	NOT_ON_TIMER,
+#endif
 	// on the ATmega168, digital pin 3 has hardware pwm
 #if defined(__AVR_ATmega8__)
 	NOT_ON_TIMER,
