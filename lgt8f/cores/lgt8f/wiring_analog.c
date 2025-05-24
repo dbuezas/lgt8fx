@@ -309,8 +309,7 @@ void analogWrite(uint8_t pin, int val)
 			case TIMER3A:
 				// connect pwm to pin on timer 3, channel A
 				// and switch pin data direction of PORTD to input and PORTE to output
-				TCCR3A |= 1 << COM3A1 | 1 << WGM30;
-				TCCR3B  = 1 << WGM32  | 1 << CS30;
+				sbi(TCCR3A,COM3A1);
 				#if !defined(__LGT8FX8P48__)
 				cbi(DDRD,DDD1);
 				#endif
@@ -323,8 +322,7 @@ void analogWrite(uint8_t pin, int val)
 			case TIMER3B:
 				// connect pwm to pin on timer 3, channel B
 				// and switch pin data direction of PORTD to input and PORTE to output
-				TCCR3A |= 1 << COM3B1 | 1 << WGM30;
-				TCCR3B  = 1 << WGM32  | 1 << CS30;
+				sbi(TCCR3A,COM3B1);
 				#if !defined(__LGT8FX8P48__)
 				cbi(DDRD,DDD2);
 				#endif
@@ -336,8 +334,6 @@ void analogWrite(uint8_t pin, int val)
 			#if defined(TCCR3A) && defined(COM3C1)
 			case TIMER3C:
 				// connect pwm to pin on timer 3, channel C
-				TCCR3A |= 1 << COM3C1 | 1 << WGM30;
-				TCCR3B  = 1 << WGM32  | 1 << CS30;
 				sbi(TCCR3A, COM3C1);
 				sbi(DDRF,DDF3);
 				OCR3C = val; // set pwm duty
