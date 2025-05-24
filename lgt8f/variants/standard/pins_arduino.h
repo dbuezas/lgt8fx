@@ -406,55 +406,76 @@ const uint8_t PROGMEM port_to_PCMSK_PGM[] = { 0, 0, 0xFF & (uint16_t)&PCMSK0, 0x
 #endif
 
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
-	NOT_ON_TIMER, /* 0 - port D */
-#if defined(__LGT8FX8E__) || defined(__LGT8FX8P__)
-	TIMER3A,
-	TIMER3B,
+	NOT_ON_TIMER, /* 0 - port D0 */
+#if ( defined(__LGT8FX8E__) || defined(__LGT8FX8P__) ) && !defined(__LGT8FX8P48__)
+	TIMER3A,      /* 1 - port D1 */
+	TIMER3B,      /* 2 - port D2 */
 #else
-	NOT_ON_TIMER,
-	NOT_ON_TIMER,
+	NOT_ON_TIMER, /* 1 - port D1 */
+	NOT_ON_TIMER, /* 2 - port D2 */
 #endif
 	// on the ATmega168, digital pin 3 has hardware pwm
 #if defined(__AVR_ATmega8__)
-	NOT_ON_TIMER,
+	NOT_ON_TIMER, /* 3 - port D3 */
 #else
-	TIMER2B,
+	TIMER2B,      /* 3 - port D3 */
 #endif
 #if defined(__LGT8FX8E__) || defined(__LGT8FX8P__)
-	LGTDAO0,
+	LGTDAO0,      /* 4 - port D4 */
 #else
-	NOT_ON_TIMER,
+	NOT_ON_TIMER, /* 4 - port D4 */
 #endif
 	// on the ATmega168, digital pins 5 and 6 have hardware pwm
 #if defined(__AVR_ATmega8__)
-	NOT_ON_TIMER,
-	NOT_ON_TIMER,
+	NOT_ON_TIMER, /* 5 - port D5 */
+	NOT_ON_TIMER, /* 6 - port D6 */
 #else
-	TIMER0B,
-	TIMER0A,
+	TIMER0B,      /* 5 - port D5 */
+	TIMER0A,      /* 6 - port D6 */
 #endif
-	NOT_ON_TIMER,
-	NOT_ON_TIMER, /* 8 - port B */
-	TIMER1A,
-	TIMER1B,
+	NOT_ON_TIMER, /* 7 - port D7 */
+	NOT_ON_TIMER, /* 8 - port B0 */ 
+	TIMER1A,      /* 9 - port B1 */
+	TIMER1B,      /* 10- port B2 */
 #if defined(__AVR_ATmega8__)
-	TIMER2,
+	TIMER2,       /* 11- port B3 */
 #else
-	TIMER2A,
+	TIMER2A,      /* 11- port B3 */
 #endif
-	NOT_ON_TIMER,
-	NOT_ON_TIMER,
-	NOT_ON_TIMER,
-	NOT_ON_TIMER, /* 14 - port C */
-	NOT_ON_TIMER,
-	NOT_ON_TIMER,
-	NOT_ON_TIMER,
-	NOT_ON_TIMER,
-	NOT_ON_TIMER,
-	NOT_ON_TIMER,
+	NOT_ON_TIMER, /* 12- port B4 */
+	NOT_ON_TIMER, /* 13- port B5 */
+	NOT_ON_TIMER, /* 14- port C0 */
+	NOT_ON_TIMER, /* 15- port C1 */
+	NOT_ON_TIMER, /* 16- port C2 */
+	NOT_ON_TIMER, /* 17- port C3 */
+	NOT_ON_TIMER, /* 18- port C4 */
+	NOT_ON_TIMER, /* 19- port C5 */
+	NOT_ON_TIMER, /* 20- port E1 */
+	NOT_ON_TIMER, /* 21- port E3 */
 #if defined(__LGT8FX8E__)
-	LGTDAO1,
+	LGTDAO1,      /* 22- port E0 */
 #endif
+#if defined(__LGT8FX8P48__)
+	NOT_ON_TIMER, /* 22- port B6 */
+	NOT_ON_TIMER, /* 23- port C7 */
+	NOT_ON_TIMER, /* 24- port F0 */
+	NOT_ON_TIMER, /* 25- port E6 */
+	NOT_ON_TIMER, /* 26- port E7 */
+	NOT_ON_TIMER, /* 27- port B7 */
+	NOT_ON_TIMER, /* 28- port C6 */
+	NOT_ON_TIMER, /* 29- port E0 */
+	NOT_ON_TIMER, /* 30- port E2 */
+	NOT_ON_TIMER, /* 31- port E4 */
+	NOT_ON_TIMER, /* 32- port E5 */
+	TIMER3A,      /* 33- port F1 */
+	TIMER3B,      /* 34- port F2 */
+	TIMER3C,      /* 35- port F3 */
+	NOT_ON_TIMER, /* 36- port F4 */
+	NOT_ON_TIMER, /* 37- port F5 */
+	NOT_ON_TIMER, /* 38- port F6 */
+	NOT_ON_TIMER, /* 39- port F7 */
+#endif
+
 };
 
 #endif

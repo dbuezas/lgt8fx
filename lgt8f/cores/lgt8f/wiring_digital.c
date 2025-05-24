@@ -134,10 +134,22 @@ static void turnOffPWM(uint8_t timer)
 		#endif
 		
 		#if defined(TCCR3A) && defined(COM3A1)
-		case  TIMER3A:  cbi(TCCR3A, COM3A1); if (DDRF&&(1<<DDF1)) { cbi(DDRF,DDF1); sbi(DDRD,DDD1); }; break;
+		case  TIMER3A:  cbi(TCCR3A, COM3A1);
+				#if !defined(__LGT8FX8P48__)
+				// SSOP20+LQFP32 share a common pin for D1(digital)+F1(timer3a), but uses analogWrite(D1)
+				// if timer via F1 was connected to pin, switch roles: revert F1 to input and D1 to output
+				if (DDRF&(1<<DDF1)) { cbi(DDRF,DDF1); sbi(DDRD,DDD1); };
+				#endif
+				break;
 		#endif
 		#if defined(TCCR3A) && defined(COM3B1)
-		case  TIMER3B:  cbi(TCCR3A, COM3B1); if (DDRF&&(1<<DDF2)) { cbi(DDRF,DDF2); sbi(DDRD,DDD2); }; break;
+		case  TIMER3B:  cbi(TCCR3A, COM3B1); 
+				#if !defined(__LGT8FX8P48__)
+				// SSOP20+LQFP32 share a common pin for D2(digital)+F2(timer3b), but uses analogWrite(D2)
+				// if timer via F2 was connected to pin, switch roles: revert F2 to input and D2 to output
+				if (DDRF&(1<<DDF2)) { cbi(DDRF,DDF2); sbi(DDRD,DDD2); };
+				#endif
+				break;
 		#endif
 		#if defined(TCCR3A) && defined(COM3C1)
 		case  TIMER3C:  cbi(TCCR3A, COM3C1);    break;
